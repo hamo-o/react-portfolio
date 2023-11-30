@@ -1,7 +1,8 @@
 "use client";
 
-import Head from "next/head";
 import { Global } from "@emotion/react";
+
+import Head from "./head";
 import reset from "@/styles/globalStyles";
 
 export default function RootLayout({
@@ -10,15 +11,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <Global styles={reset} />
-      <html lang="en">
-        <Head>
-          <title>Ham</title>
-          <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/nats" />
-        </Head>
-        <body>{children}</body>
-      </html>
-    </>
+    <html lang="en">
+      <Head />
+      <body>
+        {children}
+        <Global styles={reset} />
+      </body>
+    </html>
   );
 }
