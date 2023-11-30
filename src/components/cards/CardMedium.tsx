@@ -17,7 +17,9 @@ const CardMedium = ({ project }: { project: Project }) => {
       </Flex>
 
       <CardContent direction="column" align="left" gap={18}>
-        <Text typo="number">{project.date}</Text>
+        <Text typo="number" style={{ whiteSpace: "nowrap" }}>
+          {project.date}
+        </Text>
         <Flex direction="column" align="left" gap={8}>
           {project.stack.map((stack: string, idx: number) => (
             <Text key={idx} typo="body1">
@@ -31,8 +33,8 @@ const CardMedium = ({ project }: { project: Project }) => {
 };
 
 const CardWrapper = styled(Flex)`
-  width: 675px;
-  height: 917px;
+  width: max-content;
+  aspect-ratio: 675 / 900;
   padding: ${calcRem(56)};
 
   border: 8px solid ${colors.primary_yellow};
