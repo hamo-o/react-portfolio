@@ -103,6 +103,10 @@ const reset = css`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   article,
   aside,
