@@ -12,4 +12,5 @@ export const colors = {
   primary_yellow: "#FFB547",
   primary_purple: "#9847FF",
   primary_white: "#FFFCF8",
+  primary_black: "#444444",
 } as const;
