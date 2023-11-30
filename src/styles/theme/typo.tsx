@@ -10,4 +10,17 @@ export const typo = {
     font-size: ${calcRem(108)};
     letter-spacing: "-1.6%";
   `,
+  body1: css`
+    font-family: "NATS";
+    font-style: normal;
+    font-weight: 400;
+    font-size: ${calcRem(42)};
+    letter-spacing: "-1.6%";
+  `,
+  number: css`
+    font-family: "Zen Dots";
+    font-style: normal;
+    font-weight: 400;
+    font-size: ${calcRem(28)};
+  `,
 } as const;
