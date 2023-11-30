@@ -64,16 +64,16 @@ const IconWrapper = styled.div<{
   justify-content: center;
   align-items: center;
 
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
+  width: ${({ width }) => width && width}px;
+  height: ${({ height }) => height && height}px;
 
   ${({ rotate }) =>
     rotate && {
       transform: `rotate(${rotate}deg)`,
     }}
   svg {
-    width: ${({ width }) => width}px;
-    height: ${({ height }) => height}px;
+    width: ${({ width }) => width && width}px;
+    height: ${({ height }) => height && height}px;
 
     path {
       stroke: ${({ color }) => (color ? colors[color] : "transparent")};
