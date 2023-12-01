@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { useEffect, useRef, useState } from "react";
-import useRafState from "@/hooks/useRafState";
+import { useRef } from "react";
+import useMouse from "@react-hook/mouse-position";
 
 import { colors } from "@/styles/theme";
 import Flex from "../common/Flex";
@@ -9,46 +9,27 @@ import Flex from "../common/Flex";
 import Icon from "../icons/Icon";
 
 const LandingPage = () => {
-  const eyeRef = useRef<HTMLDivElement>(null);
-  const [isfocused, setIsfocused] = useState<boolean>(true);
-  const [position, setPosition] = useRafState({
-    top: "auto",
-    left: "auto",
+  const mouseRef = useRef<HTMLDivElement>(null);
+
+  const mouse = useMouse(mouseRef, {
+    enterDelay: 100,
+    leaveDelay: 100,
   });
+  let mouseXPosition: number = 0;
+  let mouseYPosition: number = 0;
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries, osv) => {
-      if (entries[0].isIntersecting) {
-        setIsfocused(true);
-      } else {
-        setIsfocused(false);
-      }
-    }, {});
+  if (mouse.clientX !== null) {
+    mouseXPosition = mouse.clientX;
+  }
 
-    if (eyeRef.current) {
-      observer.observe(eyeRef.current);
-    }
-  }, []);
-
-  useEffect(() => {
-    const onMouseMove = (e: MouseEvent): void => {
-      if (!eyeRef.current || !isfocused) return;
-
-      const { x: x1, y: y1 } = e;
-      setPosition({ top: y1, left: x1 });
-    };
-
-    window.addEventListener("mousemove", onMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", onMouseMove);
-    };
-  }, [isfocused]);
+  if (mouse.clientY !== null) {
+    mouseYPosition = mouse.clientY;
+  }
 
   return (
-    <LandingWrapper direction="column" justify="top" gap={68}>
+    <LandingWrapper direction="column" justify="top" gap={68} ref={mouseRef}>
       <LandingBackground>
-        <Eyes gap={16} ref={eyeRef}>
+        <Eyes gap={16}>
           <Eye>
             <Icon
               icon="Eyebrow"
@@ -73,8 +54,8 @@ const LandingPage = () => {
                 position: absolute;
                 transition: 10ms;
 
-                top: ${Math.floor(position.top * 0.08) - 2}px;
-                left: ${Math.floor(position.left * 0.04) + 1}px;
+                top: ${Math.floor(mouseYPosition * 0.08) - 2}px;
+                left: ${Math.floor(mouseXPosition * 0.04) + 1}px;
               `}
             />
           </Eye>
@@ -101,8 +82,8 @@ const LandingPage = () => {
                 position: absolute;
                 transition: 10ms;
 
-                top: ${Math.floor(position.top * 0.08) - 2}px;
-                left: ${Math.floor(position.left * 0.04) + 1}px;
+                top: ${Math.floor(mouseYPosition * 0.08) - 2}px;
+                left: ${Math.floor(mouseXPosition * 0.04) + 1}px;
               `}
             />
           </Eye>
