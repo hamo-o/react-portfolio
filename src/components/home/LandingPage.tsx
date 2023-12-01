@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import useRafState from "@/hooks/useRafState";
 
 import { colors } from "@/styles/theme";
@@ -10,24 +10,40 @@ import Icon from "../icons/Icon";
 
 const LandingPage = () => {
   const eyeRef = useRef<HTMLDivElement>(null);
+  const [isfocused, setIsfocused] = useState<boolean>(true);
   const [position, setPosition] = useRafState({
     top: "auto",
     left: "auto",
   });
 
   useEffect(() => {
-    const onMouseMove = (e: MouseEvent): void => {
-      if (!eyeRef.current) return;
-      const { x: x1, y: y1 } = e;
+    const observer = new IntersectionObserver((entries, osv) => {
+      if (entries[0].isIntersecting) {
+        setIsfocused(true);
+      } else {
+        setIsfocused(false);
+      }
+    }, {});
 
+    if (eyeRef.current) {
+      observer.observe(eyeRef.current);
+    }
+  }, []);
+
+  useEffect(() => {
+    const onMouseMove = (e: MouseEvent): void => {
+      if (!eyeRef.current || !isfocused) return;
+
+      const { x: x1, y: y1 } = e;
       setPosition({ top: y1, left: x1 });
     };
 
     window.addEventListener("mousemove", onMouseMove);
+
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
     };
-  });
+  }, [isfocused]);
 
   return (
     <LandingWrapper direction="column" justify="top" gap={68}>
