@@ -7,7 +7,7 @@ export interface Project {
 
 export const PROJECT = [
   {
-    id: 0,
+    id: 1,
     name: "QFEED",
     date: "2022. 08. 02 ~ 2022. 08. 23",
     stack: [
@@ -20,19 +20,19 @@ export const PROJECT = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     name: "RECIPEASY",
     date: "2022. 08. 02 ~ 2022. 08. 23",
     stack: ["NEXT.JS", "TYPESCRIPT", "TAILWIND CSS", "GITHUB ACTIONS", "PWA"],
   },
   {
-    id: 2,
+    id: 3,
     name: "WALDREG",
     date: "2022. 08. 02 ~ 2022. 08. 23",
     stack: ["REACT", "TYPESCRIPT", "REACT-QUERY"],
   },
   {
-    id: 3,
+    id: 4,
     name: "GROUPING",
     date: "2022. 08. 02 ~ 2022. 08. 23",
     stack: ["DJANGO", "VANILA JS"],

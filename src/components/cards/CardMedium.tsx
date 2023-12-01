@@ -8,9 +8,20 @@ import Icon from "../icons/Icon";
 
 import { calcRem } from "@/styles/theme";
 
-const CardMedium = ({ project }: { project: Project }) => {
+const CardMedium = ({
+  project,
+  onClick,
+}: {
+  project: Project;
+  onClick: any;
+}) => {
   return (
-    <CardWrapper direction="column" align="left" justify="space-between">
+    <CardWrapper
+      direction="column"
+      align="left"
+      justify="space-between"
+      onClick={onClick}
+    >
       <Flex direction="column" align="left">
         <Icon icon="Star" fill="primary_yellow" width={65} />
         <Text typo="title1">{project.name}</Text>
@@ -40,6 +51,8 @@ const CardWrapper = styled(Flex)`
   border: 8px solid ${colors.primary_yellow};
   color: ${colors.primary_yellow};
   background: ${colors.primary_purple};
+
+  cursor: pointer;
 `;
 
 const CardContent = styled(Flex)``;
