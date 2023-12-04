@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 import { colors } from "@/styles/theme";
 import { Project } from "@/models/project";
 
@@ -21,33 +22,29 @@ const CardMedium = ({
   const setCursorVariant = useSetRecoilState(cursorState);
 
   const projectEnter = () => {
-    console.log("enter!");
     setCursorVariant("project");
   };
 
   const projectLeave = () => {
-    console.log("leave!");
     setCursorVariant("default");
   };
 
   return (
     <CardWrapper
-      direction="column"
-      align="left"
-      justify="space-between"
       onClick={onClick}
       onMouseEnter={projectEnter}
       onMouseLeave={projectLeave}
+      cardid={project.id}
     >
-      <Flex direction="column" align="left">
+      <Flex direction="column" align="left" gap={4}>
         <Icon icon="Star" fill="primary_yellow" width={65} />
         <Text typo="title1">{project.name}</Text>
-      </Flex>
-
-      <CardContent direction="column" align="left" gap={18}>
         <Text typo="number" style={{ whiteSpace: "nowrap" }}>
           {project.date}
         </Text>
+      </Flex>
+
+      <CardContent direction="column" align="left" gap={18}>
         <Flex direction="column" align="left" gap={8}>
           {project.stack.map((stack: string, idx: number) => (
             <Text key={idx} typo="body1">
@@ -60,14 +57,21 @@ const CardMedium = ({
   );
 };
 
-const CardWrapper = styled(Flex)`
+const CardWrapper = styled(motion.div)<{ cardid: number }>`
   width: max-content;
   aspect-ratio: 675 / 900;
   padding: ${calcRem(56)};
 
-  border: 8px solid ${colors.primary_yellow};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   color: ${colors.primary_yellow};
+  border-radius: 2rem;
   background: ${colors.primary_purple};
+  // transform: rotate(${({ cardid }) => -120 + cardid * 60}deg);
+
+  cursor: pointer;
 `;
 
 const CardContent = styled(Flex)``;
