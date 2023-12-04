@@ -21,6 +21,12 @@ export const typo = {
     font-family: "Zen Dots";
     font-style: normal;
     font-weight: 400;
-    font-size: ${calcRem(28)};
+    font-size: ${calcRem(24)};
+  `,
+  number2: css`
+    font-family: "Zen Dots";
+    font-style: normal;
+    font-weight: 400;
+    font-size: ${calcRem(14)};
   `,
 } as const;
