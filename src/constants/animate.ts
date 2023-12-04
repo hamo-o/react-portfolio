@@ -9,13 +9,13 @@ export const mouseVariants = ({ x, y }: Position) => {
   return {
     default: {
       opacity: 1,
-      height: 20,
-      width: 20,
+      height: 32,
+      width: 32,
+      border: `2.5px solid ${colors.primary_white}`,
       x: x,
       y: y,
       transition: {
-        type: "spring",
-        mass: 0.6,
+        type: "tween",
       },
     },
     project: {
@@ -30,7 +30,9 @@ export const mouseVariants = ({ x, y }: Position) => {
 };
 
 export const spring = {
-  type: "spring",
-  stiffness: 500,
-  damping: 28,
+  transition: {
+    type: "spring",
+    stiffness: 500,
+    damping: 28,
+  },
 };
