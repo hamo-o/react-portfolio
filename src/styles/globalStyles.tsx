@@ -13,9 +13,8 @@ const reset = css`
   body {
     width: 100%;
     min-height: 100vh;
-    background: ${colors.primary_white};
-
-    cursor: none;
+    background: ${colors.primary_black};
+    overflow: hidden;
   }
 
   html,
