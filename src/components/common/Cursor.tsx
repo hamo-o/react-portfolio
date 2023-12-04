@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 
 import { useRecoilValue } from "recoil";
 import { cursorState } from "@/utils/atom";
-import { mouseVariants, spring } from "@/constants/animate";
+import { mouseVariants } from "@/constants/animate";
+import { spring } from "@/constants/animate";
 
 import { colors } from "@/styles/theme";
 
@@ -25,13 +26,10 @@ const Cursor = ({ position }: { position: Position }) => {
 };
 
 const CursorWrapper = styled(motion.div)`
-  position: absolute;
+  position: fixed;
   z-index: 1000;
 
-  border: 3px solid ${colors.primary_purple};
   border-radius: 50%;
-
-  backdrop-filter: blur(3px);
   background-size: cover;
 `;
 
