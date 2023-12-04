@@ -2,13 +2,16 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { useRef } from "react";
 import useMouse from "@react-hook/mouse-position";
+import { motion } from "framer-motion";
+import { useSetRecoilState } from "recoil";
+import { cursorState } from "@/utils/atom";
 
 import { colors } from "@/styles/theme";
 import Flex from "../common/Flex";
-
 import Icon from "../icons/Icon";
+import Text from "../common/Text";
 
-const LandingPage = () => {
+const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
   const mouseRef = useRef<HTMLDivElement>(null);
 
   const mouse = useMouse(mouseRef, {
@@ -26,14 +29,24 @@ const LandingPage = () => {
     mouseYPosition = mouse.clientY;
   }
 
+  const setCursorVariant = useSetRecoilState(cursorState);
+
+  const projectEnter = () => {
+    setCursorVariant("project");
+  };
+
+  const projectLeave = () => {
+    setCursorVariant("default");
+  };
+
   return (
-    <LandingWrapper direction="column" justify="top" gap={68} ref={mouseRef}>
-      <LandingBackground>
+    <LandingWrapper direction="column" gap={64} ref={mouseRef}>
+      <Flex gap={64}>
         <Eyes gap={16}>
           <Eye>
             <Icon
               icon="Eyebrow"
-              fill="primary_black"
+              fill="primary_purple"
               rotate={30}
               style={css`
                 position: absolute;
@@ -88,25 +101,56 @@ const LandingPage = () => {
             />
           </Eye>
         </Eyes>
-      </LandingBackground>
-      <Icon icon="Star" fill="primary_purple" />
+        <IconWrapper
+          initial={{ y: 0 }}
+          animate={{ y: [10, 0, -10, 0, 10] }}
+          transition={{
+            repeat: Infinity,
+            duration: 1.4,
+            ease: [0, 0.05, 1.2, 1.4],
+          }}
+          onMouseEnter={projectEnter}
+          onMouseLeave={projectLeave}
+          onClick={scrollRight}
+        >
+          <Icon icon="ArrowRight" width={100} fill="primary_yellow" />
+        </IconWrapper>
+      </Flex>
+      <Flex direction="column">
+        <Text typo="body1" color="primary_white">
+          Hello world!
+        </Text>
+        <Text typo="body1" color="primary_white">
+          I'm HAM
+        </Text>
+        <Text
+          typo="body1"
+          color="primary_white"
+          style={{ textAlign: "center" }}
+        >
+          who dreams of becoming a quick-witted developer.
+        </Text>
+      </Flex>
     </LandingWrapper>
   );
 };
 
 const LandingWrapper = styled(Flex)`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-`;
 
-const LandingBackground = styled(Flex)`
-  width: 100%;
-  height: 80vh;
-  background: ${colors.primary_yellow};
+  padding: 0 10rem 0;
+
+  flex-basis: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+
+  background: ${colors.primary_black};
 `;
 
 const Eyes = styled(Flex)`
-  padding-top: 12rem;
+  width: max-content;
+  padding-left: 140px;
 `;
 
 const Eye = styled.div`
@@ -114,6 +158,10 @@ const Eye = styled.div`
   height: 250px;
 
   position: relative;
+`;
+
+const IconWrapper = styled(motion.div)`
+  cursor: pointer;
 `;
 
 export default LandingPage;
