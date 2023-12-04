@@ -18,12 +18,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   let mouseXPosition: number = 0;
   let mouseYPosition: number = 0;
 
-  if (mouse.x !== null) {
-    mouseXPosition = mouse.x;
+  if (mouse.clientX !== null) {
+    mouseXPosition = mouse.clientX;
   }
 
-  if (mouse.y !== null) {
-    mouseYPosition = mouse.y;
+  if (mouse.clientY !== null) {
+    mouseYPosition = mouse.clientY;
   }
 
   return (
