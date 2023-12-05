@@ -35,8 +35,8 @@ const CardMedium = ({
       onClick={onClick}
       onMouseEnter={projectEnter}
       onMouseLeave={projectLeave}
-      onMouseDown={() => setIsOpen(!isOpen)}
-      onMouseUp={() => setIsOpen(!isOpen)}
+      onMouseDown={() => setIsOpen(true)}
+      onMouseUp={() => setIsOpen(false)}
     >
       <CardDetail
         layout
