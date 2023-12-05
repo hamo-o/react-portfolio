@@ -27,7 +27,7 @@ const CardPage = () => {
             onClick={() => handleClickNavigate(project.id)}
           />
         ))}
-        {/* <Gradient direction="left" /> */}
+        <Gradient direction="left" />
       </Cards>
     </CardWrapper>
   );
@@ -41,23 +41,25 @@ const CardWrapper = styled(Flex)`
   scroll-snap-align: start;
 
   background: ${colors.primary_yellow};
+
+  position: relative;
 `;
 
 const Gradient = styled.div<{ direction: DirectionType }>`
-  position: fixed;
+  position: absolute;
   ${({ direction }) => (direction === "left" ? `right: 0;` : `left:0;`)}
 
-  width: 6rem;
+  width: 60vw;
   height: 70vh;
 
   z-index: 1;
   background: linear-gradient(
     to ${({ direction }) => direction},
-    ${colors.primary_yellow},
+    ${colors.primary_yellow} 10%,
     rgba(0, 0, 0, 0)
   );
 
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
 `;
 
 const Cards = styled(Flex)`
