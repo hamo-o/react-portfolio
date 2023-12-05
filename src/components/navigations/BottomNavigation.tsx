@@ -3,9 +3,10 @@ import { motion, useSpring } from "framer-motion";
 import { useSetRecoilState } from "recoil";
 
 import { cursorState } from "@/utils/atom";
+import { PAGE } from "@/models/page";
 
 import Flex from "../common/Flex";
-import { colors } from "@/styles/theme";
+import { KeyOfColor, colors } from "@/styles/theme";
 import Text from "../common/Text";
 
 const BottomNavigation = ({
@@ -31,15 +32,11 @@ const BottomNavigation = ({
     restDelta: 0.001,
   });
 
-  const array = [0, 1, 2];
-
-  console.log(document.body.style.backgroundColor);
-
   return (
     <NavigationWrapper height="14vh" justify="space-between">
-      {array.map((page, idx) => (
+      {PAGE.map((page) => (
         <NavigationItem
-          key={idx}
+          key={page.id}
           width="max-content"
           // width={idx === 0 ? "max-content" : "100%"}
           gap={4}
@@ -52,11 +49,12 @@ const BottomNavigation = ({
             onMouseEnter={projectEnter}
             onMouseLeave={projectLeave}
             selected={
-              +progress.toFixed(1) >= +(idx / (array.length - 1)).toFixed(1)
+              +progress.toFixed(1) >= +(page.id / (PAGE.length - 1)).toFixed(1)
             }
+            background={page.background}
           >
             <Text typo="number2" color="primary_white">
-              0{page}
+              0{page.id}
             </Text>
             <NavigationDot />
           </NavigationFlag>
@@ -77,11 +75,16 @@ const NavigationWrapper = styled(Flex)`
 
 const NavigationItem = styled(Flex)``;
 
-const NavigationFlag = styled(Flex)<{ selected: boolean }>`
+const NavigationFlag = styled(Flex)<{
+  selected: boolean;
+  background: KeyOfColor;
+}>`
   padding-bottom: 1.2rem;
   cursor: pointer;
 
   opacity: ${({ selected }) => (selected ? 100 : 50)}%;
+  background: ${({ background }) => colors[background]};
+  z-index: 2;
 `;
 
 const NavigationDot = styled.div`

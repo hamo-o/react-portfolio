@@ -7,7 +7,7 @@ import { colors } from "@/styles/theme";
 const ProfilePage = () => {
   return (
     <ProfileWrapper direction="column">
-      <Text typo="title1">이것저것 글</Text>
+      <Text typo="title1"></Text>
     </ProfileWrapper>
   );
 };
