@@ -54,7 +54,7 @@ const Home = () => {
       <LandingPage scrollRight={scrollRight} />
       <ProfilePage />
       <CardPage />
-      <BottomNavigation progress={debounceScroll} />
+      <BottomNavigation progress={debounceScroll} motion={scrollXProgress} />
     </ScrollWrapper>
   );
 };
