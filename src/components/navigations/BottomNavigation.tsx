@@ -50,11 +50,11 @@ const BottomNavigation = ({
             onMouseEnter={projectEnter}
             onMouseLeave={projectLeave}
             selected={
-              +progress.toFixed(1) >= +(page.id / (PAGE.length - 1)).toFixed(1)
+              +progress.toFixed(2) == +(page.id / (PAGE.length - 1)).toFixed(2)
             }
           >
             <Text typo="number2" color="primary_white">
-              0{page.id}: {page.name}
+              {page.id === PAGE.length - 1 ? "?" : `0${page.id} ${page.name}`}
             </Text>
             <NavigationDot />
           </NavigationFlag>
@@ -83,7 +83,6 @@ const NavigationFlag = styled.a<{
 
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.25rem;
 
   cursor: pointer;
@@ -102,7 +101,7 @@ const NavigationDot = styled.div`
 `;
 
 const NavigationLine = styled(motion.div)`
-  width: calc(100% - 14rem);
+  width: calc(100% - 12.1rem);
   height: 2px;
   padding: 0 6rem;
 
@@ -111,7 +110,7 @@ const NavigationLine = styled(motion.div)`
   transform-origin: 0%;
 
   position: fixed;
-  left: 7rem;
+  left: 6rem;
   overflow: hidden;
 `;
 
