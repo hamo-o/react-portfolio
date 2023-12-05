@@ -6,7 +6,7 @@ import { colors } from "@/styles/theme";
 
 const ProfilePage = () => {
   return (
-    <ProfileWrapper direction="column">
+    <ProfileWrapper id="profile" direction="column">
       <Text typo="title1"></Text>
     </ProfileWrapper>
   );

@@ -26,6 +26,14 @@ const BottomNavigation = ({
     setCursorVariant("default");
   };
 
+  const handleClickMenu = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const MemuData = (e.target as HTMLAnchorElement).hash;
+    const IdMatchedPage = document.querySelector(MemuData);
+
+    IdMatchedPage?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const scaleX = useSpring(motion, {
     stiffness: 100,
     damping: 30,
@@ -36,11 +44,9 @@ const BottomNavigation = ({
     <NavigationWrapper height="14vh" justify="space-between">
       {PAGE.map((page) => (
         <NavigationItem key={page.id} width="max-content" gap={4}>
-          {/* {idx !== 0 && <NavigationLine style={{ scaleX }} />} */}
           <NavigationFlag
-            width="min-content"
-            direction="column"
-            gap={4}
+            href={`#${page.name}`}
+            onClick={handleClickMenu}
             onMouseEnter={projectEnter}
             onMouseLeave={projectLeave}
             selected={
@@ -69,10 +75,17 @@ const NavigationWrapper = styled(Flex)`
 
 const NavigationItem = styled(Flex)``;
 
-const NavigationFlag = styled(Flex)<{
+const NavigationFlag = styled.a<{
   selected: boolean;
 }>`
+  width: min-content;
   padding-bottom: 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+
   cursor: pointer;
 
   opacity: ${({ selected }) => (selected ? 100 : 50)}%;

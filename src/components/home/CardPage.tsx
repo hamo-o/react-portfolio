@@ -17,9 +17,9 @@ const CardPage = () => {
   };
 
   return (
-    <CardWrapper>
+    <CardWrapper id="card">
       <Cards justify="left" gap={32}>
-        <Gradient direction="right" />
+        {/* <Gradient direction="right" /> */}
         {PROJECT.map((project: Project) => (
           <CardMedium
             key={project.id}
@@ -27,7 +27,7 @@ const CardPage = () => {
             onClick={() => handleClickNavigate(project.id)}
           />
         ))}
-        <Gradient direction="left" />
+        {/* <Gradient direction="left" /> */}
       </Cards>
     </CardWrapper>
   );
