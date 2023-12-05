@@ -11,7 +11,6 @@ import {
 import useDebounce from "@/hooks/useDebounce";
 
 import Flex from "../common/Flex";
-import Spacing from "../common/Spacing";
 import Icon from "../icons/Icon";
 
 import CardMedium from "@/components/cards/CardMedium";
@@ -46,7 +45,7 @@ const CardPage = () => {
   const handleClickScrollRight = () => {
     cardScrollRef.current?.scrollTo({
       top: 0,
-      left: scrollX.get() + 800,
+      left: scrollX.get() + 820,
       behavior: "smooth",
     });
   };
@@ -54,7 +53,7 @@ const CardPage = () => {
   const handleClickScrollLeft = () => {
     cardScrollRef.current?.scrollTo({
       top: 0,
-      left: scrollX.get() - 800,
+      left: scrollX.get() - 820,
       behavior: "smooth",
     });
   };
@@ -178,7 +177,7 @@ const Slider = styled(motion.div)<{ direction: DirectionType }>`
 
 const Gradient = styled.div<{ direction: DirectionType }>`
   width: 20vw;
-  height: 75vh;
+  height: 64vh;
 
   z-index: 1;
   background: linear-gradient(
