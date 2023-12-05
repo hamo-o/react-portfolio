@@ -39,9 +39,15 @@ const CardPage = () => {
   };
 
   const handleWheelScroll = (e: any) => {
-    e.preventDefault();
-    e.stopPropagation();
     setDeltaY(e.nativeEvent.deltaY);
+    if (
+      !(
+        (!showRight && showLeft && e.nativeEvent.deltaY > 100) ||
+        (!showLeft && showRight && e.nativeEvent.deltaY < -100)
+      )
+    ) {
+      e.stopPropagation();
+    }
   };
 
   const handleClickScrollRight = () => {
