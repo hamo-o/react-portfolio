@@ -57,8 +57,8 @@ const CardMedium = ({
 };
 
 const CardWrapper = styled(motion.div)`
-  height: 70vh;
-  aspect-ratio: 745 / 900;
+  height: 75vh;
+  aspect-ratio: 700 / 900;
 
   padding: ${calcRem(56)};
 
