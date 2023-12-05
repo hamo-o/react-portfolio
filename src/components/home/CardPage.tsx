@@ -33,11 +33,13 @@ const CardPage = () => {
   const [showLeft, setShowLeft] = useState<boolean>(false);
   const [showRight, setShowRight] = useState<boolean>(true);
 
-  const handleClickNavigate = (id: number) => {
+  const handleClickNavigate = (e: any, id: number) => {
+    e.preventDefault();
     // router.push(`/project/${id}`);
   };
 
   const handleWheelScroll = (e: any) => {
+    e.preventDefault();
     e.stopPropagation();
     setDeltaY(e.nativeEvent.deltaY);
   };
@@ -95,7 +97,7 @@ const CardPage = () => {
           <CardMedium
             key={project.id}
             project={project}
-            onClick={() => handleClickNavigate(project.id)}
+            onClick={(e: any) => handleClickNavigate(e, project.id)}
           />
         ))}
       </Cards>
@@ -163,7 +165,7 @@ const CardWrapper = styled(Flex)`
 `;
 
 const Cards = styled(Flex)`
-  overflow: scroll;
+  overflow-x: scroll;
   scroll-snap-type: x mandatory;
 `;
 
