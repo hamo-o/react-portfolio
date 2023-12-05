@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { motion, useSpring } from "framer-motion";
-import { useSetRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 
 import { cursorState } from "@/utils/atom";
 import { PAGE } from "@/models/page";
@@ -35,12 +35,7 @@ const BottomNavigation = ({
   return (
     <NavigationWrapper height="14vh" justify="space-between">
       {PAGE.map((page) => (
-        <NavigationItem
-          key={page.id}
-          width="max-content"
-          // width={idx === 0 ? "max-content" : "100%"}
-          gap={4}
-        >
+        <NavigationItem key={page.id} width="max-content" gap={4}>
           {/* {idx !== 0 && <NavigationLine style={{ scaleX }} />} */}
           <NavigationFlag
             width="min-content"
@@ -51,7 +46,6 @@ const BottomNavigation = ({
             selected={
               +progress.toFixed(1) >= +(page.id / (PAGE.length - 1)).toFixed(1)
             }
-            background={page.background}
           >
             <Text typo="number2" color="primary_white">
               0{page.id}
@@ -77,13 +71,11 @@ const NavigationItem = styled(Flex)``;
 
 const NavigationFlag = styled(Flex)<{
   selected: boolean;
-  background: KeyOfColor;
 }>`
   padding-bottom: 1.2rem;
   cursor: pointer;
 
   opacity: ${({ selected }) => (selected ? 100 : 50)}%;
-  background: ${({ background }) => colors[background]};
   z-index: 2;
 `;
 
