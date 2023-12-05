@@ -11,6 +11,7 @@ import CardPage from "@/components/home/CardPage";
 import ProfilePage from "@/components/home/ProfilePage";
 import BottomNavigation from "@/components/navigations/BottomNavigation";
 import WorkPage from "@/components/home/WorkPage";
+import FinalPage from "@/components/home/FinalPage";
 
 const Home = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -56,6 +57,7 @@ const Home = () => {
       <ProfilePage />
       <CardPage />
       <WorkPage />
+      <FinalPage />
       <BottomNavigation progress={debounceScroll} motion={scrollXProgress} />
     </ScrollWrapper>
   );

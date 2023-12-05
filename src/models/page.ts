@@ -25,6 +25,11 @@ export const PAGE: Page[] = [
   {
     id: 3,
     name: "work",
+    background: "primary_yellow",
+  },
+  {
+    id: 4,
+    name: "final",
     background: "primary_black",
   },
 ];

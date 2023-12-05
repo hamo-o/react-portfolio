@@ -5,9 +5,19 @@ import Text from "../common/Text";
 import { colors } from "@/styles/theme";
 import Spacing from "../common/Spacing";
 
-const WorkPage = () => {
+const FinalPage = () => {
   return (
-    <WorkWrapper id="work" direction="column">
+    <WorkWrapper id="final" direction="column">
+      <Spacing
+        width="48vw"
+        height="120vh"
+        style={{
+          background: colors.primary_yellow,
+          borderRadius: "0 50% 50% 0",
+          position: "absolute",
+          left: "0",
+        }}
+      />
       <Text typo="title1"></Text>
     </WorkWrapper>
   );
@@ -21,9 +31,10 @@ const WorkWrapper = styled(Flex)`
   flex-shrink: 0;
   scroll-snap-align: start;
 
-  background: ${colors.primary_yellow};
+  background: ${colors.primary_black};
 
   position: relative;
+  overflow-y: hidden;
 `;
 
-export default WorkPage;
+export default FinalPage;
