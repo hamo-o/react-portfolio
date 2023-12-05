@@ -7,14 +7,14 @@ export const typo = {
     font-family: "NATS";
     font-style: normal;
     font-weight: 400;
-    font-size: ${calcRem(108)};
+    font-size: ${calcRem(88)};
     letter-spacing: "-1.6%";
   `,
   body1: css`
     font-family: "NATS";
     font-style: normal;
     font-weight: 400;
-    font-size: ${calcRem(42)};
+    font-size: ${calcRem(40)};
     letter-spacing: "-1.6%";
   `,
   number: css`
