@@ -26,6 +26,14 @@ export const mouseVariants = ({ x, y }: Position) => {
       x: x,
       y: y,
     },
+    navigation: {
+      opacity: 0.5,
+      backgroundColor: colors.primary_white,
+      height: 80,
+      width: 80,
+      x: x,
+      y: y,
+    },
   };
 };
 
@@ -34,5 +42,15 @@ export const spring = {
     type: "spring",
     stiffness: 500,
     damping: 28,
+  },
+};
+
+export const floating = {
+  initial: { y: 0 },
+  animate: { y: [10, 0, -10, 0, 10] },
+  transition: {
+    repeat: Infinity,
+    duration: 1.4,
+    ease: [0, 0.05, 1.2, 1.4],
   },
 };

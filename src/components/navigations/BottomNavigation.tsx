@@ -19,7 +19,7 @@ const BottomNavigation = ({
   const setCursorVariant = useSetRecoilState(cursorState);
 
   const projectEnter = () => {
-    setCursorVariant("project");
+    setCursorVariant("navigation");
   };
 
   const projectLeave = () => {
