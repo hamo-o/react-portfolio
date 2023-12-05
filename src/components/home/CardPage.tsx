@@ -86,7 +86,7 @@ const CardPage = () => {
   }, [debounceScroll]);
 
   return (
-    <CardWrapper id="card">
+    <CardWrapper id="project">
       <Cards
         justify="left"
         gap={32}

@@ -54,7 +54,7 @@ const BottomNavigation = ({
             }
           >
             <Text typo="number2" color="primary_white">
-              0{page.id}
+              0{page.id}: {page.name}
             </Text>
             <NavigationDot />
           </NavigationFlag>
@@ -78,7 +78,7 @@ const NavigationItem = styled(Flex)``;
 const NavigationFlag = styled.a<{
   selected: boolean;
 }>`
-  width: min-content;
+  width: max-content;
   padding-bottom: 1.2rem;
 
   display: flex;

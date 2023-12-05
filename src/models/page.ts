@@ -9,7 +9,7 @@ export interface Page {
 export const PAGE: Page[] = [
   {
     id: 0,
-    name: "landing",
+    name: "intro",
     background: "primary_black",
   },
   {
@@ -19,8 +19,13 @@ export const PAGE: Page[] = [
   },
   {
     id: 2,
-    name: "card",
+    name: "project",
     background: "primary_yellow",
+  },
+  {
+    id: 3,
+    name: "work",
+    background: "primary_black",
   },
 ];
 Object.freeze(PAGE);

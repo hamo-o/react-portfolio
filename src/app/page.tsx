@@ -10,6 +10,7 @@ import LandingPage from "@/components/home/LandingPage";
 import CardPage from "@/components/home/CardPage";
 import ProfilePage from "@/components/home/ProfilePage";
 import BottomNavigation from "@/components/navigations/BottomNavigation";
+import WorkPage from "@/components/home/WorkPage";
 
 const Home = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -54,6 +55,7 @@ const Home = () => {
       <LandingPage scrollRight={scrollRight} />
       <ProfilePage />
       <CardPage />
+      <WorkPage />
       <BottomNavigation progress={debounceScroll} motion={scrollXProgress} />
     </ScrollWrapper>
   );

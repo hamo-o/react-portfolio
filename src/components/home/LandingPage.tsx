@@ -41,7 +41,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
   };
 
   return (
-    <LandingWrapper id="landing" direction="column" gap={64} ref={mouseRef}>
+    <LandingWrapper id="intro" direction="column" gap={64} ref={mouseRef}>
       <Flex gap={64}>
         <Eyes gap={16}>
           <Eye>
