@@ -34,7 +34,6 @@ const CardMedium = ({
       onClick={onClick}
       onMouseEnter={projectEnter}
       onMouseLeave={projectLeave}
-      cardid={project.id}
     >
       <Flex direction="column" align="left" gap={20}>
         <Icon icon="Star" fill="primary_yellow" width={65} />
@@ -57,7 +56,7 @@ const CardMedium = ({
   );
 };
 
-const CardWrapper = styled(motion.div)<{ cardid: number }>`
+const CardWrapper = styled(motion.div)`
   height: 70vh;
   min-width: max-content;
   aspect-ratio: 675 / 900;
@@ -70,7 +69,6 @@ const CardWrapper = styled(motion.div)<{ cardid: number }>`
   color: ${colors.primary_yellow};
   border-radius: 2rem;
   background: ${colors.primary_purple};
-  // transform: rotate(${({ cardid }) => -120 + cardid * 60}deg);
 
   cursor: pointer;
 `;

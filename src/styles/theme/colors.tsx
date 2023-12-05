@@ -10,7 +10,10 @@ const hexToRGBA = (color: string, opacity: number) => {
 
 export const colors = {
   primary_yellow: "#FFB547",
+  primary_yellow_30: hexToRGBA("#FFB547", 30),
+  primary_yellow_60: hexToRGBA("#FFB547", 60),
   primary_purple: "#9847FF",
+  primary_purple_15: hexToRGBA("#9847FF", 15),
   primary_white: "#FFFCF8",
   primary_black: "#444444",
 } as const;
