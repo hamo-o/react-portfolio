@@ -36,7 +36,7 @@ const CardMedium = ({
       onMouseLeave={projectLeave}
       cardid={project.id}
     >
-      <Flex direction="column" align="left" gap={4}>
+      <Flex direction="column" align="left" gap={20}>
         <Icon icon="Star" fill="primary_yellow" width={65} />
         <Text typo="title1">{project.name}</Text>
         <Text typo="number" style={{ whiteSpace: "nowrap" }}>
@@ -58,7 +58,8 @@ const CardMedium = ({
 };
 
 const CardWrapper = styled(motion.div)<{ cardid: number }>`
-  width: max-content;
+  height: 70vh;
+  min-width: max-content;
   aspect-ratio: 675 / 900;
   padding: ${calcRem(56)};
 

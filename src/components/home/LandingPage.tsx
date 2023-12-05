@@ -128,7 +128,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
           color="primary_white"
           style={{ textAlign: "center" }}
         >
-          who dreams of becoming a quick-witted developer.
+          대충한줄소개 뭐라하지
         </Text>
       </Flex>
     </LandingWrapper>
