@@ -71,6 +71,8 @@ const CardWrapper = styled(motion.div)`
   background: ${colors.primary_purple};
 
   cursor: pointer;
+
+  scroll-snap-align: center;
 `;
 
 const CardContent = styled(Flex)``;

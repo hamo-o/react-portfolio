@@ -10,6 +10,7 @@ import { colors } from "@/styles/theme";
 import Flex from "../common/Flex";
 import Icon from "../icons/Icon";
 import Text from "../common/Text";
+import { floating } from "@/constants/animate";
 
 const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
   const mouseRef = useRef<HTMLDivElement>(null);
@@ -102,13 +103,9 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
           </Eye>
         </Eyes>
         <IconWrapper
-          initial={{ y: 0 }}
-          animate={{ y: [10, 0, -10, 0, 10] }}
-          transition={{
-            repeat: Infinity,
-            duration: 1.4,
-            ease: [0, 0.05, 1.2, 1.4],
-          }}
+          initial={floating.initial}
+          animate={floating.animate}
+          transition={floating.transition}
           onMouseEnter={projectEnter}
           onMouseLeave={projectLeave}
           onClick={scrollRight}
