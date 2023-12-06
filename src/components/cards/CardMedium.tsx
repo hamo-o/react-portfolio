@@ -7,6 +7,7 @@ import { cursorState } from "@/utils/atom";
 
 import Flex from "../common/Flex";
 import Text from "../common/Text";
+import NextImage from "../common/NextImage";
 import Icon from "../icons/Icon";
 
 import { calcRem, colors } from "@/styles/theme";
@@ -47,10 +48,12 @@ const CardMedium = ({
           padding: isOpen ? "6rem" : "0",
           position: isOpen ? "fixed" : "static",
           zIndex: isOpen ? "3" : "0",
+          gap: isOpen ? "6rem" : "0",
         }}
       >
         <Flex
           direction="column"
+          width={isOpen ? "fit-content" : "100%"}
           justify={isOpen ? "start" : "space-between"}
           gap={isOpen ? 60 : 0}
         >
@@ -72,16 +75,16 @@ const CardMedium = ({
           </CardContent>
           {isOpen && (
             <Flex direction="column" align="left" gap={8}>
-              <Text typo="body1" color="primary_white">
-                프로젝트 설명
-              </Text>
+              <Text typo="body1" color="primary_white"></Text>
             </Flex>
           )}
         </Flex>
         {isOpen && (
-          <ProjectImage>
-            <Text typo="title1">프로젝트 이미지</Text>
-          </ProjectImage>
+          <NextImage
+            src={`/images/${project.thumnail}`}
+            alt={project.name}
+            borderRadius="2rem"
+          />
         )}
       </CardDetail>
     </CardWrapper>
@@ -121,14 +124,5 @@ const CardDetail = styled(motion.div)`
 `;
 
 const CardContent = styled(Flex)``;
-
-const ProjectImage = styled.div`
-  width: 100%;
-  height: 100%;
-
-  border-radius: 2rem;
-
-  background: ${colors.primary_white};
-`;
 
 export default CardMedium;

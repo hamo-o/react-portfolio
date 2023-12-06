@@ -10,7 +10,7 @@ const FinalPage = () => {
     <WorkWrapper id="final" direction="column">
       <Spacing
         width="48vw"
-        height="120vh"
+        height="135vh"
         style={{
           background: colors.primary_yellow,
           borderRadius: "0 50% 50% 0",
