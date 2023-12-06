@@ -65,7 +65,7 @@ const Experience = () => {
           </Flex>
         </Flex>
 
-        <Line height={1.5} color="primary_black" />
+        <Line height={2} color="primary_black" />
 
         <Flex justify="space-between">
           <Flex direction="column" align="start" gap={8}>
@@ -79,7 +79,7 @@ const Experience = () => {
           </Flex>
         </Flex>
 
-        <Line height={1.5} color="primary_black" />
+        <Line height={2} color="primary_black" />
 
         <Flex justify="space-between">
           <Flex direction="column" align="start" gap={8}>
@@ -93,7 +93,7 @@ const Experience = () => {
           </Flex>
         </Flex>
 
-        <Line height={1.5} color="primary_black" />
+        <Line height={2} color="primary_black" />
 
         <Flex justify="space-between">
           <Flex direction="column" align="start" gap={8}>
@@ -107,7 +107,7 @@ const Experience = () => {
           </Flex>
         </Flex>
 
-        <Line height={1.5} color="primary_black" />
+        <Line height={2} color="primary_black" />
 
         <Flex justify="space-between">
           <Flex direction="column" align="start" gap={8}>
