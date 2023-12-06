@@ -11,6 +11,7 @@ import {
 import useDebounce from "@/hooks/useDebounce";
 
 import Flex from "../common/Flex";
+import Text from "../common/Text";
 import Icon from "../icons/Icon";
 
 import CardMedium from "@/components/cards/CardMedium";
@@ -92,7 +93,19 @@ const CardPage = () => {
   }, [debounceScroll]);
 
   return (
-    <CardWrapper id="project">
+    <CardWrapper
+      id="project"
+      direction="column"
+      align="start"
+      justify="space-between"
+    >
+      <Text
+        typo="body1"
+        color="primary_black"
+        style={{ textDecorationLine: "underline" }}
+      >
+        Project
+      </Text>
       <Cards
         justify="left"
         gap={32}
@@ -106,60 +119,60 @@ const CardPage = () => {
             onClick={(e: any) => handleClickNavigate(e, project.id)}
           />
         ))}
+        <AnimatePresence>
+          {showLeft && (
+            <Slider
+              direction="right"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <Gradient direction="right" />
+              <IconWrapper
+                initial={floating.initial}
+                animate={floating.animate}
+                transition={floating.transition}
+                onClick={handleClickScrollLeft}
+                style={{ left: "5rem" }}
+              >
+                <Icon
+                  icon="ArrowRight"
+                  width={80}
+                  fill="primary_purple"
+                  rotate={180}
+                />
+              </IconWrapper>
+            </Slider>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {showRight && (
+            <Slider
+              direction="left"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <Gradient direction="left" />
+              <IconWrapper
+                initial={floating.initial}
+                animate={floating.animate}
+                transition={floating.transition}
+                onClick={handleClickScrollRight}
+                style={{ right: "5rem" }}
+              >
+                <Icon icon="ArrowRight" width={80} fill="primary_purple" />
+              </IconWrapper>
+            </Slider>
+          )}
+        </AnimatePresence>
       </Cards>
-      <AnimatePresence>
-        {showLeft && (
-          <Slider
-            direction="right"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <Gradient direction="right" />
-            <IconWrapper
-              initial={floating.initial}
-              animate={floating.animate}
-              transition={floating.transition}
-              onClick={handleClickScrollLeft}
-              style={{ left: "5rem" }}
-            >
-              <Icon
-                icon="ArrowRight"
-                width={80}
-                fill="primary_purple"
-                rotate={180}
-              />
-            </IconWrapper>
-          </Slider>
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {showRight && (
-          <Slider
-            direction="left"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <Gradient direction="left" />
-            <IconWrapper
-              initial={floating.initial}
-              animate={floating.animate}
-              transition={floating.transition}
-              onClick={handleClickScrollRight}
-              style={{ right: "5rem" }}
-            >
-              <Icon icon="ArrowRight" width={80} fill="primary_purple" />
-            </IconWrapper>
-          </Slider>
-        )}
-      </AnimatePresence>
     </CardWrapper>
   );
 };
 
 const CardWrapper = styled(Flex)`
-  padding: 0 6rem 1rem;
+  padding: 6rem;
 
   flex-basis: 100%;
   flex-shrink: 0;
@@ -171,6 +184,8 @@ const CardWrapper = styled(Flex)`
 `;
 
 const Cards = styled(Flex)`
+  padding-bottom: 6rem;
+
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;

@@ -33,7 +33,11 @@ const Experience = () => {
 
   return (
     <ExperienceContainer height="100%" gap={32} align="start">
-      <Text typo="body1" color="primary_black" style={{ width: "80%" }}>
+      <Text
+        typo="body1"
+        color="primary_black"
+        style={{ width: "80%", textDecorationLine: "underline" }}
+      >
         Experience
       </Text>
       <ExperienceContent
