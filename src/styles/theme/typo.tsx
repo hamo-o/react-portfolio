@@ -11,6 +11,14 @@ export const typo = {
     letter-spacing: "-1.6%";
     line-height: 0.75;
   `,
+  subtitle1: css`
+    font-family: "pretendard";
+    font-style: normal;
+    font-weight: 500;
+    font-size: ${calcRem(30)};
+    letter-spacing: -0.4px;
+    line-height: 180%;
+  `,
   body1: css`
     font-family: "NATS";
     font-style: normal;
@@ -25,7 +33,7 @@ export const typo = {
     font-weight: 500;
     font-size: ${calcRem(22)};
     letter-spacing: -0.4px;
-    line-height: 150%;
+    line-height: 180%;
   `,
   number: css`
     font-family: "Zen Dots";

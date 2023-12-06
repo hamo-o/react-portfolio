@@ -7,7 +7,7 @@ const Eyeball = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle cx="84.5" cy="84.5" r="84.5" fill="#444444" />
+      <circle cx="84.5" cy="84.5" r="84.5" fill="#353535" />
     </svg>
   );
 };
