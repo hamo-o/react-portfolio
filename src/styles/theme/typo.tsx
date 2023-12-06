@@ -14,7 +14,7 @@ export const typo = {
   subtitle1: css`
     font-family: "pretendard";
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: ${calcRem(30)};
     letter-spacing: -0.4px;
     line-height: 140%;

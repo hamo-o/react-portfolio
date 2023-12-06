@@ -96,15 +96,17 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
           <Icon icon="ArrowRight" width={100} fill="primary_yellow" />
         </IconWrapper>
       </Flex>
-      <Flex direction="column">
-        <Text typo="body1" color="primary_white">
-          Hello world!
-        </Text>
-        <Text typo="body1" color="primary_white">
-          I&apos;m HAM
-        </Text>
+      <Flex direction="column" gap={20}>
+        <Flex direction="column">
+          <Text typo="body1" color="primary_white">
+            Hello world!
+          </Text>
+          <Text typo="body1" color="primary_white">
+            I&apos;m HAM
+          </Text>
+        </Flex>
         <Text
-          typo="body1"
+          typo="body2"
           color="primary_white"
           style={{ textAlign: "center" }}
         >
@@ -124,6 +126,7 @@ const LandingWrapper = styled(Flex)`
   flex-basis: 100%;
   flex-shrink: 0;
   scroll-snap-align: start;
+  overflow-y: hidden;
 
   background: ${colors.primary_black};
 `;
