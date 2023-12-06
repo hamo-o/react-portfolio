@@ -46,15 +46,6 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
         <Eyes gap={16}>
           <Eye>
             <Icon
-              icon="Eyebrow"
-              fill="primary_purple"
-              rotate={30}
-              style={css`
-                position: absolute;
-                top: -60px;
-              `}
-            />
-            <Icon
               icon="Eye"
               fill="primary_white"
               style={css`
@@ -74,14 +65,6 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
             />
           </Eye>
           <Eye>
-            <Icon
-              icon="Eyebrow"
-              fill="primary_black"
-              style={css`
-                position: absolute;
-                top: -60px;
-              `}
-            />
             <Icon
               icon="Eye"
               fill="primary_white"
