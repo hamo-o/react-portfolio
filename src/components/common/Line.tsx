@@ -12,6 +12,8 @@ const Line = styled.div<{
   height: ${({ height }) =>
     typeof height === "string" ? height : height ? `${height}px` : "auto"};
   background: ${({ color }) => colors[color]};
+
+  flex-shrink: 0;
 `;
 
 export default Line;
