@@ -12,6 +12,7 @@ import Flex from "../common/Flex";
 import Text from "../common/Text";
 import Line from "../common/Line";
 import Icon from "../icons/Icon";
+import TagSmall from "../tags/TagSmall";
 
 import { colors } from "@/styles/theme";
 import { floating } from "@/constants/animate";
@@ -29,14 +30,15 @@ const Experience = () => {
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     setScroll(latest);
+    console.log(+scroll.toFixed(2));
   });
 
   return (
-    <ExperienceContainer height="100%" gap={32} align="start">
+    <ExperienceContainer height="100%" align="start">
       <Text
         typo="body1"
         color="primary_black"
-        style={{ width: "80%", textDecorationLine: "underline" }}
+        style={{ width: "80vw", textDecorationLine: "underline" }}
       >
         Experience
       </Text>
@@ -53,9 +55,12 @@ const Experience = () => {
             <Text typo="subtitle1" color="primary_black">
               오픈소스 컨트리뷰션 아카데미 Backend.AI 멘티
             </Text>
+
             <Text typo="body2" color="primary_black_60">
-              의무교육은 무상으로 한다. 혼인과 가족생활은 개인의 존엄과 양성의
-              평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다.
+              • 웹 컴포넌트, GraphQL에 대한 이해
+              <br />
+              • Backend.AI 아키텍처 이해
+              <br /> • 이슈를 해결해 보며 컨트리뷰션
             </Text>
           </Flex>
         </Flex>
@@ -68,10 +73,8 @@ const Experience = () => {
               외주연계형 IT 동아리 CMC 13기 • Web
             </Text>
             <Text typo="body2" color="primary_black_60">
-              의무교육은 무상으로 한다. 혼인과 가족생활은 개인의 존엄과 양성의
-              평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다.
-              의무교육은 무상으로 한다. 혼인과 가족생활은 개인의 존엄과 양성의
-              평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다.
+              • React Native 스터디
+              <br />• QFEED 팀프로젝트 진행
             </Text>
           </Flex>
         </Flex>
@@ -84,8 +87,8 @@ const Experience = () => {
               신촌 연합 IT 동아리 CEOS 16기 • FE
             </Text>
             <Text typo="body2" color="primary_black_60">
-              의무교육은 무상으로 한다. 혼인과 가족생활은 개인의 존엄과 양성의
-              평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다.
+              • Vanila JS, React, Next.js 스터디
+              <br />• RECIPEASY 팀프로젝트 진행
             </Text>
           </Flex>
         </Flex>
@@ -98,17 +101,29 @@ const Experience = () => {
               전국 연합 IT 동아리 피로그래밍 17기
             </Text>
             <Text typo="body2" color="primary_black_60">
-              의무교육은 무상으로 한다. 혼인과 가족생활은 개인의 존엄과 양성의
-              평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다.
-              법관이 중대한 심신상의 장해로 직무를 수행할 수 없을 때에는 법률이
-              정하는 바에 의하여 퇴직하게 할 수 있다.
+              • 웹 기초 스터디
+              <br />• GROUPING 팀프로젝트 진행
+            </Text>
+          </Flex>
+        </Flex>
+
+        <Line height={1.5} color="primary_black" />
+
+        <Flex justify="space-between">
+          <Flex direction="column" align="start" gap={8}>
+            <Text typo="subtitle1" color="primary_black">
+              홍대방송국 51기 기술부
+            </Text>
+            <Text typo="body2" color="primary_black_60">
+              • 오디오방송, 비디오방송 진행
+              <br />• 2022, 2023 디자인부장
             </Text>
           </Flex>
         </Flex>
 
         <AnimatePresence>{scroll > 0 && <GradientTop />}</AnimatePresence>
         <AnimatePresence>
-          {scroll < 1 && (
+          {+scroll.toFixed(2) < 1 && (
             <>
               <GradientBottom />
               <IconWrapper

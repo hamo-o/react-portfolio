@@ -4,11 +4,11 @@ import Line from "../common/Line";
 
 const AboutMe = () => {
   return (
-    <Flex gap={32} align="start">
+    <Flex align="start">
       <Text
         typo="body1"
         color="primary_black"
-        style={{ width: "80%", textDecorationLine: "underline" }}
+        style={{ width: "80vw", textDecorationLine: "underline" }}
       >
         About Me
       </Text>

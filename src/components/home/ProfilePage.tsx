@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Flex from "../common/Flex";
 import { colors } from "@/styles/theme";
 
+import Skills from "../profile/Skills";
 import AboutMe from "../profile/AboutMe";
 import Experience from "../profile/Experience";
 
@@ -14,8 +15,9 @@ const ProfilePage = () => {
       height="100vh"
       direction="column"
       justify="start"
-      gap={100}
+      gap={80}
     >
+      <Skills />
       <AboutMe />
       <Experience />
     </ProfileWrapper>
