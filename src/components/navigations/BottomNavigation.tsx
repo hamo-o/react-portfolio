@@ -71,7 +71,7 @@ const NavigationWrapper = styled(Flex)`
 
   position: fixed;
   bottom: 0;
-  z-index: 9999;
+  z-index: 2;
 `;
 
 const NavigationItem = styled(Flex)``;
