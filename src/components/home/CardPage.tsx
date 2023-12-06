@@ -172,6 +172,7 @@ const CardWrapper = styled(Flex)`
 
 const Cards = styled(Flex)`
   overflow-x: scroll;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
 `;
 
