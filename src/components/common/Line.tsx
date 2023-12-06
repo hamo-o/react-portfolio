@@ -9,9 +9,9 @@ const Line = styled.div<{
 }>`
   width: ${({ width }) =>
     typeof width === "string" ? width : width ? `${width}px` : "100%"};
-  height: ${({ height }) =>
-    typeof height === "string" ? height : height ? `${height}px` : "auto"};
-  background: ${({ color }) => colors[color]};
+  border-top: ${({ height }) =>
+      typeof height === "string" ? height : height ? `${height}px` : "1px"}
+    solid ${({ color }) => colors[color]};
 
   flex-shrink: 0;
 `;
