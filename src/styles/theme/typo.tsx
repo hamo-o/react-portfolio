@@ -17,7 +17,7 @@ export const typo = {
     font-weight: 500;
     font-size: ${calcRem(30)};
     letter-spacing: -0.4px;
-    line-height: 180%;
+    line-height: 140%;
   `,
   body1: css`
     font-family: "NATS";
