@@ -19,6 +19,14 @@ export const typo = {
     line-height: "120%";
     letter-spacing: "-1.6%";
   `,
+  body2: css`
+    font-family: "pretendard";
+    font-style: normal;
+    font-weight: 500;
+    font-size: ${calcRem(22)};
+    letter-spacing: -0.4px;
+    line-height: 150%;
+  `,
   number: css`
     font-family: "Zen Dots";
     font-style: normal;
