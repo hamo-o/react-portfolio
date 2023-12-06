@@ -1,20 +1,29 @@
 import styled from "@emotion/styled";
 
 import Flex from "../common/Flex";
-import Text from "../common/Text";
 import { colors } from "@/styles/theme";
+
+import AboutMe from "../profile/AboutMe";
+import Experience from "../profile/Experience";
 
 const ProfilePage = () => {
   return (
-    <ProfileWrapper id="profile" direction="column">
-      <Text typo="title1"></Text>
+    <ProfileWrapper
+      id="profile"
+      width="100vw"
+      height="100vh"
+      direction="column"
+      justify="start"
+      gap={100}
+    >
+      <AboutMe />
+      <Experience />
     </ProfileWrapper>
   );
 };
 
 const ProfileWrapper = styled(Flex)`
-  width: 100vw;
-  height: 100vh;
+  padding: 6rem;
 
   flex-basis: 100%;
   flex-shrink: 0;
