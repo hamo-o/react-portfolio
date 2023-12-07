@@ -16,11 +16,7 @@ const PageTransform = ({ position }: { position: Position }) => {
         initial={{ width: "4rem", height: "4rem", borderWidth: "20rem" }}
         animate={{ width: "200vw", height: "200vw", borderWidth: "1rem" }}
         transition={{ duration: 1, type: "tween" }}
-        style={{
-          position: "absolute",
-          top: `calc(${position.y} - 200vw)`,
-          left: `calc(${position.x} - 200vw)`,
-        }}
+        position={position}
       />
     </PageBackground>
   );
@@ -34,7 +30,9 @@ const PageBackground = styled(Flex)`
   z-index: 10000;
 `;
 
-const MotionCircle = styled(motion.div)`
+const MotionCircle = styled(motion.div)<{ position: Position }>`
+  position: absolute;
+
   border-radius: 50%;
   border: 1rem solid ${colors.primary_purple};
 `;

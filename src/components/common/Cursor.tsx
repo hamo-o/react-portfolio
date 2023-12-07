@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
 import { color, motion } from "framer-motion";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { useRecoilValue } from "recoil";
+
 import { cursorState, pageState } from "@/utils/atom";
 import { mouseVariants } from "@/constants/animate";
 import { spring } from "@/constants/animate";
-
 import PageTransform from "./PageTransform";
 
 interface Position {
@@ -15,7 +16,15 @@ interface Position {
 
 const Cursor = ({ position }: { position: Position }) => {
   const variant = useRecoilValue(cursorState);
-  const show = useRecoilValue(pageState);
+  const [show, setShow] = useState<boolean>(false);
+  const path = usePathname();
+
+  useEffect(() => {
+    setShow(true);
+    setTimeout(() => {
+      setShow(false);
+    }, 500);
+  }, [path]);
 
   return (
     <>

@@ -31,15 +31,7 @@ const WorkPage = () => {
         Work
       </Text>
       <Works height="100%">
-        <IconWrapper
-          onClick={() => {
-            router.push("/work/1");
-            setPage(true);
-            setTimeout(() => {
-              setPage(false);
-            }, 500);
-          }}
-        >
+        <IconWrapper onClick={() => router.push("/work/1")}>
           <Icon icon="Start" fill="primary_purple" />
         </IconWrapper>
       </Works>
