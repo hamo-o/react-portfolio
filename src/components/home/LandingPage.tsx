@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
+import Link from "next/link";
 import { css } from "@emotion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import useMouse from "@react-hook/mouse-position";
 import { motion } from "framer-motion";
 import { useSetRecoilState } from "recoil";
 import { cursorState } from "@/utils/atom";
 
-import { colors } from "@/styles/theme";
+import { KeyOfColor, colors } from "@/styles/theme";
 import Flex from "../common/Flex";
 import Icon from "../icons/Icon";
 import Text from "../common/Text";
@@ -14,6 +15,7 @@ import { floating } from "@/constants/animate";
 
 const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
   const mouseRef = useRef<HTMLDivElement>(null);
+  const [color, setColor] = useState<KeyOfColor>("primary_white_60");
 
   const mouse = useMouse(mouseRef, {
     enterDelay: 100,
@@ -96,7 +98,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
           <Icon icon="ArrowRight" width={100} fill="primary_yellow" />
         </IconWrapper>
       </Flex>
-      <Flex direction="column" gap={20}>
+      <Flex width="max-content" direction="column" gap={20}>
         <Flex direction="column">
           <Text typo="body1" color="primary_white">
             Hello world!
@@ -112,6 +114,18 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
         >
           대충한줄소개 뭐라하지
         </Text>
+        <Flex justify="space-around">
+          <IconWrapper>
+            <Link href="https://github.com/hamo-o">
+              <Icon icon="Github" width={40} height={40} fill={color} />
+            </Link>
+          </IconWrapper>
+          <IconWrapper>
+            <Link href="https://github.com/hamo-o">
+              <Icon icon="Mail" width={44} height={44} color={color} />
+            </Link>
+          </IconWrapper>
+        </Flex>
       </Flex>
     </LandingWrapper>
   );
@@ -144,6 +158,10 @@ const Eye = styled.div`
 `;
 
 const IconWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   cursor: pointer;
 `;
 
