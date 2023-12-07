@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 import { color, motion } from "framer-motion";
-
+import { useState } from "react";
 import { useRecoilValue } from "recoil";
-import { cursorState } from "@/utils/atom";
+import { cursorState, pageState } from "@/utils/atom";
 import { mouseVariants } from "@/constants/animate";
 import { spring } from "@/constants/animate";
 
-import { colors } from "@/styles/theme";
+import PageTransform from "./PageTransform";
 
 interface Position {
   x: number;
@@ -15,13 +15,17 @@ interface Position {
 
 const Cursor = ({ position }: { position: Position }) => {
   const variant = useRecoilValue(cursorState);
+  const show = useRecoilValue(pageState);
 
   return (
-    <CursorWrapper
-      variants={mouseVariants(position)}
-      animate={variant}
-      transition={spring}
-    />
+    <>
+      <CursorWrapper
+        variants={mouseVariants(position)}
+        animate={variant}
+        transition={spring}
+      />
+      {show && <PageTransform position={{ x: position.x, y: position.y }} />}
+    </>
   );
 };
 
