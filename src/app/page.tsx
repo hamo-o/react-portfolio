@@ -68,7 +68,11 @@ const ScrollWrapper = styled(motion.div)`
   justify-content: start;
 
   width: 100vw;
+  height: 100vh;
+
   overflow-x: scroll;
+  overflow-y: hidden;
+
   scroll-snap-type: x mandatory;
   behavior: smooth;
 `;

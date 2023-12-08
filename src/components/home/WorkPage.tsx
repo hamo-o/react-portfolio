@@ -25,7 +25,7 @@ const WorkPage = () => {
     >
       <Text
         typo="body1"
-        color="primary_black"
+        color="primary_white"
         style={{ width: "80vw", textDecorationLine: "underline" }}
       >
         Work
@@ -46,7 +46,7 @@ const WorkWrapper = styled(Flex)`
   flex-shrink: 0;
   scroll-snap-align: start;
 
-  background: ${colors.primary_yellow};
+  background: ${colors.primary_black};
 
   position: relative;
 `;

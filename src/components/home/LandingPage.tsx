@@ -122,7 +122,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
           </IconWrapper>
           <IconWrapper>
             <Link href="https://github.com/hamo-o">
-              <Icon icon="Mail" width={44} height={44} color={color} />
+              <Icon icon="Mail" width={46} height={46} color={color} />
             </Link>
           </IconWrapper>
         </Flex>

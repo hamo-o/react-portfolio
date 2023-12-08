@@ -101,7 +101,7 @@ const CardPage = () => {
     >
       <Text
         typo="body1"
-        color="primary_black"
+        color="primary_white"
         style={{ textDecorationLine: "underline" }}
       >
         Project
@@ -178,7 +178,7 @@ const CardWrapper = styled(Flex)`
   flex-shrink: 0;
   scroll-snap-align: start;
 
-  background: ${colors.primary_yellow};
+  background: ${colors.primary_black};
 
   position: relative;
 `;
@@ -206,7 +206,7 @@ const Gradient = styled.div<{ direction: DirectionType }>`
   z-index: 1;
   background: linear-gradient(
     to ${({ direction }) => direction},
-    ${colors.primary_yellow} 30%,
+    ${colors.primary_black} 30%,
     rgba(0, 0, 0, 0)
   );
 

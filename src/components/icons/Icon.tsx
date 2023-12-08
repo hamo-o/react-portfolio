@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
 import * as icons from "@/components/icons/svgs";
 import { KeyOfColor, TypeOfColor, colors } from "@/styles/theme";
@@ -81,7 +82,9 @@ const IconWrapper = styled.div<{
     }
   }
 
-  ${({ styles }) => styles}
+  ${({ styles }) => css`
+    ${styles}
+  `}
 `;
 
 export default Icon;

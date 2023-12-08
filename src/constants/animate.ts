@@ -54,3 +54,19 @@ export const floating = {
     ease: [0, 0.05, 1.2, 1.4],
   },
 };
+
+export const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+
+    transition: {
+      staggerChildren: 0.5,
+    },
+  },
+};
+
+export const item = {
+  hidden: { opacity: 0, x: -5 },
+  show: { opacity: 1, x: 0 },
+};

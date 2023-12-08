@@ -1,14 +1,17 @@
+import styled from "@emotion/styled";
+
 import Flex from "../common/Flex";
 import Text from "../common/Text";
 import Line from "../common/Line";
+import { colors } from "@/styles/theme";
 
 const AboutMe = () => {
   return (
-    <Flex align="start">
+    <InfoWrapper align="start">
       <Text
         typo="body1"
         color="primary_black"
-        style={{ width: "80vw", textDecorationLine: "underline" }}
+        style={{ width: "55vw", textDecorationLine: "underline" }}
       >
         About Me
       </Text>
@@ -47,8 +50,15 @@ const AboutMe = () => {
           </Text>
         </Flex>
       </Flex>
-    </Flex>
+    </InfoWrapper>
   );
 };
+
+const InfoWrapper = styled(Flex)`
+  padding: 4rem 6rem 8rem;
+  border-radius: 4rem 4rem 0 0;
+
+  background: ${colors.primary_yellow};
+`;
 
 export default AboutMe;

@@ -12,7 +12,7 @@ const FinalPage = () => {
         width="48vw"
         height="135vh"
         style={{
-          background: colors.primary_yellow,
+          background: colors.primary_black,
           borderRadius: "0 50% 50% 0",
           position: "absolute",
           left: "0",
@@ -31,7 +31,7 @@ const WorkWrapper = styled(Flex)`
   flex-shrink: 0;
   scroll-snap-align: start;
 
-  background: ${colors.primary_black};
+  background: ${colors.primary_yellow};
 
   position: relative;
   overflow-y: hidden;

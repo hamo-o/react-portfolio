@@ -9,29 +9,26 @@ import Experience from "../profile/Experience";
 
 const ProfilePage = () => {
   return (
-    <ProfileWrapper
-      id="profile"
-      width="100vw"
-      height="100vh"
-      direction="column"
-      justify="start"
-      gap={80}
-    >
-      <Skills />
+    <ProfileWrapper id="profile">
       <AboutMe />
+      <Skills />
       <Experience />
     </ProfileWrapper>
   );
 };
 
-const ProfileWrapper = styled(Flex)`
-  padding: 6rem;
+const ProfileWrapper = styled.div`
+  width: 100vw;
+
+  padding: 6rem 8rem 0;
 
   flex-basis: 100%;
   flex-shrink: 0;
   scroll-snap-align: start;
 
-  background: ${colors.primary_yellow};
+  overflow-y: scroll;
+
+  background: ${colors.primary_black};
 `;
 
 export default ProfilePage;

@@ -34,11 +34,11 @@ const Experience = () => {
   });
 
   return (
-    <ExperienceContainer height="100%" align="start">
+    <ExperienceContainer align="start">
       <Text
         typo="body1"
         color="primary_black"
-        style={{ width: "80vw", textDecorationLine: "underline" }}
+        style={{ width: "55vw", textDecorationLine: "underline" }}
       >
         Experience
       </Text>
@@ -53,14 +53,11 @@ const Experience = () => {
         <Flex justify="space-between">
           <Flex direction="column" align="start" gap={8}>
             <Text typo="subtitle1" color="primary_black">
-              오픈소스 컨트리뷰션 아카데미 Backend.AI 멘티
+              외주연계형 IT 동아리 CMC 13기 • Web
             </Text>
-
             <Text typo="body2" color="primary_black_60">
-              • 웹 컴포넌트, GraphQL에 대한 이해
-              <br />
-              • Backend.AI 아키텍처 이해
-              <br /> • 이슈를 해결해 보며 컨트리뷰션
+              • React Native 스터디
+              <br />• QFEED 팀프로젝트 진행
             </Text>
           </Flex>
         </Flex>
@@ -70,11 +67,14 @@ const Experience = () => {
         <Flex justify="space-between">
           <Flex direction="column" align="start" gap={8}>
             <Text typo="subtitle1" color="primary_black">
-              외주연계형 IT 동아리 CMC 13기 • Web
+              오픈소스 컨트리뷰션 아카데미 Backend.AI 멘티
             </Text>
+
             <Text typo="body2" color="primary_black_60">
-              • React Native 스터디
-              <br />• QFEED 팀프로젝트 진행
+              • 웹 컴포넌트, GraphQL에 대한 이해
+              <br />
+              • Backend.AI 아키텍처 이해
+              <br /> • 이슈를 해결해 보며 컨트리뷰션
             </Text>
           </Flex>
         </Flex>
@@ -121,7 +121,7 @@ const Experience = () => {
           </Flex>
         </Flex>
 
-        <AnimatePresence>{scroll > 0 && <GradientTop />}</AnimatePresence>
+        {/* <AnimatePresence>{scroll > 0 && <GradientTop />}</AnimatePresence>
         <AnimatePresence>
           {+scroll.toFixed(2) < 1 && (
             <>
@@ -140,20 +140,27 @@ const Experience = () => {
               </IconWrapper>
             </>
           )}
-        </AnimatePresence>
+        </AnimatePresence> */}
       </ExperienceContent>
     </ExperienceContainer>
   );
 };
 
 const ExperienceContainer = styled(Flex)`
-  padding-bottom: 6rem;
-  overflow-y: hidden;
+  height: 100%;
+
+  padding: 4rem 6rem;
+  overflow: hidden;
 
   position: relative;
+  top: -8rem;
+
+  border-radius: 4rem 4rem 0 0;
+  background: ${colors.primary_yellow};
 `;
 
 const ExperienceContent = styled(Flex)`
+  height: max-content;
   overflow-y: scroll;
 `;
 
@@ -181,7 +188,7 @@ const GradientBottom = styled.div`
   z-index: 1;
   background: linear-gradient(
     to top,
-    ${colors.primary_yellow} 30%,
+    ${colors.primary_yellow} 40%,
     rgba(0, 0, 0, 0)
   );
 
