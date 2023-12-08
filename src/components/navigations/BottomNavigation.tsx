@@ -54,10 +54,7 @@ const BottomNavigation = ({
             }
           >
             <Text typo="number2" color="primary_white">
-              {
-                // page.id === PAGE.length - 1 ? "?" :
-                `0${page.id} ${page.name}`
-              }
+              {page.id === PAGE.length - 1 ? "?" : `0${page.id} ${page.name}`}
             </Text>
             <NavigationDot />
           </NavigationFlag>
