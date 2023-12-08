@@ -57,7 +57,7 @@ const Home = () => {
       <ProfilePage />
       <CardPage />
       <WorkPage />
-      <FinalPage />
+      {/* <FinalPage /> */}
       <BottomNavigation progress={debounceScroll} motion={scrollXProgress} />
     </ScrollWrapper>
   );

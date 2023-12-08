@@ -27,10 +27,10 @@ export const PAGE: Page[] = [
     name: "work",
     background: "primary_yellow",
   },
-  {
-    id: 4,
-    name: "final",
-    background: "primary_black",
-  },
+  // {
+  //   id: 4,
+  //   name: "final",
+  //   background: "primary_black",
+  // },
 ];
 Object.freeze(PAGE);
