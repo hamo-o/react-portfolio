@@ -32,6 +32,7 @@ const WorkPage = () => {
       </Text>
       <Works height="100%">
         <IconWrapper onClick={() => router.push("/work/1")}>
+          <Gradient />
           <Icon icon="Start" fill="primary_purple" />
         </IconWrapper>
       </Works>
@@ -55,7 +56,24 @@ const Works = styled(Flex)`
   padding-bottom: 6rem;
 `;
 
+const Gradient = styled.div`
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+
+  background: linear-gradient(
+    to top,
+    ${colors.primary_black_60} 20%,
+    rgba(0, 0, 0, 0)
+  );
+`;
+
 const IconWrapper = styled(motion.div)`
+  width: 300px;
+  height: 300px;
+
+  position: relative;
   cursor: pointer;
 `;
 
