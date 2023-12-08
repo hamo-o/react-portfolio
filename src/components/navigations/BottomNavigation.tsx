@@ -62,6 +62,7 @@ const BottomNavigation = ({
       ))}
       <NavigationLine style={{ scaleX }} />
       <NavigationLine style={{ transformOrigin: "100%", opacity: "50%" }} />
+      <Gradient />
     </NavigationWrapper>
   );
 };
@@ -71,7 +72,7 @@ const NavigationWrapper = styled(Flex)`
 
   position: fixed;
   bottom: 0;
-  z-index: 2;
+  z-index: 999;
 `;
 
 const NavigationItem = styled(Flex)``;
@@ -113,6 +114,23 @@ const NavigationLine = styled(motion.div)`
   position: fixed;
   left: 6rem;
   overflow: hidden;
+
+  z-index: 2;
+`;
+
+const Gradient = styled.div`
+  width: 100%;
+  height: 15%;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  background: linear-gradient(
+    to top,
+    ${colors.primary_black_60},
+    rgba(0, 0, 0, 0)
+  );
 `;
 
 export default BottomNavigation;

@@ -47,7 +47,7 @@ const CardMedium = ({
           height: isOpen ? "90vh" : "64vh",
           padding: isOpen ? "6rem" : "0",
           position: isOpen ? "fixed" : "static",
-          zIndex: isOpen ? "3" : "0",
+          zIndex: isOpen ? "1000" : "0",
           gap: isOpen ? "6rem" : "0",
         }}
       >

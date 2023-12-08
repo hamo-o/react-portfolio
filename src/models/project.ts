@@ -10,7 +10,7 @@ export const PROJECT = [
   {
     id: 1,
     name: "QFEED",
-    date: "2023. 06. 23 ~ 2023. 09. 09",
+    date: "2023. 06. 23 ~",
     stack: [
       "NEXT.JS",
       "REACT-NATIVE",
@@ -25,7 +25,7 @@ export const PROJECT = [
     id: 2,
     name: "WALDREG",
     date: "2023. 01. 06 ~ ",
-    stack: ["REACT", "TYPESCRIPT", "REACT-QUERY"],
+    stack: ["REACT", "TYPESCRIPT", "REACT-QUERY", "DOCKER"],
     thumnail: "waldreg_main.png",
   },
   {

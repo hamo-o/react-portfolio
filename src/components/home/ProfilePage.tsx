@@ -33,7 +33,12 @@ const ProfilePage = () => {
   });
 
   const handleWheelScroll = (e: any) => {
-    if (+scroll.toFixed(1) !== 1 && +scroll.toFixed(1)) {
+    if (
+      !(
+        (+scroll.toFixed(1) === 1 && e.nativeEvent.deltaY > 100) ||
+        (!+scroll.toFixed(1) && e.nativeEvent.deltaY < -100)
+      )
+    ) {
       e.stopPropagation();
     }
   };
@@ -54,9 +59,15 @@ const ProfilePage = () => {
       <ItemWrapper variants={item}>
         <Experience />
       </ItemWrapper>
-      <AnimatePresence>
-        {+scroll.toFixed(2) < 1 && <GradientBottom />}
-      </AnimatePresence>
+      {/* <AnimatePresence>
+        {+scroll.toFixed(2) < 0.9 && (
+          <GradientBottom
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
+      </AnimatePresence> */}
     </ProfileWrapper>
   );
 };
@@ -70,30 +81,12 @@ const ProfileWrapper = styled(motion.div)`
   flex-shrink: 0;
   scroll-snap-align: start;
 
-  position: relative;
   overflow-y: scroll;
-  behavior: smooth;
+  scroll-behavior: smooth;
 
   background: ${colors.primary_black};
 `;
 
 const ItemWrapper = styled(motion.div)``;
-
-const GradientBottom = styled.div`
-  width: 100%;
-  height: 50%;
-
-  z-index: 1;
-  background: linear-gradient(
-    to top,
-    ${colors.primary_yellow} 20%,
-    rgba(0, 0, 0, 0)
-  );
-
-  pointer-events: none;
-
-  position: sticky;
-  bottom: 0;
-`;
 
 export default ProfilePage;

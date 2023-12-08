@@ -74,7 +74,7 @@ const ScrollWrapper = styled(motion.div)`
   overflow-y: hidden;
 
   scroll-snap-type: x mandatory;
-  behavior: smooth;
+  scroll-behavior: smooth;
 `;
 
 export default Home;

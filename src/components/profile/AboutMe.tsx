@@ -55,10 +55,20 @@ const AboutMe = () => {
 };
 
 const InfoWrapper = styled(Flex)`
-  padding: 4rem 6rem 8rem;
+  padding: 4rem 6rem;
+
+  position: relative;
+  left: 2rem;
+
   border-radius: 4rem 4rem 0 0;
 
-  background: ${colors.primary_yellow};
+  z-index: 2;
+
+  background: linear-gradient(
+    to bottom,
+    ${colors.primary_purple} 50%,
+    ${colors.primary_purple_60}
+  );
 `;
 
 export default AboutMe;

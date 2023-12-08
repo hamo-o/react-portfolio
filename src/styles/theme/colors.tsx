@@ -15,8 +15,11 @@ export const colors = {
 
   primary_purple: "#9847FF",
   primary_purple_15: hexToRGBA("#9847FF", 15),
+  primary_purple_30: hexToRGBA("#9847FF", 30),
+  primary_purple_60: hexToRGBA("#9847FF", 60),
 
   primary_white: "#FFFCF8",
+  primary_white_30: hexToRGBA("#FFFCF8", 30),
   primary_white_60: hexToRGBA("#FFFCF8", 60),
 
   primary_black: "#353535",
