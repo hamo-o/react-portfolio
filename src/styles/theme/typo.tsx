@@ -35,6 +35,14 @@ export const typo = {
     letter-spacing: -0.4px;
     line-height: 180%;
   `,
+  body3: css`
+    font-family: "NATS";
+    font-style: normal;
+    font-weight: 500;
+    font-size: ${calcRem(28)};
+    letter-spacing: -0.4px;
+    line-height: 180%;
+  `,
   number: css`
     font-family: "Zen Dots";
     font-style: normal;
