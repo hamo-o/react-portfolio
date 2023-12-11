@@ -68,7 +68,7 @@ const CardMedium = ({
           <CardContent direction="column" align="left" gap={18}>
             <Flex direction="column" align="left" gap={8}>
               {project.stack.map((stack: string, idx: number) => (
-                <Text key={idx} typo="body1">
+                <Text key={idx} typo="body1" color="primary_black_60">
                   {stack}
                 </Text>
               ))}
