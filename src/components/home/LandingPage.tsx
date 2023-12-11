@@ -102,7 +102,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
           <Icon icon="ArrowRight" width={100} fill="primary_yellow" />
         </IconWrapper>
       </Flex>
-      <Flex direction="column" gap={18}>
+      <Flex direction="column" height="20vh" justify="space-between">
         <Flex direction="column">
           <Text typo="body1" color="primary_white">
             Hello world!
@@ -111,13 +111,13 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
             I&apos;m HAM
           </Text>
         </Flex>
-        <Text
+        {/* <Text
           typo="body2"
           color="primary_white"
           style={{ textAlign: "center" }}
         >
           대충한줄소개 뭐라하지
-        </Text>
+        </Text> */}
         <Contact />
       </Flex>
     </LandingWrapper>
