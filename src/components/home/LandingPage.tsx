@@ -66,6 +66,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
                 left: ${Math.floor(mouseXPosition * 0.04) + 1}px;
               `}
             />
+            <Gradient />
           </Eye>
           <Eye>
             <Icon
@@ -86,6 +87,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
                 left: ${Math.floor(mouseXPosition * 0.04) + 1}px;
               `}
             />
+            <Gradient />
           </Eye>
         </Eyes>
         <IconWrapper
@@ -96,6 +98,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
           onMouseLeave={projectLeave}
           onClick={scrollRight}
         >
+          <Gradient />
           <Icon icon="ArrowRight" width={100} fill="primary_yellow" />
         </IconWrapper>
       </Flex>
@@ -145,6 +148,20 @@ const Eye = styled.div`
   height: 250px;
 
   position: relative;
+`;
+
+const Gradient = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    to top,
+    ${colors.primary_black_60},
+    rgba(0, 0, 0, 0)
+  );
+
+  position: absolute;
+  bottom: 0;
 `;
 
 const IconWrapper = styled(motion.div)`
