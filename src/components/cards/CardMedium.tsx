@@ -49,6 +49,7 @@ const CardMedium = ({
           position: isOpen ? "fixed" : "static",
           zIndex: isOpen ? "1000" : "0",
           gap: isOpen ? "6rem" : "0",
+          background: isOpen ? colors.primary_purple : "none",
         }}
       >
         <Flex
@@ -103,7 +104,11 @@ const CardWrapper = styled.div`
 
   color: ${colors.primary_yellow};
   border-radius: 2rem;
-  background: ${colors.primary_purple};
+  background: linear-gradient(
+    to bottom,
+    ${colors.primary_purple} 50%,
+    ${colors.primary_white_30}
+  );
 
   cursor: pointer;
 
@@ -115,7 +120,6 @@ const CardDetail = styled(motion.div)`
 
   color: ${colors.primary_yellow};
   border-radius: 2rem;
-  background: ${colors.primary_purple};
 
   cursor: pointer;
 
