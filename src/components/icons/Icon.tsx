@@ -17,6 +17,8 @@ interface Props {
   color?: KeyOfColor;
 
   onClick?: any;
+  onMouseEnter?: any;
+  onMouseLeave?: any;
   onTouchEnd?: any;
   selected?: boolean;
 }
@@ -33,6 +35,8 @@ const Icon = ({
   color,
 
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   onTouchEnd,
   selected,
 }: Props) => {
@@ -42,6 +46,8 @@ const Icon = ({
     <IconWrapper
       onClick={onClick}
       onTouchEnd={onTouchEnd}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       style={{ width: width, height: height, margin: margin }}
       rotate={rotate}
       fill={fill}
