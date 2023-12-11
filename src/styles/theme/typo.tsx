@@ -53,7 +53,7 @@ export const typo = {
     font-family: "Zen Dots";
     font-style: normal;
     font-weight: 400;
-    font-size: ${calcRem(12)};
+    font-size: ${calcRem(11)};
   `,
   detail: css`
     font-family: "pretendard";
