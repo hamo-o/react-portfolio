@@ -16,6 +16,7 @@ import TopNavigation from "@/components/navigations/TopNavigation";
 import NextImage from "@/components/common/NextImage";
 import CardSmall from "@/components/cards/CardSmall";
 import { WORK, Work } from "@/models/work";
+import Spacing from "@/components/common/Spacing";
 
 const WorkDetailPage = ({ params }: { params: { id: number } }) => {
   const resetCursor = useResetRecoilState(cursorState);
@@ -44,6 +45,7 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
         <CardsContainer
           width="max-content"
           height="100%"
+          justify="start"
           direction="column"
           gap={32}
         >
@@ -56,7 +58,7 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
             />
           ))}
         </CardsContainer>
-        <Detail width="70vw" direction="column" gap={16}>
+        <Detail width="70vw" justify="start" direction="column" gap={32}>
           {selectedWork?.detail?.map((detail, idx) => (
             <Image
               width="100%"

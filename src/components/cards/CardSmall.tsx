@@ -76,8 +76,9 @@ const CardSmall = ({
 };
 
 const CardWrapper = styled(motion.div)`
-  width: 32rem;
-  aspect-ratio: 16/9;
+  width: 24vw;
+  min-width: 400px;
+  aspect-ratio: 14/9;
 
   padding: ${calcRem(56)};
 
