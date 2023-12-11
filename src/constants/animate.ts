@@ -37,6 +37,17 @@ export const mouseVariants = ({ x, y }: Position) => {
   };
 };
 
+export const selectedVairants = {
+  default: {
+    opacity: 0.3,
+    filter: `grayscale(80%)`,
+  },
+  selected: {
+    opacity: 1,
+    filter: `grayscale(0)`,
+  },
+};
+
 export const spring = {
   transition: {
     type: "spring",

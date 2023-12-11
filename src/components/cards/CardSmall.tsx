@@ -13,8 +13,17 @@ import Icon from "../icons/Icon";
 
 import { calcRem, colors } from "@/styles/theme";
 import { Work } from "@/models/work";
+import { selectedVairants } from "@/constants/animate";
 
-const CardSmall = ({ work, onClick }: { work: Work; onClick?: any }) => {
+const CardSmall = ({
+  work,
+  onClick,
+  selected,
+}: {
+  work: Work;
+  onClick?: any;
+  selected: boolean;
+}) => {
   const setCursorVariant = useSetRecoilState(cursorState);
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
@@ -28,7 +37,12 @@ const CardSmall = ({ work, onClick }: { work: Work; onClick?: any }) => {
   };
 
   return (
-    <CardWrapper onMouseEnter={projectEnter} onMouseLeave={projectLeave}>
+    <CardWrapper
+      onMouseEnter={projectEnter}
+      onMouseLeave={projectLeave}
+      variants={selectedVairants}
+      animate={selected ? "selected" : "default"}
+    >
       <Flex
         height="100%"
         direction="column"
@@ -61,7 +75,7 @@ const CardSmall = ({ work, onClick }: { work: Work; onClick?: any }) => {
   );
 };
 
-const CardWrapper = styled.div`
+const CardWrapper = styled(motion.div)`
   width: 32rem;
   aspect-ratio: 16/9;
 

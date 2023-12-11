@@ -51,6 +51,7 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
             <CardSmall
               key={work.id}
               work={work}
+              selected={workId === work.id}
               onClick={() => setWorkId(work.id)}
             />
           ))}
