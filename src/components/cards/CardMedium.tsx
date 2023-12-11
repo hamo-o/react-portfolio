@@ -101,6 +101,29 @@ const CardMedium = ({
                 )}
               </Flex>
             </Flex>
+            {isOpen && project.explanation.length ? (
+              <Flex
+                width="max-content"
+                direction="column"
+                align="left"
+                gap={16}
+              >
+                <Text typo="body2" color="primary_black">
+                  프로젝트 소개
+                </Text>
+                <Flex direction="column" align="left" gap={4}>
+                  {project.explanation.map(
+                    (explanation: string, idx: number) => (
+                      <Text key={idx} typo="body2" color="primary_black_60">
+                        • {explanation}
+                      </Text>
+                    )
+                  )}
+                </Flex>
+              </Flex>
+            ) : (
+              <></>
+            )}
             {isOpen && project.role && (
               <Flex
                 width="max-content"

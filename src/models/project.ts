@@ -5,6 +5,7 @@ export interface Project {
   stack: string[];
   thumnail: string;
   role?: string[];
+  explanation: string[];
 }
 
 export const PROJECT = [
@@ -20,6 +21,7 @@ export const PROJECT = [
       'FRAMER-MOTION',
       'GITHUB ACTIONS',
     ],
+    explanation: ['질문을 기반으로 소통하는 익명 SNS'],
     thumnail: 'qfeed_main.png',
     role: [
       '카카오 로그인, 회원가입',
@@ -34,6 +36,7 @@ export const PROJECT = [
     name: 'WALDREG',
     date: '2023. 01. 06 ~ ',
     stack: ['REACT', 'TYPESCRIPT', 'REACT-QUERY', 'DOCKER'],
+    explanation: ['동아리를 위한 그룹웨어'],
     thumnail: 'waldreg_main.png',
     role: [
       '역할 설정, 유저 관리, 상벌점 페이지',
@@ -47,6 +50,7 @@ export const PROJECT = [
     name: 'RECIPEASY',
     date: '2022. 10. 07 ~ 2023. 01. 28',
     stack: ['NEXT.JS', 'TYPESCRIPT', 'TAILWIND CSS', 'GITHUB ACTIONS', 'PWA'],
+    explanation: ['1인가구를 위한 숏폼 레시피 서비스'],
     thumnail: 'recipeasy_main.png',
     role: [
       '카카오 로그인',
@@ -59,6 +63,7 @@ export const PROJECT = [
     name: 'WELCOME TO THE DMZ',
     date: '2022. 11. 04 ~ 2022. 12. 18',
     stack: ['REACT', 'THREE JS'],
+    explanation: [],
     thumnail: 'dmz_main.png',
   },
   {
@@ -66,6 +71,11 @@ export const PROJECT = [
     name: 'GROUPING',
     date: '2022. 08. 02 ~ 2022. 08. 23',
     stack: ['DJANGO', 'VANILA JS'],
+    explanation: [
+      '카카오톡 날짜 투표가 불편하다면?',
+      '그룹을 만들고, 그룹 내에서 약속을 만들어 약속 시간을 쉽게 투표할 수 있는 서비스',
+      '약속이 끝나고 기록 업로드 및 공유 가능',
+    ],
     thumnail: 'grouping_main.png',
     role: [
       '그룹 페이지, 약속 페이지, 메인페이지',
