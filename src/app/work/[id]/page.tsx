@@ -4,7 +4,12 @@ import styled from "@emotion/styled";
 import { useEffect, useRef, useState } from "react";
 import { useResetRecoilState } from "recoil";
 import useDebounce from "@/hooks/useDebounce";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useAnimationControls,
+} from "framer-motion";
 import { useRouter } from "next/navigation";
 
 import { cursorState } from "@/utils/atom";
@@ -17,9 +22,11 @@ import NextImage from "@/components/common/NextImage";
 import CardSmall from "@/components/cards/CardSmall";
 import { WORK, Work } from "@/models/work";
 import Spacing from "@/components/common/Spacing";
+import { container, item } from "@/constants/animate";
 
 const WorkDetailPage = ({ params }: { params: { id: number } }) => {
   const resetCursor = useResetRecoilState(cursorState);
+
   useEffect(() => {
     resetCursor();
   }, []);
@@ -33,6 +40,11 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
   const selectedWork = WORK.find((work: Work) => {
     return work.id === workId;
   });
+
+  const controls = useAnimationControls();
+  useEffect(() => {
+    controls.start("show");
+  }, [workId, controls]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     setScroll(latest);
@@ -58,14 +70,16 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
             />
           ))}
         </CardsContainer>
-        <Detail width="70vw" justify="start" direction="column" gap={32}>
+        <Detail variants={container} initial="hidden" animate={controls}>
           {selectedWork?.detail?.map((detail, idx) => (
-            <Image
-              width="100%"
-              key={idx}
-              src={`/images/${detail}`}
-              alt={detail}
-            />
+            <motion.div variants={item}>
+              <Image
+                width="100%"
+                key={idx}
+                src={`/images/${detail}`}
+                alt={detail}
+              />
+            </motion.div>
           ))}
         </Detail>
       </WorkDetailContent>
@@ -91,7 +105,14 @@ const CardsContainer = styled(Flex)`
 
 const ImageContainer = styled(Flex)``;
 
-const Detail = styled(Flex)`
+const Detail = styled(motion.div)`
+  width: 70vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 32px;
+
   padding-top: 0.5rem;
 `;
 

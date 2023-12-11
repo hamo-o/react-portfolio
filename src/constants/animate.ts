@@ -67,9 +67,10 @@ export const floating = {
 };
 
 export const container = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, y: -5 },
   show: {
     opacity: 1,
+    y: 0,
 
     transition: {
       staggerChildren: 0.5,
