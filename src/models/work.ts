@@ -25,6 +25,7 @@ export const WORK = [
     name: "Proxy Debugging",
     date: "2023. 07. 06 ~ ",
     link: "https://midi-spade-4a7.notion.site/Charles-with-naver-90781a83819b4dffb535e9a9f193d1fd?pvs=4",
+    detail: ["ppt/2-1.png", "ppt/2-2.png", "ppt/2-3.png"],
   },
   {
     id: 3,
