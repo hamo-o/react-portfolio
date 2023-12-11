@@ -81,11 +81,9 @@ const CardMedium = ({
           )}
         </Flex>
         {isOpen && (
-          <NextImage
-            src={`/images/${project.thumnail}`}
-            alt={project.name}
-            borderRadius="2rem"
-          />
+          <ImageWrapper>
+            <Image src={`/images/${project.thumnail}`} alt={project.name} />
+          </ImageWrapper>
         )}
       </CardDetail>
     </CardWrapper>
@@ -128,5 +126,20 @@ const CardDetail = styled(motion.div)`
 `;
 
 const CardContent = styled(Flex)``;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+
+  border-radius: 2rem;
+  overflow: hidden;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+`;
 
 export default CardMedium;
