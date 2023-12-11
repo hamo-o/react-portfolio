@@ -55,4 +55,11 @@ export const typo = {
     font-weight: 400;
     font-size: ${calcRem(14)};
   `,
+  detail: css`
+    font-family: "pretendard";
+    font-style: normal;
+    font-weight: 500;
+    font-size: ${calcRem(17)};
+    letter-spacing: -0.4px;
+  `,
 } as const;
