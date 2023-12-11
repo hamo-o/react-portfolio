@@ -68,7 +68,7 @@ const CardMedium = ({
             </Text>
           </Flex>
           <CardContent direction="column" align="start" gap={40}>
-            <Flex direction="column" align="left" gap={16}>
+            <Flex direction="column" align="left" gap={12}>
               {isOpen && (
                 <Text typo="body2" color="primary_black">
                   사용 기술
@@ -78,7 +78,7 @@ const CardMedium = ({
                 direction={isOpen ? 'row' : 'column'}
                 align="start"
                 justify="start"
-                gap={8}
+                gap={isOpen ? 8 : 20}
                 style={{ flexWrap: 'wrap' }}
               >
                 {project.stack.map((stack: string, idx: number) =>
@@ -92,7 +92,7 @@ const CardMedium = ({
                   ) : (
                     <Text
                       key={idx}
-                      typo={isOpen ? 'body3' : 'body1'}
+                      typo={isOpen ? 'body3' : 'number'}
                       color="primary_black_60"
                     >
                       {stack}
@@ -106,7 +106,7 @@ const CardMedium = ({
                 width="max-content"
                 direction="column"
                 align="left"
-                gap={16}
+                gap={12}
               >
                 <Text typo="body2" color="primary_black">
                   프로젝트 소개
@@ -129,7 +129,7 @@ const CardMedium = ({
                 width="max-content"
                 direction="column"
                 align="left"
-                gap={16}
+                gap={12}
               >
                 <Text typo="body2" color="primary_black">
                   수행 역할
