@@ -32,6 +32,7 @@ export const WORK = [
     name: "웹개편",
     date: "2022. 10. 07 ~ 2023. 01. 28",
     link: "",
+    detail: ["ppt/3-1.png"],
   },
 ];
 Object.freeze(WORK);
