@@ -1,13 +1,13 @@
-import styled from "@emotion/styled";
-import { motion, useSpring } from "framer-motion";
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import styled from '@emotion/styled';
+import { motion, useSpring } from 'framer-motion';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 
-import { cursorState } from "@/utils/atom";
-import { PAGE } from "@/models/page";
+import { cursorState } from '@/utils/atom';
+import { PAGE } from '@/models/page';
 
-import Flex from "../common/Flex";
-import { KeyOfColor, colors } from "@/styles/theme";
-import Text from "../common/Text";
+import Flex from '../common/Flex';
+import { KeyOfColor, colors } from '@/styles/theme';
+import Text from '../common/Text';
 
 const BottomNavigation = ({
   progress,
@@ -19,11 +19,11 @@ const BottomNavigation = ({
   const setCursorVariant = useSetRecoilState(cursorState);
 
   const projectEnter = () => {
-    setCursorVariant("navigation");
+    setCursorVariant('navigation');
   };
 
   const projectLeave = () => {
-    setCursorVariant("default");
+    setCursorVariant('default');
   };
 
   const handleClickMenu = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
@@ -31,7 +31,7 @@ const BottomNavigation = ({
     const MemuData = (e.target as HTMLAnchorElement).hash;
     const IdMatchedPage = document.querySelector(MemuData);
 
-    IdMatchedPage?.scrollIntoView({ behavior: "smooth" });
+    IdMatchedPage?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scaleX = useSpring(motion, {
@@ -50,18 +50,18 @@ const BottomNavigation = ({
             onMouseEnter={projectEnter}
             onMouseLeave={projectLeave}
             selected={
-              +progress.toFixed(2) == +(page.id / (PAGE.length - 1)).toFixed(2)
+              +progress.toFixed(2) >= +(page.id / (PAGE.length - 1)).toFixed(2)
             }
           >
             <Text typo="number2" color="primary_white">
-              {page.id === PAGE.length - 1 ? "?" : `0${page.id} ${page.name}`}
+              {page.id === PAGE.length - 1 ? '?' : `0${page.id} ${page.name}`}
             </Text>
             <NavigationDot />
           </NavigationFlag>
         </NavigationItem>
       ))}
       <NavigationLine style={{ scaleX }} />
-      <NavigationLine style={{ transformOrigin: "100%", opacity: "50%" }} />
+      <NavigationLine style={{ transformOrigin: '100%', opacity: '50%' }} />
       <Gradient />
     </NavigationWrapper>
   );
@@ -81,7 +81,7 @@ const NavigationFlag = styled.a<{
   selected: boolean;
 }>`
   width: max-content;
-  padding-bottom: 1.2rem;
+  padding-bottom: 1rem;
 
   display: flex;
   flex-direction: column;
