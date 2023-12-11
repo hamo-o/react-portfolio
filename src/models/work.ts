@@ -23,8 +23,8 @@ export const WORK = [
   {
     id: 2,
     name: "Proxy Debugging",
-    date: "2023. 01. 06 ~ ",
-    link: "",
+    date: "2023. 07. 06 ~ ",
+    link: "https://midi-spade-4a7.notion.site/Charles-with-naver-90781a83819b4dffb535e9a9f193d1fd?pvs=4",
   },
   {
     id: 3,

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styled from "@emotion/styled";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useSetRecoilState } from "recoil";
+import { useRouter } from "next/navigation";
 
 import { cursorState } from "@/utils/atom";
 
@@ -16,6 +17,7 @@ import { Work } from "@/models/work";
 const CardSmall = ({ work, onClick }: { work: Work; onClick?: any }) => {
   const setCursorVariant = useSetRecoilState(cursorState);
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const projectEnter = () => {
     setCursorVariant("project");
@@ -26,57 +28,41 @@ const CardSmall = ({ work, onClick }: { work: Work; onClick?: any }) => {
   };
 
   return (
-    <CardContainer align="start" gap={32}>
-      <CardWrapper
-        onClick={onClick}
-        onMouseEnter={projectEnter}
-        onMouseLeave={projectLeave}
-        onMouseDown={() => setIsOpen(true)}
-        onMouseUp={() => setIsOpen(false)}
+    <CardWrapper onMouseEnter={projectEnter} onMouseLeave={projectLeave}>
+      <Flex
+        height="100%"
+        direction="column"
+        align="end"
+        justify="space-between"
       >
-        <Flex
-          height="100%"
-          direction="column"
-          align="end"
-          justify="space-between"
-        >
-          <Flex direction="column" align="start" gap={10}>
-            <Text
-              typo="number2"
-              color="primary_black"
-              style={{ whiteSpace: "nowrap" }}
-            >
-              {work.date}
-            </Text>
-            <Text typo="subtitle1" color="primary_black">
-              {work.name}
-            </Text>
-          </Flex>
+        <Flex direction="column" align="start" gap={10} onClick={onClick}>
+          <Text
+            typo="number2"
+            color="primary_black"
+            style={{ whiteSpace: "nowrap" }}
+          >
+            {work.date}
+          </Text>
+          <Text
+            typo="subtitle1"
+            color="primary_black"
+            style={{ wordBreak: "keep-all" }}
+          >
+            {work.name}
+          </Text>
+        </Flex>
+        <TextWrapper onClick={() => router.push(work.link)}>
           <Text typo="detail" color="primary_black_60">
             전체 자료 보러가기 ⇢
           </Text>
-        </Flex>
-      </CardWrapper>
-
-      <DetailWrapper width="70vw" direction="column" gap={16}>
-        {work.detail &&
-          work.detail.map((detail, idx) => (
-            <Image
-              width="100%"
-              key={idx}
-              src={`/images/${detail}`}
-              alt={detail}
-            />
-          ))}
-      </DetailWrapper>
-    </CardContainer>
+        </TextWrapper>
+      </Flex>
+    </CardWrapper>
   );
 };
 
-const CardContainer = styled(Flex)``;
-
 const CardWrapper = styled.div`
-  width: 30vw;
+  width: 32rem;
   aspect-ratio: 16/9;
 
   padding: ${calcRem(56)};
@@ -99,12 +85,8 @@ const CardWrapper = styled.div`
   scroll-snap-align: center;
 `;
 
-const CardContent = styled(Flex)``;
-
-const DetailWrapper = styled(Flex)``;
-
-const Image = styled.img`
-  border-radius: 2rem;
+const TextWrapper = styled.div`
+  padding-top: 0.5rem;
 `;
 
 export default CardSmall;
