@@ -72,13 +72,8 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
         </CardsContainer>
         <Detail variants={container} initial="hidden" animate={controls}>
           {selectedWork?.detail?.map((detail, idx) => (
-            <motion.div variants={item}>
-              <Image
-                width="100%"
-                key={idx}
-                src={`/images/${detail}`}
-                alt={detail}
-              />
+            <motion.div key={idx} variants={item}>
+              <Image width="100%" src={`/images/${detail}`} alt={detail} />
             </motion.div>
           ))}
         </Detail>
