@@ -13,6 +13,7 @@ import three_1 from "../../public/images/ppt/3-1.png";
 import three_2 from "../../public/images/ppt/3-2.png";
 
 import four_1 from "../../public/images/ppt/4-1.png";
+import four_2 from "../../public/images/ppt/4-2.png";
 
 export interface Work {
   id: number;
@@ -49,7 +50,7 @@ export const WORK = [
     name: "웹개편",
     date: "2022. 09. 13 ~ 2023. 11. 22",
     link: undefined,
-    detail: [four_1],
+    detail: [four_1, four_2],
   },
 ];
 Object.freeze(WORK);
