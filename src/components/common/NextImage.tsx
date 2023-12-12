@@ -1,7 +1,9 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
+import { useImage } from "@/hooks/useImage";
 
 import Flex from "./Flex";
+import { colors } from "@/styles/theme";
 
 interface ImageProp {
   src: string;
@@ -10,9 +12,11 @@ interface ImageProp {
   height?: number | string;
   borderRadius?: string;
   objectFit?: "cover" | "contain";
+  objectPosition?: "top left";
 }
 
 const NextImage = (image: ImageProp) => {
+  const loaded = useImage(image.src);
   return (
     <ImageContianer
       width={
@@ -31,15 +35,20 @@ const NextImage = (image: ImageProp) => {
       }
       style={{ borderRadius: image.borderRadius ? image.borderRadius : 0 }}
     >
-      <ImageContent
-        src={image.src}
-        alt={image.alt}
-        blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-        placeholder="blur"
-        fill
-        sizes="100vw"
-        objectFit={image.objectFit ? image.objectFit : "cover"}
-      />
+      {loaded ? (
+        <ImageContent
+          src={image.src}
+          alt={image.alt}
+          blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          placeholder="blur"
+          fill
+          sizes="100vw"
+          objectFit={image.objectFit ? image.objectFit : "cover"}
+          objectPosition={image.objectPosition}
+        />
+      ) : (
+        <MockImage />
+      )}
     </ImageContianer>
   );
 };
@@ -49,8 +58,19 @@ const ImageContianer = styled(Flex)`
   position: relative;
 `;
 
-const ImageContent = styled(Image)<{ objectFit: "cover" | "contain" }>`
+const ImageContent = styled(Image)<{
+  objectFit: "cover" | "contain";
+  objectPosition?: "top left";
+}>`
   object-fit: ${({ objectFit }) => objectFit};
+  object-position: ${({ objectPosition }) => objectPosition};
+`;
+
+const MockImage = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background: ${colors.primary_white_60};
 `;
 
 export default NextImage;

@@ -21,6 +21,7 @@ import NextImage from "@/components/common/NextImage";
 import CardSmall from "@/components/cards/CardSmall";
 import { WORK, Work } from "@/models/work";
 import { container, item } from "@/constants/animate";
+import { useImage } from "@/hooks/useImage";
 
 const WorkDetailPage = ({ params }: { params: { id: number } }) => {
   const resetCursor = useResetRecoilState(cursorState);
@@ -41,8 +42,8 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
 
   const controls = useAnimationControls();
   useEffect(() => {
-    controls.start("show");
     scrollUp();
+    controls.start("show");
   }, [workId, controls]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -56,6 +57,8 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
       behavior: "smooth",
     });
   };
+
+  const loadedURL = useImage(selectedWork?.detail[0]);
 
   return (
     <WorkDetailWrapper height="100vh" direction="column">
@@ -88,7 +91,12 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
           <AnimatePresence>
             {selectedWork?.detail?.map((detail, idx) => (
               <ImageCover key={idx} variants={item}>
-                <Image width="100%" src={`/images/${detail}`} alt={detail} />
+                <NextImage
+                  width="100%"
+                  src={`/images/${detail}`}
+                  alt={detail}
+                  objectPosition="top left"
+                />
               </ImageCover>
             ))}
           </AnimatePresence>
