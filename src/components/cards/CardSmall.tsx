@@ -67,7 +67,7 @@ const CardSmall = ({
         </Flex>
         {work.link && (
           <TextWrapper
-            onClick={() => router.push(work.link)}
+            onClick={() => work.link && router.push(work.link)}
             initial={{ color: colors.primary_black_60 }}
             whileHover={{
               color: selected ? colors.primary_yellow : colors.primary_black_60,
@@ -84,7 +84,7 @@ const CardSmall = ({
 const CardWrapper = styled(motion.div)`
   width: 24vw;
   min-width: 400px;
-  aspect-ratio: 14/9;
+  aspect-ratio: 12/9;
 
   padding: ${calcRem(56)};
 

@@ -10,18 +10,14 @@ import {
   useScroll,
   useAnimationControls,
 } from "framer-motion";
-import { useRouter } from "next/navigation";
 
 import { cursorState } from "@/utils/atom";
 
 import Flex from "@/components/common/Flex";
-import Text from "@/components/common/Text";
-import { colors } from "@/styles/theme";
 import TopNavigation from "@/components/navigations/TopNavigation";
 import NextImage from "@/components/common/NextImage";
 import CardSmall from "@/components/cards/CardSmall";
 import { WORK, Work } from "@/models/work";
-import Spacing from "@/components/common/Spacing";
 import { container, item } from "@/constants/animate";
 
 const WorkDetailPage = ({ params }: { params: { id: number } }) => {
@@ -53,10 +49,10 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
   return (
     <WorkDetailWrapper height="100vh" direction="column">
       <TopNavigation title="여기어때 QA팀 인턴" />
-      <WorkDetailContent align="start" gap={32} ref={scrollRef}>
+      <WorkDetailContent align="start" justify="end" gap={32} ref={scrollRef}>
         <CardsContainer
           width="max-content"
-          height="100%"
+          height="100vh"
           justify="start"
           direction="column"
           gap={32}
@@ -89,26 +85,28 @@ const WorkDetailWrapper = styled(Flex)`
 
 const WorkDetailContent = styled(Flex)`
   padding: 6rem 0;
-  overflow-y: scroll;
 `;
 
 const CardsContainer = styled(Flex)`
-  padding-top: 0.5rem;
+  padding: 6.5rem 0 6rem;
   position: sticky;
-  top: 0;
+  left: 0;
+  top: 6rem;
+
+  overflow-y: scroll;
 `;
 
-const ImageContainer = styled(Flex)``;
-
 const Detail = styled(motion.div)`
-  width: 70vw;
+  width: calc(100% - 24vw - 3rem);
+  height: 100vh;
+  padding: 6.5rem 0 6rem;
 
   display: flex;
   flex-direction: column;
   justify-content: start;
   gap: 32px;
 
-  padding-top: 0.5rem;
+  overflow-y: scroll;
 `;
 
 const Image = styled.img`
