@@ -39,8 +39,6 @@ const NextImage = (image: ImageProp) => {
         <ImageContent
           src={image.src}
           alt={image.alt}
-          blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-          placeholder="blur"
           fill
           sizes="100vw"
           objectFit={image.objectFit ? image.objectFit : "cover"}
@@ -70,7 +68,7 @@ const MockImage = styled.div`
   width: 100%;
   height: 100%;
 
-  background: ${colors.primary_white_60};
+  background: ${colors.primary_black_60};
 `;
 
 export default NextImage;
