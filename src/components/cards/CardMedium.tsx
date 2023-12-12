@@ -47,10 +47,10 @@ const CardMedium = ({
         style={{
           width: isOpen ? "94vw" : "auto",
           height: isOpen ? "90vh" : "64vh",
-          padding: isOpen ? "6rem" : "0",
+          padding: isOpen ? "5rem" : "0",
           position: isOpen ? "fixed" : "static",
           zIndex: isOpen ? "1000" : "0",
-          gap: isOpen ? "3rem" : "0",
+          gap: isOpen ? "2.5rem" : "0",
           background: isOpen ? colors.primary_purple : "none",
         }}
       >
@@ -59,9 +59,14 @@ const CardMedium = ({
           width={isOpen ? "max-content" : "100%"}
           height="100%"
           justify={isOpen ? "start" : "space-between"}
-          gap={isOpen ? 60 : 0}
+          gap={isOpen ? 40 : 0}
         >
-          <Flex direction="column" align="left" gap={20}>
+          <Flex
+            direction="column"
+            align="left"
+            gap={20}
+            style={{ padding: isOpen ? "0 1rem" : "0" }}
+          >
             <Icon icon="Star" fill="primary_yellow" width={60} height={60} />
             <Text typo="title1">{project.name}</Text>
             <Text typo="number" style={{ whiteSpace: "nowrap" }}>
@@ -202,6 +207,7 @@ const CardDetail = styled(motion.div)`
 `;
 
 const CardContent = styled(Flex)`
+  max-height: max-content;
   border-radius: 2rem;
 `;
 
