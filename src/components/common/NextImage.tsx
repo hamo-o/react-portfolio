@@ -1,12 +1,11 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import styled from "@emotion/styled";
-import { useImage } from "@/hooks/useImage";
 
 import Flex from "./Flex";
 import { colors } from "@/styles/theme";
 
 interface ImageProp {
-  src: string;
+  src: StaticImageData | string;
   alt: string;
   width?: number | string;
   height?: number | string;
@@ -16,7 +15,6 @@ interface ImageProp {
 }
 
 const NextImage = (image: ImageProp) => {
-  const loaded = useImage(image.src);
   return (
     <ImageContianer
       width={
@@ -35,18 +33,15 @@ const NextImage = (image: ImageProp) => {
       }
       style={{ borderRadius: image.borderRadius ? image.borderRadius : 0 }}
     >
-      {loaded ? (
-        <ImageContent
-          src={image.src}
-          alt={image.alt}
-          fill
-          sizes="100vw"
-          objectFit={image.objectFit ? image.objectFit : "cover"}
-          objectPosition={image.objectPosition}
-        />
-      ) : (
-        <MockImage />
-      )}
+      <ImageContent
+        src={image.src}
+        alt={image.alt}
+        placeholder="blur"
+        fill
+        sizes="100vw"
+        objectFit={image.objectFit ? image.objectFit : "cover"}
+        objectPosition={image.objectPosition}
+      />
     </ImageContianer>
   );
 };

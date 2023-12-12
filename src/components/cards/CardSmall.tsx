@@ -1,6 +1,6 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import styled from "@emotion/styled";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import { useSetRecoilState } from "recoil";
 import { useRouter } from "next/navigation";
 
@@ -8,8 +8,6 @@ import { cursorState } from "@/utils/atom";
 
 import Flex from "../common/Flex";
 import Text from "../common/Text";
-import NextImage from "../common/NextImage";
-import Icon from "../icons/Icon";
 
 import { calcRem, colors } from "@/styles/theme";
 import { Work } from "@/models/work";

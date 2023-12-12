@@ -90,8 +90,8 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
               <ImageCover key={idx} variants={item}>
                 <NextImage
                   width="100%"
-                  src={`/images/${detail}`}
-                  alt={detail}
+                  src={detail}
+                  alt={`${selectedWork.name}_${idx}`}
                   objectPosition="top left"
                 />
               </ImageCover>
