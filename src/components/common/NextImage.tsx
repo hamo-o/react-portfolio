@@ -34,6 +34,8 @@ const NextImage = (image: ImageProp) => {
       <ImageContent
         src={image.src}
         alt={image.alt}
+        blurDataURL={image.src}
+        placeholder="blur"
         fill
         sizes="100vw"
         objectFit={image.objectFit ? image.objectFit : "cover"}

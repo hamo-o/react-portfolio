@@ -162,9 +162,11 @@ const CardMedium = ({
           </CardContent>
         </Flex>
         {isOpen && (
-          <ImageWrapper>
-            <Image src={`/images/${project.thumnail}`} alt={project.name} />
-          </ImageWrapper>
+          <NextImage
+            src={`/images/${project.thumnail}`}
+            alt={project.name}
+            borderRadius="2rem"
+          />
         )}
       </CardDetail>
     </CardWrapper>
