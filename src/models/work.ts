@@ -2,7 +2,7 @@ export interface Work {
   id: number;
   name: string;
   date: string;
-  link: string;
+  link: string | undefined;
   detail?: string[];
 }
 
@@ -29,10 +29,17 @@ export const WORK = [
   },
   {
     id: 3,
+    name: "Postman으로 Test Script 작성하기",
+    date: "2022. 07. 13 ~ 2023. 07. 19",
+    link: "https://midi-spade-4a7.notion.site/Postman-09c01d3ae8514a5194e587c8fde47baa?pvs=4",
+    detail: ["ppt/3-1.png", "ppt/3-2.png"],
+  },
+  {
+    id: 4,
     name: "웹개편",
     date: "2022. 09. 13 ~ 2023. 11. 22",
     link: undefined,
-    detail: ["ppt/3-1.png"],
+    detail: ["ppt/4-1.png"],
   },
 ];
 Object.freeze(WORK);
