@@ -93,12 +93,7 @@ const CardPage = () => {
   }, [debounceScroll]);
 
   return (
-    <CardWrapper
-      id="project"
-      direction="column"
-      align="start"
-      justify="space-between"
-    >
+    <CardWrapper id="project" direction="column" align="start" gap={64}>
       <Text
         typo="body1"
         color="primary_white"
@@ -184,7 +179,7 @@ const CardWrapper = styled(Flex)`
 `;
 
 const Cards = styled(Flex)`
-  padding-bottom: 6rem;
+  padding-bottom: 4rem;
 
   overflow-x: scroll;
   overflow-y: hidden;
