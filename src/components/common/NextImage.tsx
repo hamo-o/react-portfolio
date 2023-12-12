@@ -34,7 +34,7 @@ const NextImage = (image: ImageProp) => {
       <ImageContent
         src={image.src}
         alt={image.alt}
-        blurDataURL={image.src}
+        blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
         placeholder="blur"
         fill
         sizes="100vw"
