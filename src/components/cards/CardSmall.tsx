@@ -65,11 +65,17 @@ const CardSmall = ({
             {work.name}
           </Text>
         </Flex>
-        <TextWrapper onClick={() => router.push(work.link)}>
-          <Text typo="detail" color="primary_black_60">
-            전체 자료 보러가기 ⇢
-          </Text>
-        </TextWrapper>
+        {work.link && (
+          <TextWrapper
+            onClick={() => router.push(work.link)}
+            initial={{ color: colors.primary_black_60 }}
+            whileHover={{
+              color: selected ? colors.primary_yellow : colors.primary_black_60,
+            }}
+          >
+            <Text typo="detail">전체 자료 보러가기 ⇢</Text>
+          </TextWrapper>
+        )}
       </Flex>
     </CardWrapper>
   );
@@ -100,7 +106,7 @@ const CardWrapper = styled(motion.div)`
   scroll-snap-align: center;
 `;
 
-const TextWrapper = styled.div`
+const TextWrapper = styled(motion.div)`
   padding-top: 0.5rem;
 `;
 

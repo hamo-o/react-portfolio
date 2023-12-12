@@ -68,7 +68,7 @@ const CardMedium = ({
             </Text>
           </Flex>
           <CardContent direction="column" align="start" gap={40}>
-            <Flex direction="column" align="left" gap={12}>
+            <Flex direction="column" align="left" gap={10}>
               {isOpen && (
                 <Text typo="body2" color="primary_black">
                   사용 기술
@@ -106,7 +106,7 @@ const CardMedium = ({
                 width="max-content"
                 direction="column"
                 align="left"
-                gap={12}
+                gap={10}
               >
                 <Text typo="body2" color="primary_black">
                   프로젝트 소개
@@ -129,7 +129,7 @@ const CardMedium = ({
                 width="max-content"
                 direction="column"
                 align="left"
-                gap={12}
+                gap={10}
               >
                 <Text typo="body2" color="primary_black">
                   수행 역할
