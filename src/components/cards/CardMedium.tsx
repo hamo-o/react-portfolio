@@ -50,13 +50,14 @@ const CardMedium = ({
           padding: isOpen ? "6rem" : "0",
           position: isOpen ? "fixed" : "static",
           zIndex: isOpen ? "1000" : "0",
-          gap: isOpen ? "6rem" : "0",
+          gap: isOpen ? "3rem" : "0",
           background: isOpen ? colors.primary_purple : "none",
         }}
       >
         <Flex
           direction="column"
-          width={isOpen ? "fit-content" : "100%"}
+          width={isOpen ? "max-content" : "100%"}
+          height="100%"
           justify={isOpen ? "start" : "space-between"}
           gap={isOpen ? 60 : 0}
         >
@@ -67,7 +68,17 @@ const CardMedium = ({
               {project.date}
             </Text>
           </Flex>
-          <CardContent direction="column" align="start" gap={40}>
+          <CardContent
+            direction="column"
+            align="start"
+            justify={isOpen ? "start" : "end"}
+            height="100%"
+            gap={40}
+            style={{
+              background: isOpen ? colors.primary_white_60 : "none",
+              padding: isOpen ? "2rem" : "0",
+            }}
+          >
             <Flex direction="column" align="left" gap={10}>
               {isOpen && (
                 <Text typo="body2" color="primary_black">
@@ -87,7 +98,7 @@ const CardMedium = ({
                       key={idx}
                       content={stack}
                       color="primary_black_60"
-                      background="primary_white_30"
+                      background="primary_purple_30"
                     />
                   ) : (
                     <Text
@@ -191,7 +202,7 @@ const CardDetail = styled(motion.div)`
 `;
 
 const CardContent = styled(Flex)`
-  max-width: 50vw;
+  border-radius: 2rem;
 `;
 
 const ImageWrapper = styled.div`
