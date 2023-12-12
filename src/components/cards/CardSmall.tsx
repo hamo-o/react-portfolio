@@ -102,8 +102,6 @@ const CardWrapper = styled(motion.div)`
   );
 
   cursor: pointer;
-
-  scroll-snap-align: center;
 `;
 
 const TextWrapper = styled(motion.div)`
