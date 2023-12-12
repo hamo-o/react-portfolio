@@ -21,7 +21,6 @@ import NextImage from "@/components/common/NextImage";
 import CardSmall from "@/components/cards/CardSmall";
 import { WORK, Work } from "@/models/work";
 import { container, item } from "@/constants/animate";
-import { useImage } from "@/hooks/useImage";
 
 const WorkDetailPage = ({ params }: { params: { id: number } }) => {
   const resetCursor = useResetRecoilState(cursorState);
@@ -57,8 +56,6 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
       behavior: "smooth",
     });
   };
-
-  const loadedURL = useImage(selectedWork?.detail[0]);
 
   return (
     <WorkDetailWrapper height="100vh" direction="column">
