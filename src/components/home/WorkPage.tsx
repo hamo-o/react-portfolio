@@ -8,11 +8,19 @@ import Text from "../common/Text";
 import Icon from "../icons/Icon";
 
 import { colors } from "@/styles/theme";
-import { pageState } from "@/utils/atom";
+import { cursorState } from "@/utils/atom";
 
 const WorkPage = () => {
   const router = useRouter();
-  const setPage = useSetRecoilState(pageState);
+  const setCursorVariant = useSetRecoilState(cursorState);
+
+  const projectEnter = () => {
+    setCursorVariant("project");
+  };
+
+  const projectLeave = () => {
+    setCursorVariant("default");
+  };
 
   return (
     <WorkWrapper
@@ -31,7 +39,11 @@ const WorkPage = () => {
         Work
       </Text>
       <Works height="100%">
-        <IconWrapper onClick={() => router.push("/work/1")}>
+        <IconWrapper
+          onMouseEnter={projectEnter}
+          onMouseLeave={projectLeave}
+          onClick={() => router.push("/work/1")}
+        >
           <Gradient />
           <Icon icon="Start" fill="primary_purple" />
         </IconWrapper>

@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
-import { useSetRecoilState } from 'recoil';
+import { useState } from "react";
+import styled from "@emotion/styled";
+import { motion } from "framer-motion";
+import { useSetRecoilState } from "recoil";
 
-import { cursorState } from '@/utils/atom';
+import { cursorState } from "@/utils/atom";
 
-import Flex from '../common/Flex';
-import Text from '../common/Text';
-import NextImage from '../common/NextImage';
-import Icon from '../icons/Icon';
-import TagSmall from '../tags/TagSmall';
+import Flex from "../common/Flex";
+import Text from "../common/Text";
+import NextImage from "../common/NextImage";
+import Icon from "../icons/Icon";
+import TagSmall from "../tags/TagSmall";
 
-import { calcRem, colors } from '@/styles/theme';
-import { Project } from '@/models/project';
+import { calcRem, colors } from "@/styles/theme";
+import { Project } from "@/models/project";
 
 const CardMedium = ({
   project,
@@ -25,11 +25,11 @@ const CardMedium = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const projectEnter = () => {
-    setCursorVariant('project');
+    setCursorVariant("project");
   };
 
   const projectLeave = () => {
-    setCursorVariant('default');
+    setCursorVariant("default");
     setIsOpen(false);
   };
 
@@ -45,25 +45,25 @@ const CardMedium = ({
         layout
         onClick={onClick}
         style={{
-          width: isOpen ? '94vw' : 'auto',
-          height: isOpen ? '90vh' : '64vh',
-          padding: isOpen ? '6rem' : '0',
-          position: isOpen ? 'fixed' : 'static',
-          zIndex: isOpen ? '1000' : '0',
-          gap: isOpen ? '6rem' : '0',
-          background: isOpen ? colors.primary_purple : 'none',
+          width: isOpen ? "94vw" : "auto",
+          height: isOpen ? "90vh" : "64vh",
+          padding: isOpen ? "6rem" : "0",
+          position: isOpen ? "fixed" : "static",
+          zIndex: isOpen ? "1000" : "0",
+          gap: isOpen ? "6rem" : "0",
+          background: isOpen ? colors.primary_purple : "none",
         }}
       >
         <Flex
           direction="column"
-          width={isOpen ? 'fit-content' : '100%'}
-          justify={isOpen ? 'start' : 'space-between'}
+          width={isOpen ? "fit-content" : "100%"}
+          justify={isOpen ? "start" : "space-between"}
           gap={isOpen ? 60 : 0}
         >
           <Flex direction="column" align="left" gap={20}>
-            <Icon icon="Star" fill="primary_yellow" width={65} />
+            <Icon icon="Star" fill="primary_yellow" width={60} height={60} />
             <Text typo="title1">{project.name}</Text>
-            <Text typo="number" style={{ whiteSpace: 'nowrap' }}>
+            <Text typo="number" style={{ whiteSpace: "nowrap" }}>
               {project.date}
             </Text>
           </Flex>
@@ -75,11 +75,11 @@ const CardMedium = ({
                 </Text>
               )}
               <Flex
-                direction={isOpen ? 'row' : 'column'}
+                direction={isOpen ? "row" : "column"}
                 align="start"
                 justify="start"
                 gap={isOpen ? 8 : 20}
-                style={{ flexWrap: 'wrap' }}
+                style={{ flexWrap: "wrap" }}
               >
                 {project.stack.map((stack: string, idx: number) =>
                   isOpen ? (
@@ -92,7 +92,7 @@ const CardMedium = ({
                   ) : (
                     <Text
                       key={idx}
-                      typo={isOpen ? 'body3' : 'number'}
+                      typo={isOpen ? "body3" : "number"}
                       color="primary_black_60"
                     >
                       {stack}
