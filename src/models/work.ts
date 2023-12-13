@@ -17,6 +17,9 @@ import three_2 from "../../public/images/ppt/3-2.png";
 import four_1 from "../../public/images/ppt/4-1.png";
 import four_2 from "../../public/images/ppt/4-2.png";
 
+import five_1 from "../../public/images/ppt/5-1.png";
+import five_2 from "../../public/images/ppt/5-2.png";
+
 export interface Work {
   id: number;
   name: string;
@@ -32,6 +35,13 @@ export const WORK = [
     date: "2023. 07. 19 ~ 2023. 08. 18",
     link: "https://www.figma.com/proto/BrKduaL6lHN2qNWgEoowm9/E2E-%ED%85%8C%EC%8A%A4%ED%8A%B8(UI-%ED%85%8C%EC%8A%A4%ED%8A%B8)-%EC%99%80-Selenium-IDE?page-id=0%3A1&type=design&node-id=1-54&viewport=558%2C7178%2C0.26&t=CkCpWTXzcQMQgmZg-1&scaling=contain&mode=design",
     detail: [one_1, one_6, one_7, one_2, one_3, one_4, one_5],
+  },
+  {
+    id: 5,
+    name: "테스트 설계 기법",
+    date: "",
+    link: "https://midi-spade-4a7.notion.site/fc20511a53f341a5821af97a4159f546?pvs=4",
+    detail: [five_1, five_2],
   },
   {
     id: 2,
