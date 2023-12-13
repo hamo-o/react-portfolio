@@ -4,6 +4,8 @@ import one_2 from "../../public/images/ppt/1-2.png";
 import one_3 from "../../public/images/ppt/1-3.png";
 import one_4 from "../../public/images/ppt/1-4.png";
 import one_5 from "../../public/images/ppt/1-5.png";
+import one_6 from "../../public/images/ppt/1-6.png";
+import one_7 from "../../public/images/ppt/1-7.png";
 
 import two_1 from "../../public/images/ppt/2-1.png";
 import two_2 from "../../public/images/ppt/2-2.png";
@@ -29,7 +31,7 @@ export const WORK = [
     name: "Selenium IDE로 웹 UI 테스트 하기",
     date: "2023. 07. 19 ~ 2023. 08. 18",
     link: "https://www.figma.com/proto/BrKduaL6lHN2qNWgEoowm9/E2E-%ED%85%8C%EC%8A%A4%ED%8A%B8(UI-%ED%85%8C%EC%8A%A4%ED%8A%B8)-%EC%99%80-Selenium-IDE?page-id=0%3A1&type=design&node-id=1-54&viewport=558%2C7178%2C0.26&t=CkCpWTXzcQMQgmZg-1&scaling=contain&mode=design",
-    detail: [one_1, one_2, one_3, one_4, one_5],
+    detail: [one_1, one_6, one_7, one_2, one_3, one_4, one_5],
   },
   {
     id: 2,
