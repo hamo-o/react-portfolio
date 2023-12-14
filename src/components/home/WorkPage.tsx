@@ -7,7 +7,7 @@ import Flex from "../common/Flex";
 import Text from "../common/Text";
 import Icon from "../icons/Icon";
 
-import { colors } from "@/styles/theme";
+import { colors, media } from "@/styles/theme";
 import { cursorState } from "@/utils/atom";
 
 const WorkPage = () => {
@@ -62,6 +62,10 @@ const WorkWrapper = styled(Flex)`
   background: ${colors.primary_black};
 
   position: relative;
+
+  ${media.mobile} {
+    padding: 3rem 2rem 6rem;
+  }
 `;
 
 const Works = styled(Flex)`

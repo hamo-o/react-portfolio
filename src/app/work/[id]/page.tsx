@@ -21,6 +21,8 @@ import NextImage from "@/components/common/NextImage";
 import CardSmall from "@/components/cards/CardSmall";
 import { WORK, Work } from "@/models/work";
 import { container, item } from "@/constants/animate";
+import { colors, media } from "@/styles/theme";
+import { MOBILE } from "@/constants/size";
 
 const WorkDetailPage = ({ params }: { params: { id: number } }) => {
   const resetCursor = useResetRecoilState(cursorState);
@@ -62,11 +64,11 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
       <TopNavigation title="여기어때 QA팀 인턴" />
       <WorkDetailContent align="start" justify="end" gap={32}>
         <CardsContainer
-          width="max-content"
-          height="100vh"
+          width={windowSize.width > MOBILE ? "max-content" : "100%"}
+          height={windowSize.width > MOBILE ? "100vh" : "auto"}
           justify="start"
-          direction="column"
-          gap={32}
+          direction={windowSize.width > MOBILE ? "column" : "row"}
+          gap={windowSize.width > MOBILE ? 32 : 20}
         >
           {WORK.map((work: Work) => (
             <CardSmall
@@ -106,10 +108,20 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
 const WorkDetailWrapper = styled(Flex)`
   padding: 0 6rem;
   overflow: hidden;
+
+  ${media.mobile} {
+    padding: 0 2rem;
+  }
 `;
 
 const WorkDetailContent = styled(Flex)`
   padding: 6rem 0;
+
+  ${media.mobile} {
+    flex-direction: column;
+
+    overflow-y: scroll;
+  }
 `;
 
 const CardsContainer = styled(Flex)`
@@ -119,6 +131,21 @@ const CardsContainer = styled(Flex)`
   top: 6rem;
 
   overflow-y: scroll;
+
+  ${media.mobile} {
+    padding: 0.5rem 2rem 1rem;
+
+    position: fixed;
+    top: 68px;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    background: ${colors.primary_black_60};
+    backdrop-filter: blur(4px);
+
+    z-index: 1;
+  }
 `;
 
 const Detail = styled(motion.div)`
@@ -134,6 +161,19 @@ const Detail = styled(motion.div)`
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+
+  ${media.mobile} {
+    width: 100%;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    padding: 18rem 2rem 2rem;
+
+    gap: 16px;
+  }
 `;
 
 const ImageCover = styled(motion.div)`
@@ -146,6 +186,10 @@ const ImageCover = styled(motion.div)`
 
   overflow: hidden;
   scroll-snap-align: center;
+
+  ${media.mobile} {
+    border-radius: 1rem;
+  }
 `;
 
 const Image = styled.img`
