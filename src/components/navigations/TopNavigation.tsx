@@ -56,17 +56,12 @@ const NavigationWrapper = styled(Flex)`
   top: 0;
   z-index: 999;
 
-  background: linear-gradient(
-    to bottom,
-    ${colors.primary_black},
-    ${colors.primary_black_60}
-  );
-
+  background: ${colors.primary_black_60};
   backdrop-filter: blur(4px);
 
   ${media.mobile} {
-    height: 80px;
-    padding: 0 3rem;
+    height: 68px;
+    padding: 0 2rem;
   }
 `;
 
