@@ -9,6 +9,7 @@ import { cursorState, pageState } from "@/utils/atom";
 import { mouseVariants } from "@/constants/animate";
 import { spring } from "@/constants/animate";
 import PageTransform from "./PageTransform";
+import { MOBILE } from "@/constants/size";
 
 interface Position {
   x: number;
@@ -30,7 +31,7 @@ const Cursor = ({ position }: { position: Position }) => {
 
   return (
     <>
-      {window.width >= 992 && (
+      {window.width > MOBILE && (
         <CursorWrapper
           variants={mouseVariants(position)}
           animate={variant}

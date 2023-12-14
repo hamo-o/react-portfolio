@@ -1,8 +1,9 @@
 import { colors } from "./colors";
 import { typo } from "./typo";
+import { MOBILE } from "@/constants/size";
 
 export const media = {
-  mobile: "@media (max-width: 991px)",
+  mobile: `@media (max-width: ${MOBILE}px)`,
 };
 
 export interface TypeOfTheme {
