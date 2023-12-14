@@ -191,7 +191,7 @@ const CardWrapper = styled(Flex)`
   position: relative;
 
   ${media.mobile} {
-    padding: 3rem 2rem 10rem;
+    padding: 3rem 2rem 8rem;
   }
 `;
 
