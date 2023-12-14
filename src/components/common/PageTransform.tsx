@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 
 import Flex from "./Flex";
 import { colors } from "@/styles/theme";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import { MOBILE } from "@/constants/size";
 
 interface Position {
   x: number;
@@ -10,11 +12,17 @@ interface Position {
 }
 
 const PageTransform = ({ position }: { position: Position }) => {
+  const window = useWindowSize();
+
   return (
     <PageBackground width="100vw" height="100vh">
       <MotionCircle
         initial={{ width: "4rem", height: "4rem", borderWidth: "20rem" }}
-        animate={{ width: "200vw", height: "200vw", borderWidth: "1rem" }}
+        animate={{
+          width: window.width > MOBILE ? "200vw" : "200vh",
+          height: window.width > MOBILE ? "200vw" : "200vh",
+          borderWidth: "1rem",
+        }}
         transition={{ duration: 1, type: "tween" }}
         position={position}
       />
