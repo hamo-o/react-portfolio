@@ -1,13 +1,13 @@
-import styled from '@emotion/styled';
-import { motion, useSpring } from 'framer-motion';
-import { useSetRecoilState, useRecoilValue } from 'recoil';
+import styled from "@emotion/styled";
+import { motion, useSpring } from "framer-motion";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 
-import { cursorState } from '@/utils/atom';
-import { PAGE } from '@/models/page';
+import { cursorState } from "@/utils/atom";
+import { PAGE } from "@/models/page";
 
-import Flex from '../common/Flex';
-import { KeyOfColor, colors } from '@/styles/theme';
-import Text from '../common/Text';
+import Flex from "../common/Flex";
+import { KeyOfColor, colors, media } from "@/styles/theme";
+import Text from "../common/Text";
 
 const BottomNavigation = ({
   progress,
@@ -19,11 +19,11 @@ const BottomNavigation = ({
   const setCursorVariant = useSetRecoilState(cursorState);
 
   const projectEnter = () => {
-    setCursorVariant('navigation');
+    setCursorVariant("navigation");
   };
 
   const projectLeave = () => {
-    setCursorVariant('default');
+    setCursorVariant("default");
   };
 
   const handleClickMenu = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
@@ -31,7 +31,7 @@ const BottomNavigation = ({
     const MemuData = (e.target as HTMLAnchorElement).hash;
     const IdMatchedPage = document.querySelector(MemuData);
 
-    IdMatchedPage?.scrollIntoView({ behavior: 'smooth' });
+    IdMatchedPage?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scaleX = useSpring(motion, {
@@ -54,14 +54,14 @@ const BottomNavigation = ({
             }
           >
             <Text typo="number2" color="primary_white">
-              {page.id === PAGE.length - 1 ? '?' : `0${page.id} ${page.name}`}
+              {page.id === PAGE.length - 1 ? "?" : `0${page.id} ${page.name}`}
             </Text>
             <NavigationDot />
           </NavigationFlag>
         </NavigationItem>
       ))}
       <NavigationLine style={{ scaleX }} />
-      <NavigationLine style={{ transformOrigin: '100%', opacity: '50%' }} />
+      <NavigationLine style={{ transformOrigin: "100%", opacity: "50%" }} />
       <Gradient />
     </NavigationWrapper>
   );
@@ -69,6 +69,10 @@ const BottomNavigation = ({
 
 const NavigationWrapper = styled(Flex)`
   padding: 0 6rem;
+
+  ${media.mobile} {
+    padding: 0 3rem;
+  }
 
   position: fixed;
   bottom: 0;
@@ -116,6 +120,11 @@ const NavigationLine = styled(motion.div)`
   overflow: hidden;
 
   z-index: 2;
+
+  ${media.mobile} {
+    width: calc(100% - 6rem);
+    left: 3rem;
+  }
 `;
 
 const Gradient = styled.div`
