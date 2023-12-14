@@ -13,6 +13,7 @@ const reset = css`
   body {
     width: 100%;
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     background: ${colors.primary_black};
     overflow: hidden;
   }
