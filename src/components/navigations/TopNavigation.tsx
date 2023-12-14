@@ -4,9 +4,11 @@ import { useSetRecoilState } from "recoil";
 import { cursorState } from "@/utils/atom";
 
 import Flex from "../common/Flex";
-import { KeyOfColor, colors } from "@/styles/theme";
+import { KeyOfColor, colors, media } from "@/styles/theme";
 import Text from "../common/Text";
 import Icon from "../icons/Icon";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import { MOBILE } from "@/constants/size";
 
 interface TopNavProp {
   title: string;
@@ -24,13 +26,15 @@ const TopNavigation = ({ title }: TopNavProp) => {
     setCursorVariant("default");
   };
 
+  const window = useWindowSize();
+
   return (
     <NavigationWrapper height={100} justify="space-between">
       <IconWrapper>
         <Icon
           icon="ArrowRight"
-          width={35}
-          height={35}
+          width={window.width > MOBILE ? 35 : 25}
+          height={window.width > MOBILE ? 35 : 25}
           rotate={180}
           fill="primary_white"
           onClick={() => router.back()}
@@ -59,6 +63,11 @@ const NavigationWrapper = styled(Flex)`
   );
 
   backdrop-filter: blur(4px);
+
+  ${media.mobile} {
+    height: 80px;
+    padding: 0 3rem;
+  }
 `;
 
 const IconWrapper = styled.div`
