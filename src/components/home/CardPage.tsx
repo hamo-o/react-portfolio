@@ -16,8 +16,10 @@ import Icon from "../icons/Icon";
 
 import CardMedium from "@/components/cards/CardMedium";
 import { PROJECT, Project } from "@/models/project";
-import { colors } from "@/styles/theme";
+import { colors, media } from "@/styles/theme";
 import { floating } from "@/constants/animate";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import { MOBILE } from "@/constants/size";
 
 type DirectionType = "left" | "right";
 
@@ -33,6 +35,8 @@ const CardPage = () => {
 
   const [showLeft, setShowLeft] = useState<boolean>(false);
   const [showRight, setShowRight] = useState<boolean>(true);
+
+  const window = useWindowSize();
 
   const handleClickNavigate = (e: any, id: number) => {
     e.preventDefault();
@@ -93,7 +97,12 @@ const CardPage = () => {
   }, [debounceScroll]);
 
   return (
-    <CardWrapper id="project" direction="column" align="start" gap={64}>
+    <CardWrapper
+      id="project"
+      direction="column"
+      align="start"
+      gap={window.width <= MOBILE ? 32 : 64}
+    >
       <Text
         typo="body1"
         color="primary_white"
@@ -114,53 +123,57 @@ const CardPage = () => {
             onClick={(e: any) => handleClickNavigate(e, project.id)}
           />
         ))}
-        <AnimatePresence>
-          {showLeft && (
-            <Slider
-              direction="right"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <Gradient direction="right" />
-              <IconWrapper
-                initial={floating.initial}
-                animate={floating.animate}
-                transition={floating.transition}
-                onClick={handleClickScrollLeft}
-                style={{ left: "5rem" }}
-              >
-                <Icon
-                  icon="ArrowRight"
-                  width={80}
-                  fill="primary_purple"
-                  rotate={180}
-                />
-              </IconWrapper>
-            </Slider>
-          )}
-        </AnimatePresence>
-        <AnimatePresence>
-          {showRight && (
-            <Slider
-              direction="left"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <Gradient direction="left" />
-              <IconWrapper
-                initial={floating.initial}
-                animate={floating.animate}
-                transition={floating.transition}
-                onClick={handleClickScrollRight}
-                style={{ right: "5rem" }}
-              >
-                <Icon icon="ArrowRight" width={80} fill="primary_purple" />
-              </IconWrapper>
-            </Slider>
-          )}
-        </AnimatePresence>
+        {window.width > MOBILE && (
+          <>
+            <AnimatePresence>
+              {showLeft && (
+                <Slider
+                  direction="right"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <Gradient direction="right" />
+                  <IconWrapper
+                    initial={floating.initial}
+                    animate={floating.animate}
+                    transition={floating.transition}
+                    onClick={handleClickScrollLeft}
+                    style={{ left: "5rem" }}
+                  >
+                    <Icon
+                      icon="ArrowRight"
+                      width={80}
+                      fill="primary_purple"
+                      rotate={180}
+                    />
+                  </IconWrapper>
+                </Slider>
+              )}
+            </AnimatePresence>
+            <AnimatePresence>
+              {showRight && (
+                <Slider
+                  direction="left"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <Gradient direction="left" />
+                  <IconWrapper
+                    initial={floating.initial}
+                    animate={floating.animate}
+                    transition={floating.transition}
+                    onClick={handleClickScrollRight}
+                    style={{ right: "5rem" }}
+                  >
+                    <Icon icon="ArrowRight" width={80} fill="primary_purple" />
+                  </IconWrapper>
+                </Slider>
+              )}
+            </AnimatePresence>
+          </>
+        )}
       </Cards>
     </CardWrapper>
   );
@@ -176,6 +189,10 @@ const CardWrapper = styled(Flex)`
   background: ${colors.primary_black};
 
   position: relative;
+
+  ${media.mobile} {
+    padding: 3rem 3rem 6rem;
+  }
 `;
 
 const Cards = styled(Flex)`
@@ -184,6 +201,13 @@ const Cards = styled(Flex)`
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
+
+  ${media.mobile} {
+    flex-direction: column;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 `;
 
 const Slider = styled(motion.div)<{ direction: DirectionType }>`
