@@ -144,6 +144,8 @@ const CardsContainer = styled(Flex)`
     top: 68px;
 
     overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     overflow-y: hidden;
 
     background: ${colors.primary_black_60};

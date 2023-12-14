@@ -118,6 +118,8 @@ const CardWrapper = styled(motion.div)`
     padding: ${calcRem(30)};
 
     border-radius: 1.5rem;
+
+    scroll-snap-align: center;
   }
 `;
 

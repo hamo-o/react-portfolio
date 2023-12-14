@@ -42,7 +42,15 @@ const TopNavigation = ({ title }: TopNavProp) => {
           onMouseLeave={handleMouseLeave}
         />
       </IconWrapper>
-      <Text typo="subtitle1" color="primary_white">
+      <Text
+        typo="subtitle1"
+        color="primary_white"
+        style={{
+          width: window.width >= MOBILE ? "auto" : "100%",
+          textAlign: "center",
+          paddingRight: window.width >= MOBILE ? 0 : "1rem",
+        }}
+      >
         {title}
       </Text>
     </NavigationWrapper>
