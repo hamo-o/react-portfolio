@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { colors } from "./theme";
+import { colors, media } from "./theme";
 
 const reset = css`
   * {
@@ -189,6 +189,13 @@ const reset = css`
 
   input:focus {
     outline: none;
+  }
+
+  ${media.mobile} {
+    html,
+    body {
+      font-size: 80%;
+    }
   }
 `;
 

@@ -1,14 +1,8 @@
 import { colors } from "./colors";
-import { typo, calcRem } from "./typo";
-
-export const customMediaQuery = (minWidth: number): string =>
-  `@media (min-width: ${calcRem(minWidth)}rem)`;
+import { typo } from "./typo";
 
 export const media = {
-  custom: customMediaQuery,
-  desktop: customMediaQuery(992),
-  tablet: customMediaQuery(768),
-  mobile: `@media (max-width : 767px)`,
+  mobile: "@media (max-width: 991px)",
 };
 
 export interface TypeOfTheme {
