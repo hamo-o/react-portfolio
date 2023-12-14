@@ -76,6 +76,7 @@ const InfoWrapper = styled(Flex)`
     gap: 2rem;
 
     left: 1rem;
+    border-radius: 3rem 3rem 0 0;
   }
 `;
 

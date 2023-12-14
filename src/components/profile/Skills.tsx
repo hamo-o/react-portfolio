@@ -118,6 +118,8 @@ const InfoContent = styled(Flex)`
     padding: 2rem 3rem;
     flex-direction: column;
     gap: 2rem;
+
+    border-radius: 3rem 3rem 0 0;
   }
 `;
 

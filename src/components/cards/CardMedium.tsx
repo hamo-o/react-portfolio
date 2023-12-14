@@ -50,11 +50,18 @@ const CardMedium = ({
         onClick={onClick}
         style={{
           width: window.width <= MOBILE ? "100%" : isOpen ? "94vw" : "auto",
-          height: window.width <= MOBILE ? "100%" : isOpen ? "90vh" : "64vh",
+          height:
+            window.width <= MOBILE
+              ? isOpen
+                ? "100vh"
+                : "100%"
+              : isOpen
+              ? "90vh"
+              : "64vh",
           padding: window.width <= MOBILE ? "2rem" : isOpen ? "4rem" : "0",
           position: isOpen ? "fixed" : "static",
           zIndex: isOpen ? "1000" : "0",
-          gap: isOpen ? "2.5rem" : "0",
+          gap: isOpen ? (window.width > MOBILE ? "2.5rem" : "1.5rem") : "0",
           background: isOpen ? colors.primary_purple : "none",
         }}
       >
@@ -197,11 +204,13 @@ const CardMedium = ({
           </CardContent>
         </Flex>
         {isOpen && (
-          <NextImage
-            src={project.thumnail}
-            alt={project.name}
-            borderRadius="2rem"
-          />
+          <ImageWrapper>
+            <NextImage
+              src={project.thumnail}
+              alt={project.name}
+              borderRadius="2rem"
+            />
+          </ImageWrapper>
         )}
       </CardDetail>
     </CardWrapper>
@@ -232,10 +241,10 @@ const CardWrapper = styled.div`
 
   ${media.mobile} {
     width: 100%;
-    height: "auto";
-    min-height: 50%;
+    min-height: 35vh;
 
     padding: 0.5rem;
+    overflow-y: scroll;
   }
 `;
 
@@ -251,11 +260,14 @@ const CardDetail = styled(motion.div)`
   left: 3vw;
 
   ${media.mobile} {
+    min-height: 100%;
+
     border-radius: 0;
     top: 0;
     left: 0;
 
     flex-direction: column;
+    overflow-y: scroll;
   }
 `;
 
@@ -272,15 +284,9 @@ const ImageWrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  border-radius: 2rem;
-  overflow: hidden;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
+  ${media.mobile} {
+    min-height: 50%;
+  }
 `;
 
 export default CardMedium;

@@ -110,7 +110,10 @@ const CardWrapper = styled(motion.div)`
   ${media.mobile} {
     min-width: 280px;
     height: 140px;
+    min-height: max-content;
     padding: ${calcRem(30)};
+
+    border-radius: 1rem;
   }
 `;
 

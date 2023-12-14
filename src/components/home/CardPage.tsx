@@ -191,7 +191,7 @@ const CardWrapper = styled(Flex)`
   position: relative;
 
   ${media.mobile} {
-    padding: 3rem 2rem 6rem;
+    padding: 3rem 2rem 10rem;
   }
 `;
 
@@ -203,6 +203,7 @@ const Cards = styled(Flex)`
   scroll-snap-type: x mandatory;
 
   ${media.mobile} {
+    padding-bottom: 0;
     flex-direction: column;
 
     overflow-y: scroll;
