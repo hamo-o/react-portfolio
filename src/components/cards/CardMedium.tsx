@@ -11,8 +11,10 @@ import NextImage from "../common/NextImage";
 import Icon from "../icons/Icon";
 import TagSmall from "../tags/TagSmall";
 
-import { calcRem, colors } from "@/styles/theme";
+import { calcRem, colors, media } from "@/styles/theme";
 import { Project } from "@/models/project";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import { MOBILE } from "@/constants/size";
 
 const CardMedium = ({
   project,
@@ -33,9 +35,11 @@ const CardMedium = ({
     setIsOpen(false);
   };
 
+  const window = useWindowSize();
+
   return (
     <CardWrapper
-      onClick={onClick}
+      onClick={window.width > MOBILE ? onClick : () => setIsOpen(true)}
       onMouseEnter={projectEnter}
       onMouseLeave={projectLeave}
       onMouseDown={() => setIsOpen(true)}
@@ -45,9 +49,9 @@ const CardMedium = ({
         layout
         onClick={onClick}
         style={{
-          width: isOpen ? "94vw" : "auto",
-          height: isOpen ? "90vh" : "64vh",
-          padding: isOpen ? "4rem" : "0",
+          width: window.width <= MOBILE ? "100%" : isOpen ? "94vw" : "auto",
+          height: window.width <= MOBILE ? "100%" : isOpen ? "90vh" : "64vh",
+          padding: window.width <= MOBILE ? "2rem" : isOpen ? "4rem" : "0",
           position: isOpen ? "fixed" : "static",
           zIndex: isOpen ? "1000" : "0",
           gap: isOpen ? "2.5rem" : "0",
@@ -56,20 +60,49 @@ const CardMedium = ({
       >
         <Flex
           direction="column"
-          width={isOpen ? "max-content" : "100%"}
+          width={isOpen && window.width > MOBILE ? "max-content" : "100%"}
           height="100%"
           justify={isOpen ? "start" : "space-between"}
-          gap={isOpen ? 40 : 0}
+          gap={isOpen || window.width <= MOBILE ? 40 : 0}
         >
           <Flex
             direction="column"
             align="left"
-            gap={20}
+            gap={window.width > MOBILE ? 20 : 10}
             style={{ padding: isOpen ? "0 1rem" : "0" }}
           >
-            <Icon icon="Star" fill="primary_yellow" width={60} height={60} />
-            <Text typo="title1">{project.name}</Text>
-            <Text typo="number" style={{ whiteSpace: "nowrap" }}>
+            <Flex justify="space-between">
+              <Icon
+                icon="Star"
+                fill="primary_yellow"
+                width={window.width > MOBILE ? 60 : 35}
+                height={window.width > MOBILE ? 60 : 35}
+              />
+              {isOpen && window.width <= MOBILE && (
+                <Icon
+                  icon="Cancel"
+                  width={20}
+                  height={20}
+                  fill="primary_white_60"
+                  onClick={() => setIsOpen(false)}
+                />
+              )}
+            </Flex>
+            <Text
+              typo="title1"
+              style={{
+                fontSize: window.width <= MOBILE ? "4rem" : "",
+              }}
+            >
+              {project.name}
+            </Text>
+
+            <Text
+              typo="number"
+              style={{
+                whiteSpace: window.width > MOBILE ? "nowrap" : "normal",
+              }}
+            >
               {project.date}
             </Text>
           </Flex>
@@ -78,7 +111,7 @@ const CardMedium = ({
             align="start"
             justify={isOpen ? "start" : "end"}
             height="100%"
-            gap={40}
+            gap={window.width > MOBILE ? 40 : 20}
             style={{
               background: isOpen ? colors.primary_white_60 : "none",
               padding: isOpen ? "2rem" : "0",
@@ -91,19 +124,21 @@ const CardMedium = ({
                 </Text>
               )}
               <Flex
-                direction={isOpen ? "row" : "column"}
+                direction={isOpen || window.width <= MOBILE ? "row" : "column"}
                 align="start"
                 justify="start"
-                gap={isOpen ? 8 : 20}
+                gap={isOpen || window.width <= MOBILE ? 8 : 20}
                 style={{ flexWrap: "wrap" }}
               >
                 {project.stack.map((stack: string, idx: number) =>
-                  isOpen ? (
+                  isOpen || window.width <= MOBILE ? (
                     <TagSmall
                       key={idx}
                       content={stack}
                       color="primary_black_60"
-                      background="primary_purple_30"
+                      background={
+                        isOpen ? "primary_purple_30" : "primary_white_30"
+                      }
                     />
                   ) : (
                     <Text
@@ -119,7 +154,7 @@ const CardMedium = ({
             </Flex>
             {isOpen && project.explanation.length ? (
               <Flex
-                width="max-content"
+                width={window.width <= MOBILE ? "100%" : "max-content"}
                 direction="column"
                 align="left"
                 gap={10}
@@ -142,7 +177,7 @@ const CardMedium = ({
             )}
             {isOpen && project.role && (
               <Flex
-                width="max-content"
+                width={window.width > MOBILE ? "max-content" : "100%"}
                 direction="column"
                 align="left"
                 gap={10}
@@ -194,6 +229,14 @@ const CardWrapper = styled.div`
   cursor: pointer;
 
   scroll-snap-align: center;
+
+  ${media.mobile} {
+    width: 100%;
+    height: "auto";
+    min-height: 50%;
+
+    padding: 0.5rem;
+  }
 `;
 
 const CardDetail = styled(motion.div)`
@@ -206,11 +249,23 @@ const CardDetail = styled(motion.div)`
 
   top: 5vh;
   left: 3vw;
+
+  ${media.mobile} {
+    border-radius: 0;
+    top: 0;
+    left: 0;
+
+    flex-direction: column;
+  }
 `;
 
 const CardContent = styled(Flex)`
   max-height: max-content;
   border-radius: 2rem;
+
+  ${media.mobile} {
+    width: 100%;
+  }
 `;
 
 const ImageWrapper = styled.div`
