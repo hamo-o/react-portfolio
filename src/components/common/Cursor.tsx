@@ -4,6 +4,7 @@ import { color, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useRecoilValue } from "recoil";
 
+import { useWindowSize } from "@/hooks/useWindowSize";
 import { cursorState, pageState } from "@/utils/atom";
 import { mouseVariants } from "@/constants/animate";
 import { spring } from "@/constants/animate";
@@ -18,6 +19,7 @@ const Cursor = ({ position }: { position: Position }) => {
   const variant = useRecoilValue(cursorState);
   const [show, setShow] = useState<boolean>(false);
   const path = usePathname();
+  const window = useWindowSize();
 
   useEffect(() => {
     setShow(true);
@@ -28,11 +30,13 @@ const Cursor = ({ position }: { position: Position }) => {
 
   return (
     <>
-      <CursorWrapper
-        variants={mouseVariants(position)}
-        animate={variant}
-        transition={spring}
-      />
+      {window.width >= 992 && (
+        <CursorWrapper
+          variants={mouseVariants(position)}
+          animate={variant}
+          transition={spring}
+        />
+      )}
       {show && <PageTransform position={{ x: position.x, y: position.y }} />}
     </>
   );
