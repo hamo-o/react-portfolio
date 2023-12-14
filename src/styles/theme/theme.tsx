@@ -1,8 +1,8 @@
 import { colors } from "./colors";
-import { typo } from "./typo";
+import { typo, calcRem } from "./typo";
 
 export const customMediaQuery = (minWidth: number): string =>
-  `@media (min-width: ${minWidth}px)`;
+  `@media (min-width: ${calcRem(minWidth)}rem)`;
 
 export const media = {
   custom: customMediaQuery,
