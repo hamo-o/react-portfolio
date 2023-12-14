@@ -5,3 +5,4 @@ export { default as ArrowRight } from "./ArrowRight";
 export { default as Start } from "./Start";
 export { default as Github } from "./Github";
 export { default as Mail } from "./Mail";
+export { default as Cancel } from "./Cancel";
