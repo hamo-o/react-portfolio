@@ -1,5 +1,6 @@
 "use client";
 
+import styled from "@emotion/styled";
 import { Global } from "@emotion/react";
 import { RecoilRoot } from "recoil";
 import { useRef, useEffect } from "react";
@@ -32,12 +33,20 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Head />
         <body ref={mouseRef}>
           <Cursor position={{ x: mouseXPosition, y: mouseYPosition }} />
-          {children}
+          <DefaultLayout>{children}</DefaultLayout>
           <Global styles={reset} />
         </body>
       </html>
     </RecoilRoot>
   );
 };
+
+const DefaultLayout = styled.div`
+  width: 100%;
+  height: 100vh;
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available;
+  }
+`;
 
 export default RootLayout;
