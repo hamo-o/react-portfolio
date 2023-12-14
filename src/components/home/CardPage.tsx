@@ -101,7 +101,7 @@ const CardPage = () => {
       id="project"
       direction="column"
       align="start"
-      gap={window.width <= MOBILE ? 32 : 64}
+      gap={window.width < MOBILE ? 32 : 64}
     >
       <Text
         typo="body1"
@@ -123,7 +123,7 @@ const CardPage = () => {
             onClick={(e: any) => handleClickNavigate(e, project.id)}
           />
         ))}
-        {window.width > MOBILE && (
+        {window.width >= MOBILE && (
           <>
             <AnimatePresence>
               {showLeft && (

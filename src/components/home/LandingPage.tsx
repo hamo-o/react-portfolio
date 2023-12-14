@@ -23,8 +23,8 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
     enterDelay: 100,
     leaveDelay: 100,
   });
-  let mouseXPosition: number = window.width > MOBILE ? 0 : 600;
-  let mouseYPosition: number = window.width > MOBILE ? 0 : 500;
+  let mouseXPosition: number = window.width >= MOBILE ? 0 : 600;
+  let mouseYPosition: number = window.width >= MOBILE ? 0 : 500;
 
   if (mouse.clientX !== null) {
     mouseXPosition = mouse.clientX;
@@ -48,15 +48,15 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
     <LandingWrapper
       id="intro"
       direction="column"
-      gap={window.width > MOBILE ? 64 : 16}
+      gap={window.width >= MOBILE ? 64 : 16}
       ref={mouseRef}
     >
-      <Flex gap={window.width > MOBILE ? 64 : 0}>
-        <Eyes gap={window.width > MOBILE ? 16 : 0}>
+      <Flex gap={window.width >= MOBILE ? 64 : 0}>
+        <Eyes gap={window.width >= MOBILE ? 16 : 0}>
           <Eye>
             <Icon
               icon="Eye"
-              width={window.width > MOBILE ? 250 : 160}
+              width={window.width >= MOBILE ? 250 : 160}
               fill="primary_white"
               style={css`
                 position: absolute;
@@ -64,7 +64,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
             />
             <Icon
               icon="Eyeball"
-              width={window.width > MOBILE ? 169 : 110}
+              width={window.width >= MOBILE ? 169 : 110}
               fill="primary_black"
               style={css`
                 position: absolute;
@@ -79,7 +79,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
           <Eye>
             <Icon
               icon="Eye"
-              width={window.width > MOBILE ? 250 : 160}
+              width={window.width >= MOBILE ? 250 : 160}
               fill="primary_white"
               style={css`
                 position: absolute;
@@ -87,7 +87,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
             />
             <Icon
               icon="Eyeball"
-              width={window.width > MOBILE ? 169 : 110}
+              width={window.width >= MOBILE ? 169 : 110}
               fill="primary_black"
               style={css`
                 position: absolute;
@@ -100,7 +100,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
             <Gradient />
           </Eye>
         </Eyes>
-        {window.width > MOBILE && (
+        {window.width >= MOBILE && (
           <IconWrapper
             initial={floating.initial}
             animate={floating.animate}
@@ -112,7 +112,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
             <Gradient />
             <Icon
               icon="ArrowRight"
-              width={window.width > MOBILE ? 100 : 50}
+              width={window.width >= MOBILE ? 100 : 50}
               fill="primary_yellow"
             />
           </IconWrapper>

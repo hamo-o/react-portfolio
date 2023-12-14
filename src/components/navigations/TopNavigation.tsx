@@ -33,8 +33,8 @@ const TopNavigation = ({ title }: TopNavProp) => {
       <IconWrapper>
         <Icon
           icon="ArrowRight"
-          width={window.width > MOBILE ? 35 : 25}
-          height={window.width > MOBILE ? 35 : 25}
+          width={window.width >= MOBILE ? 35 : 25}
+          height={window.width >= MOBILE ? 35 : 25}
           rotate={180}
           fill="primary_white"
           onClick={() => router.back()}

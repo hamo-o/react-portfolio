@@ -19,8 +19,8 @@ const PageTransform = ({ position }: { position: Position }) => {
       <MotionCircle
         initial={{ width: "4rem", height: "4rem", borderWidth: "20rem" }}
         animate={{
-          width: window.width > MOBILE ? "200vw" : "200vh",
-          height: window.width > MOBILE ? "200vw" : "200vh",
+          width: window.width >= MOBILE ? "200vw" : "200vh",
+          height: window.width >= MOBILE ? "200vw" : "200vh",
           borderWidth: "1rem",
         }}
         transition={{ duration: 1, type: "tween" }}

@@ -62,8 +62,8 @@ const CardSmall = ({
             typo="subtitle1"
             color="primary_black"
             style={{
-              wordBreak: window.width > MOBILE ? "keep-all" : "break-word",
-              fontSize: window.width > MOBILE ? "" : "1.3rem",
+              wordBreak: window.width >= MOBILE ? "keep-all" : "break-word",
+              fontSize: window.width >= MOBILE ? "" : "1.3rem",
             }}
           >
             {work.name}
@@ -86,11 +86,15 @@ const CardSmall = ({
 };
 
 const CardWrapper = styled(motion.div)`
-  width: 24vw;
-  min-width: 400px;
-  aspect-ratio: 12/9;
+  flex-shrink: 0;
 
-  padding: ${calcRem(56)};
+  width: 22vw;
+  min-width: 280px;
+  min-height: 180px;
+
+  aspect-ratio: 14/9;
+
+  padding: ${calcRem(40)};
 
   display: flex;
   flex-direction: column;
@@ -113,7 +117,7 @@ const CardWrapper = styled(motion.div)`
     min-height: max-content;
     padding: ${calcRem(30)};
 
-    border-radius: 1rem;
+    border-radius: 1.5rem;
   }
 `;
 

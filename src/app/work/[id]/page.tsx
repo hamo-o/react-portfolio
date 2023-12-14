@@ -62,13 +62,18 @@ const WorkDetailPage = ({ params }: { params: { id: number } }) => {
   return (
     <WorkDetailWrapper height="100vh" direction="column">
       <TopNavigation title="여기어때 QA팀 인턴" />
-      <WorkDetailContent align="start" justify="end" gap={32}>
+      <WorkDetailContent
+        direction={windowSize.width >= MOBILE ? "row" : "column"}
+        align="start"
+        justify="end"
+        gap={32}
+      >
         <CardsContainer
-          width={windowSize.width > MOBILE ? "max-content" : "100%"}
-          height={windowSize.width > MOBILE ? "100vh" : "auto"}
+          width={windowSize.width >= MOBILE ? "max-content" : "100%"}
+          height={windowSize.width >= MOBILE ? "100vh" : "auto"}
           justify="start"
-          direction={windowSize.width > MOBILE ? "column" : "row"}
-          gap={windowSize.width > MOBILE ? 32 : 20}
+          direction={windowSize.width >= MOBILE ? "column" : "row"}
+          gap={windowSize.width >= MOBILE ? 32 : 20}
         >
           {WORK.map((work: Work) => (
             <CardSmall
@@ -118,17 +123,17 @@ const WorkDetailContent = styled(Flex)`
   padding: 6rem 0;
 
   ${media.mobile} {
-    flex-direction: column;
-
     overflow-y: scroll;
   }
 `;
 
 const CardsContainer = styled(Flex)`
+  min-width: 280px;
+
   padding: 6.5rem 0 6rem;
   position: sticky;
   left: 0;
-  top: 6rem;
+  top: 0;
 
   overflow-y: scroll;
 
@@ -149,7 +154,7 @@ const CardsContainer = styled(Flex)`
 `;
 
 const Detail = styled(motion.div)`
-  width: calc(100% - 24vw - 3rem);
+  width: calc(100% - 22vw - 2rem);
   height: 100vh;
   padding: 6.5rem 0 6rem;
 

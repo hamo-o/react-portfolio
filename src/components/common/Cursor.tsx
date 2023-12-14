@@ -31,7 +31,7 @@ const Cursor = ({ position }: { position: Position }) => {
 
   return (
     <>
-      {window.width > MOBILE && (
+      {window.width >= MOBILE && (
         <CursorWrapper
           variants={mouseVariants(position)}
           animate={variant}

@@ -39,7 +39,7 @@ const CardMedium = ({
 
   return (
     <CardWrapper
-      onClick={window.width > MOBILE ? onClick : () => setIsOpen(true)}
+      onClick={window.width >= MOBILE ? onClick : () => setIsOpen(true)}
       onMouseEnter={projectEnter}
       onMouseLeave={projectLeave}
       onMouseDown={() => setIsOpen(true)}
@@ -49,43 +49,43 @@ const CardMedium = ({
         layout
         onClick={onClick}
         style={{
-          width: window.width <= MOBILE ? "100%" : isOpen ? "94vw" : "auto",
+          width: window.width < MOBILE ? "100%" : isOpen ? "94vw" : "auto",
           height:
-            window.width <= MOBILE
+            window.width < MOBILE
               ? isOpen
                 ? "100vh"
                 : "100%"
               : isOpen
               ? "90vh"
               : "64vh",
-          padding: window.width <= MOBILE ? "2rem" : isOpen ? "4rem" : "0",
+          padding: window.width < MOBILE ? "2rem" : isOpen ? "4rem" : "0",
           position: isOpen ? "fixed" : "static",
           zIndex: isOpen ? "1000" : "0",
-          gap: isOpen ? (window.width > MOBILE ? "2.5rem" : "1.5rem") : "0",
+          gap: isOpen ? (window.width >= MOBILE ? "2.5rem" : "1.5rem") : "0",
           background: isOpen ? colors.primary_purple : "none",
         }}
       >
         <Flex
           direction="column"
-          width={isOpen && window.width > MOBILE ? "max-content" : "100%"}
+          width={isOpen && window.width >= MOBILE ? "max-content" : "100%"}
           height="100%"
           justify={isOpen ? "start" : "space-between"}
-          gap={isOpen || window.width <= MOBILE ? 40 : 0}
+          gap={isOpen || window.width < MOBILE ? 40 : 0}
         >
           <Flex
             direction="column"
             align="left"
-            gap={window.width > MOBILE ? 20 : 10}
+            gap={window.width >= MOBILE ? 20 : 10}
             style={{ padding: isOpen ? "0 1rem" : "0" }}
           >
             <Flex justify="space-between">
               <Icon
                 icon="Star"
                 fill="primary_yellow"
-                width={window.width > MOBILE ? 60 : 35}
-                height={window.width > MOBILE ? 60 : 35}
+                width={window.width >= MOBILE ? 60 : 35}
+                height={window.width >= MOBILE ? 60 : 35}
               />
-              {isOpen && window.width <= MOBILE && (
+              {isOpen && window.width < MOBILE && (
                 <Icon
                   icon="Cancel"
                   width={20}
@@ -98,7 +98,7 @@ const CardMedium = ({
             <Text
               typo="title1"
               style={{
-                fontSize: window.width <= MOBILE ? "4rem" : "",
+                fontSize: window.width < MOBILE ? "4rem" : "",
               }}
             >
               {project.name}
@@ -107,7 +107,7 @@ const CardMedium = ({
             <Text
               typo="number"
               style={{
-                whiteSpace: window.width > MOBILE ? "nowrap" : "normal",
+                whiteSpace: window.width >= MOBILE ? "nowrap" : "normal",
               }}
             >
               {project.date}
@@ -118,7 +118,7 @@ const CardMedium = ({
             align="start"
             justify={isOpen ? "start" : "end"}
             height="100%"
-            gap={window.width > MOBILE ? 40 : 20}
+            gap={window.width >= MOBILE ? 40 : 20}
             style={{
               background: isOpen ? colors.primary_white_60 : "none",
               padding: isOpen ? "2rem" : "0",
@@ -131,14 +131,14 @@ const CardMedium = ({
                 </Text>
               )}
               <Flex
-                direction={isOpen || window.width <= MOBILE ? "row" : "column"}
+                direction={isOpen || window.width < MOBILE ? "row" : "column"}
                 align="start"
                 justify="start"
-                gap={isOpen || window.width <= MOBILE ? 8 : 20}
+                gap={isOpen || window.width < MOBILE ? 8 : 20}
                 style={{ flexWrap: "wrap" }}
               >
                 {project.stack.map((stack: string, idx: number) =>
-                  isOpen || window.width <= MOBILE ? (
+                  isOpen || window.width < MOBILE ? (
                     <TagSmall
                       key={idx}
                       content={stack}
@@ -161,7 +161,7 @@ const CardMedium = ({
             </Flex>
             {isOpen && project.explanation.length ? (
               <Flex
-                width={window.width <= MOBILE ? "100%" : "max-content"}
+                width={window.width < MOBILE ? "100%" : "max-content"}
                 direction="column"
                 align="left"
                 gap={10}
@@ -184,7 +184,7 @@ const CardMedium = ({
             )}
             {isOpen && project.role && (
               <Flex
-                width={window.width > MOBILE ? "max-content" : "100%"}
+                width={window.width >= MOBILE ? "max-content" : "100%"}
                 direction="column"
                 align="left"
                 gap={10}
