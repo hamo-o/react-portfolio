@@ -2,12 +2,13 @@
 
 import { Global } from "@emotion/react";
 import { RecoilRoot } from "recoil";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import useMouse from "@react-hook/mouse-position";
 
 import Head from "./head";
 import reset from "@/styles/globalStyles";
 import Cursor from "@/components/common/Cursor";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const mouseRef = useRef(null);
@@ -25,6 +26,19 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   if (mouse.clientY !== null) {
     mouseYPosition = mouse.clientY;
   }
+
+  const windowSize = useWindowSize();
+
+  const setVh = () => {
+    document.documentElement.style.setProperty(
+      "--vh",
+      `${window.innerHeight}px`
+    );
+  };
+
+  useEffect(() => {
+    setVh();
+  }, [windowSize]);
 
   return (
     <RecoilRoot>

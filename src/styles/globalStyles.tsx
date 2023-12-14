@@ -7,13 +7,15 @@ const reset = css`
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     user-select: none;
     -webkit-touch-callout: none;
+
+    --vh: 100%;
   }
 
   html,
   body {
     width: 100%;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
+    height: 100vh;
+    height: var(--vh);
     background: ${colors.primary_black};
     overflow: hidden;
   }
