@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Flex from "../common/Flex";
 import Text from "../common/Text";
 import Line from "../common/Line";
-import { colors } from "@/styles/theme";
+import { colors, media } from "@/styles/theme";
 
 const AboutMe = () => {
   return (
@@ -69,6 +69,14 @@ const InfoWrapper = styled(Flex)`
     ${colors.primary_purple} 50%,
     ${colors.primary_purple_60}
   );
+
+  ${media.mobile} {
+    padding: 2rem 3rem;
+    flex-direction: column;
+    gap: 2rem;
+
+    left: 1rem;
+  }
 `;
 
 export default AboutMe;

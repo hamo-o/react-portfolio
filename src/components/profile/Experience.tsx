@@ -4,7 +4,7 @@ import Flex from "../common/Flex";
 import Text from "../common/Text";
 import Line from "../common/Line";
 
-import { colors } from "@/styles/theme";
+import { colors, media } from "@/styles/theme";
 
 const Experience = () => {
   return (
@@ -129,6 +129,12 @@ const ExperienceContent = styled(Flex)`
     ${colors.primary_yellow},
     ${colors.primary_yellow_60}
   );
+
+  ${media.mobile} {
+    padding: 2rem 3rem 8rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
 `;
 
 const Background1 = styled.div`
@@ -144,6 +150,10 @@ const Background1 = styled.div`
   position: absolute;
   left: 2rem;
   top: 0;
+
+  ${media.mobile} {
+    left: 1rem;
+  }
 `;
 
 const Background2 = styled.div`
@@ -156,7 +166,7 @@ const Background2 = styled.div`
   );
 
   position: absolute;
-  left: -2rem;
+  left: -1rem;
   top: 0;
 `;
 

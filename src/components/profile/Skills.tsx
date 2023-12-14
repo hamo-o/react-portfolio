@@ -5,12 +5,12 @@ import Text from "../common/Text";
 import Icon from "../icons/Icon";
 import TagSmall from "../tags/TagSmall";
 
-import { colors } from "@/styles/theme";
+import { colors, media } from "@/styles/theme";
 
 const Skills = () => {
   return (
     <InfoWrapper align="start" justify="space-between">
-      <InfoContent>
+      <InfoContent align="start">
         <Text
           typo="body1"
           color="primary_black"
@@ -18,7 +18,12 @@ const Skills = () => {
         >
           Skills
         </Text>
-        <Flex min-width="max-content" gap={8} style={{ flexWrap: "wrap" }}>
+        <Flex
+          min-width="max-content"
+          justify="start"
+          gap={8}
+          style={{ flexWrap: "wrap" }}
+        >
           <TagSmall
             content="C"
             background="primary_black"
@@ -94,7 +99,7 @@ const Skills = () => {
 
 const InfoWrapper = styled(Flex)`
   position: relative;
-  left: -2rem;
+  left: -1rem;
 `;
 
 const InfoContent = styled(Flex)`
@@ -108,6 +113,12 @@ const InfoContent = styled(Flex)`
     ${colors.primary_white_60} 50%,
     ${colors.primary_white_30}
   );
+
+  ${media.mobile} {
+    padding: 2rem 3rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
 `;
 
 const Background = styled.div`
@@ -117,8 +128,12 @@ const Background = styled.div`
   background: ${colors.primary_purple_60};
 
   position: absolute;
-  left: 4rem;
+  left: 3rem;
   top: 0;
+
+  ${media.mobile} {
+    left: 2rem;
+  }
 `;
 
 export default Skills;
