@@ -4,12 +4,10 @@ import {
   motion,
   useScroll,
   useSpring,
-  AnimatePresence,
   useMotionValueEvent,
 } from "framer-motion";
-import useDebounce from "@/hooks/useDebounce";
 
-import { colors } from "@/styles/theme";
+import { colors, media } from "@/styles/theme";
 
 import Skills from "../profile/Skills";
 import AboutMe from "../profile/AboutMe";
@@ -85,6 +83,10 @@ const ProfileWrapper = styled(motion.div)`
   scroll-behavior: smooth;
 
   background: ${colors.primary_black};
+
+  ${media.mobile} {
+    padding: 2rem 2rem 0;
+  }
 `;
 
 const ItemWrapper = styled(motion.div)``;
