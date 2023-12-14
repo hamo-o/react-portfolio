@@ -54,7 +54,7 @@ const CardMedium = ({
             window.width < MOBILE
               ? isOpen
                 ? "100vh"
-                : "100%"
+                : "max-content"
               : isOpen
               ? "90vh"
               : "64vh",
@@ -130,7 +130,7 @@ const CardMedium = ({
                   사용 기술
                 </Text>
               )}
-              <Flex
+              <Tags
                 direction={isOpen || window.width < MOBILE ? "row" : "column"}
                 align="start"
                 justify="start"
@@ -157,7 +157,7 @@ const CardMedium = ({
                     </Text>
                   )
                 )}
-              </Flex>
+              </Tags>
             </Flex>
             {isOpen && project.explanation.length ? (
               <Flex
@@ -241,7 +241,11 @@ const CardWrapper = styled.div`
 
   ${media.mobile} {
     width: 100%;
-    min-height: 35vh;
+    height: fit-content;
+    min-height: 300px;
+    aspect-ratio: auto;
+
+    flex-shrink: 0;
 
     padding: 0.5rem;
     overflow-y: scroll;
@@ -279,6 +283,8 @@ const CardContent = styled(Flex)`
     width: 100%;
   }
 `;
+
+const Tags = styled(Flex)``;
 
 const ImageWrapper = styled.div`
   width: 100%;

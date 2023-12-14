@@ -120,7 +120,11 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
       </Flex>
       <Flex direction="column" height="20vh" justify="space-between">
         <Flex direction="column">
-          <Text typo="body1" color="primary_white">
+          <Text
+            typo="body1"
+            color="primary_white"
+            style={{ textAlign: "center" }}
+          >
             Hello world!
           </Text>
           <Text typo="body1" color="primary_white">
