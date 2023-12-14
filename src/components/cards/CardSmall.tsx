@@ -9,9 +9,11 @@ import { cursorState } from "@/utils/atom";
 import Flex from "../common/Flex";
 import Text from "../common/Text";
 
-import { calcRem, colors } from "@/styles/theme";
+import { calcRem, colors, media } from "@/styles/theme";
 import { Work } from "@/models/work";
 import { selectedVairants } from "@/constants/animate";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import { MOBILE } from "@/constants/size";
 
 const CardSmall = ({
   work,
@@ -25,6 +27,7 @@ const CardSmall = ({
   const setCursorVariant = useSetRecoilState(cursorState);
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const window = useWindowSize();
 
   const projectEnter = () => {
     setCursorVariant("project");
@@ -58,7 +61,10 @@ const CardSmall = ({
           <Text
             typo="subtitle1"
             color="primary_black"
-            style={{ wordBreak: "keep-all" }}
+            style={{
+              wordBreak: window.width > MOBILE ? "keep-all" : "break-word",
+              fontSize: window.width > MOBILE ? "" : "1.3rem",
+            }}
           >
             {work.name}
           </Text>
@@ -100,6 +106,12 @@ const CardWrapper = styled(motion.div)`
   );
 
   cursor: pointer;
+
+  ${media.mobile} {
+    min-width: 280px;
+    height: 140px;
+    padding: ${calcRem(30)};
+  }
 `;
 
 const TextWrapper = styled(motion.div)`
