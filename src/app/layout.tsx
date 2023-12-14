@@ -43,10 +43,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 
 const DefaultLayout = styled.div`
   width: 100%;
-  height: 100vh;
-  @supports (-webkit-touch-callout: none) {
-    height: -webkit-fill-available;
-  }
+  min-height: -webkit-fill-available;
 `;
 
 export default RootLayout;
