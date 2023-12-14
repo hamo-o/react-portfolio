@@ -85,7 +85,7 @@ const ProfileWrapper = styled(motion.div)`
   background: ${colors.primary_black};
 
   ${media.mobile} {
-    padding: 2rem 2rem 0;
+    padding: 3rem 2rem 0;
   }
 `;
 
