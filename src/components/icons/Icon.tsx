@@ -21,6 +21,7 @@ interface Props {
   onMouseLeave?: any;
   onTouchEnd?: any;
   selected?: boolean;
+  readable?: boolean;
 }
 
 const Icon = ({
@@ -39,6 +40,7 @@ const Icon = ({
   onMouseLeave,
   onTouchEnd,
   selected,
+  readable,
 }: Props) => {
   const IconComponent = icons[icon];
 
@@ -53,7 +55,7 @@ const Icon = ({
       fill={fill}
       color={color}
       styles={style}
-      aria-label={icon}
+      aria-label={readable ? icon : ''}
     >
       <IconComponent />
     </IconWrapper>
