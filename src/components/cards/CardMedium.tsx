@@ -44,17 +44,6 @@ const CardMedium = ({
     setCursorVariant('default');
   };
 
-  const handleFocusModal = (e: any) => {
-    if (e.keyCode === 9 && isOpen) {
-      e.preventDefault();
-      if (!e.shiftKey) {
-        wrapperRef.current && wrapperRef.current.focus();
-      } else {
-        lastRef.current && lastRef.current.focus();
-      }
-    }
-  };
-
   const window = useWindowSize();
 
   useEffect(() => {
@@ -69,10 +58,10 @@ const CardMedium = ({
         onClick={() => setIsOpen(!isOpen)}
         onMouseEnter={projectEnter}
         onMouseLeave={projectLeave}
-        onKeyDown={handleFocusModal}
         ref={wrapperRef}
         aria-haspopup="true"
         aria-pressed={isOpen}
+        aria-modal={isOpen}
         layout
         style={{
           width: isOpen || window.width < MOBILE ? '100%' : 'auto',
@@ -94,7 +83,6 @@ const CardMedium = ({
           height="100%"
           justify={isOpen ? 'start' : 'space-between'}
           gap={isOpen || window.width < MOBILE ? 40 : 0}
-          ref={textRef}
         >
           <Flex
             direction="column"
@@ -110,7 +98,7 @@ const CardMedium = ({
                 height={window.width >= MOBILE ? 60 : 35}
               />
               {isOpen && window.width < MOBILE && (
-                <button ref={lastRef}>
+                <button ref={lastRef} tabIndex={1}>
                   <Icon
                     icon="Cancel"
                     width={20}
@@ -128,6 +116,8 @@ const CardMedium = ({
                 textAlign: 'left',
                 fontSize: window.width < MOBILE ? '4rem' : '',
               }}
+              tabIndex={isOpen ? 1 : -1}
+              ref={textRef}
             >
               {project.name}
             </Text>
@@ -136,6 +126,7 @@ const CardMedium = ({
               style={{
                 whiteSpace: window.width >= MOBILE ? 'nowrap' : 'normal',
               }}
+              tabIndex={isOpen ? 1 : -1}
             >
               {project.date}
             </Text>
@@ -151,7 +142,12 @@ const CardMedium = ({
               padding: isOpen ? '2rem' : '0',
             }}
           >
-            <Flex direction="column" align="start" gap={10}>
+            <Flex
+              direction="column"
+              align="start"
+              gap={10}
+              tabIndex={isOpen ? 1 : -1}
+            >
               {isOpen && (
                 <Text typo="body2" color="primary_black">
                   사용 기술
@@ -192,6 +188,7 @@ const CardMedium = ({
                 direction="column"
                 align="start"
                 gap={10}
+                tabIndex={isOpen ? 1 : -1}
               >
                 <Text typo="body2" color="primary_black">
                   프로젝트 소개
@@ -215,6 +212,7 @@ const CardMedium = ({
                 direction="column"
                 align="start"
                 gap={10}
+                tabIndex={isOpen ? 1 : -1}
               >
                 <Text typo="body2" color="primary_black">
                   수행 역할
@@ -231,7 +229,7 @@ const CardMedium = ({
           </CardContent>
         </Flex>
         {isOpen && (
-          <ImageWrapper>
+          <ImageWrapper tabIndex={isOpen ? 1 : -1}>
             <NextImage
               src={project.thumnail}
               alt={project.name}
