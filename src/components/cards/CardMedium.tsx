@@ -76,6 +76,9 @@ const CardMedium = ({
         onMouseLeave={projectLeave}
         onKeyDown={handleFocusModal}
         ref={wrapperRef}
+        onFocus={() =>
+          wrapperRef.current?.scrollIntoView({ behavior: 'smooth' })
+        }
         aria-haspopup="true"
         aria-expanded={isOpen}
         tabIndex={isOpen ? -1 : 0}
