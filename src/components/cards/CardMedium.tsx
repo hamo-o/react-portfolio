@@ -60,8 +60,7 @@ const CardMedium = ({
         onMouseLeave={projectLeave}
         ref={wrapperRef}
         aria-haspopup="true"
-        aria-pressed={isOpen}
-        aria-modal={isOpen}
+        aria-expanded={isOpen}
         layout
         style={{
           width: isOpen || window.width < MOBILE ? '100%' : 'auto',
