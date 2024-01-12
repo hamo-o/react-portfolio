@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import React from 'react';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
-import * as icons from "@/components/icons/svgs";
-import { KeyOfColor, TypeOfColor, colors } from "@/styles/theme";
+import * as icons from '@/components/icons/svgs';
+import { KeyOfColor, TypeOfColor, colors } from '@/styles/theme';
 
 interface Props {
   icon: keyof typeof icons;
@@ -53,6 +53,7 @@ const Icon = ({
       fill={fill}
       color={color}
       styles={style}
+      aria-label={icon}
     >
       <IconComponent />
     </IconWrapper>
@@ -83,8 +84,8 @@ const IconWrapper = styled.div<{
     height: ${({ height }) => height && height}px;
 
     path {
-      stroke: ${({ color }) => (color ? colors[color] : "transparent")};
-      fill: ${({ fill }) => (fill ? colors[fill] : "transparent")};
+      stroke: ${({ color }) => (color ? colors[color] : 'transparent')};
+      fill: ${({ fill }) => (fill ? colors[fill] : 'transparent')};
     }
   }
 
