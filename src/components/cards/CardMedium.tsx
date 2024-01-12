@@ -58,8 +58,8 @@ const CardMedium = ({
   const window = useWindowSize();
 
   useEffect(() => {
-    if (wrapperRef.current && isOpen) {
-      wrapperRef.current.focus();
+    if (lastRef.current && isOpen) {
+      lastRef.current.focus();
     }
   }, [isOpen]);
 
