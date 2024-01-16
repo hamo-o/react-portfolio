@@ -1,19 +1,19 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-import { useRef, useState } from "react";
-import useMouse from "@react-hook/mouse-position";
-import { motion } from "framer-motion";
-import { useSetRecoilState } from "recoil";
-import { cursorState } from "@/utils/atom";
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import { useRef, useState } from 'react';
+import useMouse from '@react-hook/mouse-position';
+import { motion } from 'framer-motion';
+import { useSetRecoilState } from 'recoil';
+import { cursorState } from '@/utils/atom';
 
-import { KeyOfColor, colors, media } from "@/styles/theme";
-import Flex from "../common/Flex";
-import Icon from "../icons/Icon";
-import Text from "../common/Text";
-import { floating } from "@/constants/animate";
-import Contact from "../contact/Contact";
-import { useWindowSize } from "@/hooks/useWindowSize";
-import { MOBILE } from "@/constants/size";
+import { KeyOfColor, colors, media } from '@/styles/theme';
+import Flex from '../common/Flex';
+import Icon from '../icons/Icon';
+import Text from '../common/Text';
+import { floating } from '@/constants/animate';
+import Contact from '../contact/Contact';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import { MOBILE } from '@/constants/size';
 
 const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
   const mouseRef = useRef<HTMLDivElement>(null);
@@ -37,16 +37,17 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
   const setCursorVariant = useSetRecoilState(cursorState);
 
   const projectEnter = () => {
-    setCursorVariant("project");
+    setCursorVariant('project');
   };
 
   const projectLeave = () => {
-    setCursorVariant("default");
+    setCursorVariant('default');
   };
 
   return (
     <LandingWrapper
       id="intro"
+      as={'article'}
       direction="column"
       gap={window.width >= MOBILE ? 64 : 16}
       ref={mouseRef}
@@ -123,7 +124,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
           <Text
             typo="body1"
             color="primary_white"
-            style={{ textAlign: "center" }}
+            style={{ textAlign: 'center' }}
           >
             Hello world!
           </Text>

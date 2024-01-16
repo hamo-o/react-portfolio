@@ -1,17 +1,17 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import Flex from "../common/Flex";
-import Text from "../common/Text";
-import { colors } from "@/styles/theme";
-import Contact from "../contact/Contact";
+import Flex from '../common/Flex';
+import Text from '../common/Text';
+import { colors } from '@/styles/theme';
+import Contact from '../contact/Contact';
 
 const FinalPage = () => {
   return (
-    <WorkWrapper id="final" direction="column" gap={40}>
+    <WorkWrapper id="final" as={'article'} direction="column" gap={40}>
       <Text
         typo="body1"
         color="primary_white"
-        style={{ textDecorationLine: "underline" }}
+        style={{ textDecorationLine: 'underline' }}
       >
         Contact
       </Text>

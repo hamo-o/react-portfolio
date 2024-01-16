@@ -1,30 +1,31 @@
-import styled from "@emotion/styled";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import { useSetRecoilState } from "recoil";
+import styled from '@emotion/styled';
+import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { useSetRecoilState } from 'recoil';
 
-import Flex from "../common/Flex";
-import Text from "../common/Text";
-import Icon from "../icons/Icon";
+import Flex from '../common/Flex';
+import Text from '../common/Text';
+import Icon from '../icons/Icon';
 
-import { colors, media } from "@/styles/theme";
-import { cursorState } from "@/utils/atom";
+import { colors, media } from '@/styles/theme';
+import { cursorState } from '@/utils/atom';
 
 const WorkPage = () => {
   const router = useRouter();
   const setCursorVariant = useSetRecoilState(cursorState);
 
   const projectEnter = () => {
-    setCursorVariant("project");
+    setCursorVariant('project');
   };
 
   const projectLeave = () => {
-    setCursorVariant("default");
+    setCursorVariant('default');
   };
 
   return (
     <WorkWrapper
       id="work"
+      as={'article'}
       width="100vw"
       height="100vh"
       direction="column"
@@ -34,7 +35,7 @@ const WorkPage = () => {
       <Text
         typo="body1"
         color="primary_white"
-        style={{ width: "80vw", textDecorationLine: "underline" }}
+        style={{ width: '80vw', textDecorationLine: 'underline' }}
       >
         Work
       </Text>
@@ -42,7 +43,7 @@ const WorkPage = () => {
         <IconWrapper
           onMouseEnter={projectEnter}
           onMouseLeave={projectLeave}
-          onClick={() => router.push("/work/1")}
+          onClick={() => router.push('/work/1')}
         >
           <Gradient />
           <Icon icon="Start" fill="primary_purple" />

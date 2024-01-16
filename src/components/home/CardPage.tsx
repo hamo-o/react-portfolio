@@ -1,27 +1,27 @@
-import { useRef, useState, useEffect } from "react";
-import styled from "@emotion/styled";
-import { useRouter } from "next/navigation";
+import { useRef, useState, useEffect } from 'react';
+import styled from '@emotion/styled';
+import { useRouter } from 'next/navigation';
 import {
   motion,
   useScroll,
   useMotionValueEvent,
   AnimatePresence,
-} from "framer-motion";
+} from 'framer-motion';
 
-import useDebounce from "@/hooks/useDebounce";
+import useDebounce from '@/hooks/useDebounce';
 
-import Flex from "../common/Flex";
-import Text from "../common/Text";
-import Icon from "../icons/Icon";
+import Flex from '../common/Flex';
+import Text from '../common/Text';
+import Icon from '../icons/Icon';
 
-import CardMedium from "@/components/cards/CardMedium";
-import { PROJECT, Project } from "@/models/project";
-import { colors, media } from "@/styles/theme";
-import { floating } from "@/constants/animate";
-import { useWindowSize } from "@/hooks/useWindowSize";
-import { MOBILE } from "@/constants/size";
+import CardMedium from '@/components/cards/CardMedium';
+import { PROJECT, Project } from '@/models/project';
+import { colors, media } from '@/styles/theme';
+import { floating } from '@/constants/animate';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import { MOBILE } from '@/constants/size';
 
-type DirectionType = "left" | "right";
+type DirectionType = 'left' | 'right';
 
 const CardPage = () => {
   const router = useRouter();
@@ -59,7 +59,7 @@ const CardPage = () => {
     cardScrollRef.current?.scrollTo({
       top: 0,
       left: scrollX.get() + 820,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -67,11 +67,11 @@ const CardPage = () => {
     cardScrollRef.current?.scrollTo({
       top: 0,
       left: scrollX.get() - 820,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
-  useMotionValueEvent(scrollXProgress, "change", (latest) => {
+  useMotionValueEvent(scrollXProgress, 'change', (latest) => {
     setScroll(latest);
   });
 
@@ -99,6 +99,7 @@ const CardPage = () => {
   return (
     <CardWrapper
       id="project"
+      as={'article'}
       direction="column"
       align="start"
       gap={window.width < MOBILE ? 32 : 64}
@@ -106,7 +107,7 @@ const CardPage = () => {
       <Text
         typo="body1"
         color="primary_white"
-        style={{ textDecorationLine: "underline" }}
+        style={{ textDecorationLine: 'underline' }}
       >
         Project
       </Text>
@@ -139,7 +140,7 @@ const CardPage = () => {
                     animate={floating.animate}
                     transition={floating.transition}
                     onClick={handleClickScrollLeft}
-                    style={{ left: "5rem" }}
+                    style={{ left: '5rem' }}
                   >
                     <Icon
                       icon="ArrowRight"
@@ -165,7 +166,7 @@ const CardPage = () => {
                     animate={floating.animate}
                     transition={floating.transition}
                     onClick={handleClickScrollRight}
-                    style={{ right: "5rem" }}
+                    style={{ right: '5rem' }}
                   >
                     <Icon icon="ArrowRight" width={80} fill="primary_purple" />
                   </IconWrapper>
@@ -213,7 +214,7 @@ const Cards = styled(Flex)`
 
 const Slider = styled(motion.div)<{ direction: DirectionType }>`
   position: absolute;
-  ${({ direction }) => (direction === "left" ? `right: 0;` : `left:0;`)};
+  ${({ direction }) => (direction === 'left' ? `right: 0;` : `left:0;`)};
 
   display: flex;
   align-items: center;

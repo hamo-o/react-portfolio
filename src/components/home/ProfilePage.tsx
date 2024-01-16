@@ -1,18 +1,18 @@
-import styled from "@emotion/styled";
-import { useRef, useState } from "react";
+import styled from '@emotion/styled';
+import { useRef, useState } from 'react';
 import {
   motion,
   useScroll,
   useSpring,
   useMotionValueEvent,
-} from "framer-motion";
+} from 'framer-motion';
 
-import { colors, media } from "@/styles/theme";
+import { colors, media } from '@/styles/theme';
 
-import Skills from "../profile/Skills";
-import AboutMe from "../profile/AboutMe";
-import Experience from "../profile/Experience";
-import { container, item } from "@/constants/animate";
+import Skills from '../profile/Skills';
+import AboutMe from '../profile/AboutMe';
+import Experience from '../profile/Experience';
+import { container, item } from '@/constants/animate';
 
 const ProfilePage = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -25,7 +25,7 @@ const ProfilePage = () => {
     restDelta: 0.001,
   });
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     setScroll(latest);
     console.log(+scroll.toFixed(1));
   });
@@ -70,7 +70,7 @@ const ProfilePage = () => {
   );
 };
 
-const ProfileWrapper = styled(motion.div)`
+const ProfileWrapper = styled(motion.article)`
   width: 100vw;
 
   padding: 6rem 8rem 0;
