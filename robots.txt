@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://https://www.hamo-o.com/sitemap.xml
