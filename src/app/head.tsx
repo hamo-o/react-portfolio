@@ -5,7 +5,7 @@ export default function Head() {
     <head>
       <title>HAM</title>
 
-      <link rel="preload" href="https://fonts.cdnfonts.com/css/nats" />
+      <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/nats" />
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
