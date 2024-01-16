@@ -1,14 +1,14 @@
-import styled from "@emotion/styled";
-import { useRouter } from "next/navigation";
-import { useSetRecoilState } from "recoil";
-import { cursorState } from "@/utils/atom";
+import styled from '@emotion/styled';
+import { useRouter } from 'next/navigation';
+import { useSetRecoilState } from 'recoil';
+import { cursorState } from '@/utils/atom';
 
-import Flex from "../common/Flex";
-import { KeyOfColor, colors, media } from "@/styles/theme";
-import Text from "../common/Text";
-import Icon from "../icons/Icon";
-import { useWindowSize } from "@/hooks/useWindowSize";
-import { MOBILE } from "@/constants/size";
+import Flex from '../common/Flex';
+import { KeyOfColor, colors, media } from '@/styles/theme';
+import Text from '../common/Text';
+import Icon from '../icons/Icon';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import { MOBILE } from '@/constants/size';
 
 interface TopNavProp {
   title: string;
@@ -19,17 +19,17 @@ const TopNavigation = ({ title }: TopNavProp) => {
   const setCursorVariant = useSetRecoilState(cursorState);
 
   const handleMouseEnter = () => {
-    setCursorVariant("navigation");
+    setCursorVariant('navigation');
   };
 
   const handleMouseLeave = () => {
-    setCursorVariant("default");
+    setCursorVariant('default');
   };
 
   const window = useWindowSize();
 
   return (
-    <NavigationWrapper height={100} justify="space-between">
+    <NavigationWrapper as={'nav'} height={100} justify="space-between">
       <IconWrapper>
         <Icon
           icon="ArrowRight"
@@ -46,9 +46,9 @@ const TopNavigation = ({ title }: TopNavProp) => {
         typo="subtitle1"
         color="primary_white"
         style={{
-          width: window.width >= MOBILE ? "auto" : "100%",
-          textAlign: "center",
-          paddingRight: window.width >= MOBILE ? 0 : "1rem",
+          width: window.width >= MOBILE ? 'auto' : '100%',
+          textAlign: 'center',
+          paddingRight: window.width >= MOBILE ? 0 : '1rem',
         }}
       >
         {title}
