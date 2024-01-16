@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import styled from "@emotion/styled";
-import { useScroll, useMotionValueEvent, motion } from "framer-motion";
-import { useWindowSize } from "@/hooks/useWindowSize";
-import useDebounce from "@/hooks/useDebounce";
+import { useEffect, useRef, useState } from 'react';
+import styled from '@emotion/styled';
+import { useScroll, useMotionValueEvent, motion } from 'framer-motion';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import useDebounce from '@/hooks/useDebounce';
 
-import LandingPage from "@/components/home/LandingPage";
-import CardPage from "@/components/home/CardPage";
-import ProfilePage from "@/components/home/ProfilePage";
-import BottomNavigation from "@/components/navigations/BottomNavigation";
-import WorkPage from "@/components/home/WorkPage";
-import FinalPage from "@/components/home/FinalPage";
+import LandingPage from '@/components/home/LandingPage';
+import CardPage from '@/components/home/CardPage';
+import ProfilePage from '@/components/home/ProfilePage';
+import BottomNavigation from '@/components/navigations/BottomNavigation';
+import WorkPage from '@/components/home/WorkPage';
+import FinalPage from '@/components/home/FinalPage';
 
 const Home = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -23,7 +23,7 @@ const Home = () => {
   const windowSize = useWindowSize();
   const debounceDeltaY = useDebounce(deltaY, 200);
 
-  useMotionValueEvent(scrollXProgress, "change", (latest) => {
+  useMotionValueEvent(scrollXProgress, 'change', (latest) => {
     setScroll(latest);
   });
 
@@ -35,7 +35,7 @@ const Home = () => {
     scrollRef.current?.scrollTo({
       top: 0,
       left: scrollX.get() + windowSize.width,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -46,7 +46,7 @@ const Home = () => {
       scrollRef.current?.scrollTo({
         top: 0,
         left: scrollX.get() - windowSize.width,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     }
   }, [debounceDeltaY]);
@@ -63,7 +63,7 @@ const Home = () => {
   );
 };
 
-const ScrollWrapper = styled(motion.div)`
+const ScrollWrapper = styled(motion.main)`
   display: flex;
   justify-content: start;
 
