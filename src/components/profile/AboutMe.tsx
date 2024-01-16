@@ -1,17 +1,18 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import Flex from "../common/Flex";
-import Text from "../common/Text";
-import Line from "../common/Line";
-import { colors, media } from "@/styles/theme";
+import Flex from '../common/Flex';
+import Text from '../common/Text';
+import Line from '../common/Line';
+import { colors, media } from '@/styles/theme';
 
 const AboutMe = () => {
   return (
-    <InfoWrapper align="start">
+    <InfoWrapper as={'section'} align="start">
       <Text
+        as={'h2'}
         typo="body1"
         color="primary_black"
-        style={{ width: "55vw", textDecorationLine: "underline" }}
+        style={{ width: '55vw', textDecorationLine: 'underline' }}
       >
         About Me
       </Text>
@@ -29,7 +30,7 @@ const AboutMe = () => {
           <Text
             typo="body2"
             color="primary_black_60"
-            style={{ whiteSpace: "nowrap" }}
+            style={{ whiteSpace: 'nowrap' }}
           >
             2017. 03 ~ 2020. 02
           </Text>
@@ -44,7 +45,7 @@ const AboutMe = () => {
           <Text
             typo="body2"
             color="primary_black_60"
-            style={{ whiteSpace: "nowrap" }}
+            style={{ whiteSpace: 'nowrap' }}
           >
             2020. 03 ~
           </Text>

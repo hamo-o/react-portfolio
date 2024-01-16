@@ -1,20 +1,21 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import Flex from "../common/Flex";
-import Text from "../common/Text";
-import Icon from "../icons/Icon";
-import TagSmall from "../tags/TagSmall";
+import Flex from '../common/Flex';
+import Text from '../common/Text';
+import Icon from '../icons/Icon';
+import TagSmall from '../tags/TagSmall';
 
-import { colors, media } from "@/styles/theme";
+import { colors, media } from '@/styles/theme';
 
 const Skills = () => {
   return (
-    <InfoWrapper align="start" justify="space-between">
+    <InfoWrapper as={'section'} align="start" justify="space-between">
       <InfoContent align="start">
         <Text
+          as={'h2'}
           typo="body1"
           color="primary_black"
-          style={{ width: "55vw", textDecorationLine: "underline" }}
+          style={{ width: '55vw', textDecorationLine: 'underline' }}
         >
           Skills
         </Text>
@@ -22,7 +23,7 @@ const Skills = () => {
           min-width="max-content"
           justify="start"
           gap={8}
-          style={{ flexWrap: "wrap" }}
+          style={{ flexWrap: 'wrap' }}
         >
           <TagSmall
             content="C"

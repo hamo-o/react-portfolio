@@ -1,19 +1,20 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import Flex from "../common/Flex";
-import Text from "../common/Text";
-import Line from "../common/Line";
+import Flex from '../common/Flex';
+import Text from '../common/Text';
+import Line from '../common/Line';
 
-import { colors, media } from "@/styles/theme";
+import { colors, media } from '@/styles/theme';
 
 const Experience = () => {
   return (
-    <ExperienceContainer align="start" justify="space-between">
+    <ExperienceContainer as={'section'} align="start" justify="space-between">
       <ExperienceContent min-width="max-content" height="100%" align="start">
         <Text
+          as={'h2'}
           typo="body1"
           color="primary_black"
-          style={{ width: "55vw", textDecorationLine: "underline" }}
+          style={{ width: '55vw', textDecorationLine: 'underline' }}
         >
           Experience
         </Text>
