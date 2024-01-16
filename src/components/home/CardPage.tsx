@@ -105,6 +105,7 @@ const CardPage = () => {
       gap={window.width < MOBILE ? 32 : 64}
     >
       <Text
+        as={'h1'}
         typo="body1"
         color="primary_white"
         style={{ textDecorationLine: 'underline' }}

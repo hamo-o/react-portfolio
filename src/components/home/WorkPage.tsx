@@ -33,6 +33,7 @@ const WorkPage = () => {
       justify="start"
     >
       <Text
+        as={'h1'}
         typo="body1"
         color="primary_white"
         style={{ width: '80vw', textDecorationLine: 'underline' }}

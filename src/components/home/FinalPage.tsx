@@ -9,6 +9,7 @@ const FinalPage = () => {
   return (
     <WorkWrapper id="final" as={'article'} direction="column" gap={40}>
       <Text
+        as={'h1'}
         typo="body1"
         color="primary_white"
         style={{ textDecorationLine: 'underline' }}

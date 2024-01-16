@@ -128,7 +128,7 @@ const LandingPage = ({ scrollRight }: { scrollRight: () => void }) => {
           >
             Hello world!
           </Text>
-          <Text typo="body1" color="primary_white">
+          <Text as={'h1'} typo="body1" color="primary_white">
             I&apos;m HAM
           </Text>
         </Flex>
