@@ -1,4 +1,4 @@
-import { colors } from "@/styles/theme";
+import { colors } from '@/styles/theme';
 
 interface Position {
   x: number;
@@ -15,7 +15,7 @@ export const mouseVariants = ({ x, y }: Position) => {
       x: x,
       y: y,
       transition: {
-        type: "tween",
+        type: 'tween',
       },
     },
     project: {
@@ -50,7 +50,7 @@ export const selectedVairants = {
 
 export const spring = {
   transition: {
-    type: "spring",
+    type: 'spring',
     stiffness: 500,
     damping: 28,
   },
@@ -67,10 +67,9 @@ export const floating = {
 };
 
 export const container = {
-  hidden: { opacity: 0, y: -5 },
+  hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    y: 0,
     transition: {
       staggerChildren: 0.5,
     },
